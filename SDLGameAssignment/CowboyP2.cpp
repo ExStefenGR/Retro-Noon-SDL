@@ -2,10 +2,10 @@
 
 CowboyP2::CowboyP2(Screen& screen)
 {
-	m_image.Load("Assets/Images/characters.png", screen);
-	m_image.SetSpriteDimension(128, 128);
-	m_image.SetImageDimension(2, 1, 256, 128); //Check
-	m_image.SetImageCel(2, 1);
+	m_images.Load("Assets/Images/characters.png", screen);
+	m_images.SetSpriteDimension(128, 128);
+	m_images.SetImageDimension(2, 1, 256, 128); //Check
+	m_images.SetImageCel(2, 1);
 
 	isTopReached = false;
 	isBotReached = false;
@@ -17,7 +17,7 @@ CowboyP2::CowboyP2(Screen& screen)
 
 CowboyP2::~CowboyP2()
 {
-	m_image.Unload();
+	m_images.Unload();
 }
 
 const BoxCollider& CowboyP2::GetCollider() const
@@ -85,5 +85,5 @@ void CowboyP2::Update(Input& input)
 
 void CowboyP2::Render(Screen& screen)
 {
-	m_image.Render(m_position.x, m_position.y, m_angle, screen);
+	m_images.Render(m_position.x, m_position.y, m_angle, screen);
 }

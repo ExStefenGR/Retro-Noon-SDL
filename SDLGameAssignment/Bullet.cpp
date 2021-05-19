@@ -5,16 +5,16 @@ Bullet::Bullet(Screen& screen)
 {
 	m_isBulletShot = false;
 	m_speed = 0;
-	m_image.Load("Assets/Images/Bullet.png", screen);
-	m_image.SetImageDimension(1, 1, 32, 32);
-	m_image.SetSpriteDimension(32, 32);
+	m_images.Load("Assets/Images/Bullet.png", screen);
+	m_images.SetImageDimension(1, 1, 32, 32);
+	m_images.SetSpriteDimension(32, 32);
 	m_collider.SetDimension(32, 32);
 
 }
 
 Bullet::~Bullet()
 {
-	m_image.Unload();
+	m_images.Unload();
 }
 
 const BoxCollider& Bullet::GetCollider() const
@@ -120,9 +120,9 @@ void Bullet::Render(Screen& screen)
 	//Hiding the bullet if it is not shot
 	/*if (m_isBulletShot)
 	{
-		m_image.Render(m_position.x, m_position.y, m_angle, screen);
+		m_images.Render(m_position.x, m_position.y, m_angle, screen);
 	}*/
 
-	m_image.Render(m_position.x, m_position.y, m_angle, screen);
+	m_images.Render(m_position.x, m_position.y, m_angle, screen);
 }
 

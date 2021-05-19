@@ -31,7 +31,7 @@ private:
 	Vector2D m_direction;
 	Vector2D m_fireDirection;
 
-	Sprite m_image;	//Spritesheet
+	Sprite m_images;	//Spritesheet
 
 	BoxCollider m_collider;
 

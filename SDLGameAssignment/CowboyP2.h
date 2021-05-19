@@ -25,7 +25,7 @@ protected:
 	bool isTopReached;
 	bool isBotReached;
 	int m_velocity;
-	Sprite m_image;     //image container
+	Sprite m_images;     //image container
 
 	BoxCollider m_collider;
 };
