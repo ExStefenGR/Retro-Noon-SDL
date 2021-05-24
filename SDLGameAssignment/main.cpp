@@ -27,7 +27,7 @@
 
 bool isGameRunning = true;
 int gameMode;
-
+Vector2D test = { 1280 , 0 };
 
 int main(int argc, char* argv[])
 {
@@ -165,10 +165,10 @@ int main(int argc, char* argv[])
 		//Setting variables for cowboy
 		cowboy.SetPosition(1150, 400);
 		cowboy.SetSize(128, 128);
-		cowboy.SetVelocity(3);
+		cowboy.SetVelocity(1);
 		//Setting variables for Player's bullet
 		bullet.SetSize(32, 32);
-		bullet.SetVelocity(2);
+		//bullet.SetVelocity(2);
 		bullet.SetPosition(player.GetPosition());
 
 		
@@ -195,34 +195,61 @@ int main(int argc, char* argv[])
 				isGameRunning = false;
 			}
 
+			
 			//=====Box Collision Detection=========
 
 			BoxCollider CowBoyCollider = cowboy.GetCollider();
 			BoxCollider bulletCollider = bullet.GetCollider();
-
-			if (bulletCollider.IsColliding(CowBoyCollider) && isBulletHit == false)
+			if (bulletCollider.IsColliding(CowBoyCollider))
 			{
+
+
+
 				std::cout << "Collision!" << std::endl;
 				score->AddScore(500);
 				isBulletHit = true;
 				//repositions the bullet object to the end of the screen
+				if (isBulletHit)
+				{
+					bullet.GetState(false);
+					bullet.IsAlive(false);
+					bullet.SetPosition(player.GetPosition());
+					bullet.SetVelocity(0);
+					bullet.SetFireDirection(0);
+				}
+			
 
-				bullet.IsAlive(false);
-				bullet.SetPosition(player.GetPosition());
+				//std::cout << "Collision!" << std::endl;
+				//score->AddScore(500);
+				//isBulletHit = true;
+				////repositions the bullet object to the end of the screen
+
+				//bullet.IsAlive(false);
+				//bullet.SetPosition(player.GetPosition());
+				///*bullet.SetFireDirection(0);*/
 
 			}
 			else
 			{
+				//bullet.GetState(true);
+				/*bullet.IsAlive(true);*/
+				bullet.SetFireDirection(0);
+				bullet.SetVelocity(2);
 				isBulletHit = false;
+				bullet.SetPosition(player.GetPosition());
 				std::cout << "NO Collision!" << std::endl;
 			}
-			if (isBulletHit & !bullet.IsAlive())//Also checks if the Bullet can be reset back to the player's position
+			if (bullet.IsPositionX(test.x))//Also checks if the Bullet can be reset back to the player's position
 			{
-				//bullet.SetPosition(player.GetYCords());
+				bullet.GetState(false);
+				bullet.SetVelocity(2);
+				bullet.SetFireDirection(0);
+				bullet.BulletShot(false);
+				bullet.SetPosition(player.GetYCords());
 
 				bullet.SetPosition(player.GetPosition());
+				
 			}
-
 
 			//=====================================
 			//========rendering objects============

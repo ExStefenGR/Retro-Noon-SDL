@@ -1,5 +1,5 @@
 #include "Bullet.h"
-#include "Player.h"
+
 
 Bullet::Bullet(Screen& screen)
 {
@@ -44,32 +44,28 @@ void Bullet::Update(Input& input)
 	if (input.getKeyDown() == SDLK_d) //Bullet begins movement from the trigger here
 	{
 		m_isBulletShot = true;
-	}
-
-	if (m_position.x > 1200) //If it does not collide but reaches the end of the screen !m_collider.IsColliding(m_collider)
-	{
-		m_isBulletShot = false;
-		m_isAlive = false;
-		
-		m_position.x = 100;
+		m_isAlive = true;
 	}
 
 	if (m_isBulletShot) //If true, move the bullet at the velocity specified in main.cpp
-	{
-		m_fireDirection.x = 1;
-		m_fireDirection.y = 0;
-		if (m_isAlive)
+	{		
+			m_fireDirection.x = 1;
+			m_fireDirection.y = 0;
+
+		if (!m_isAlive)
 		{
 			m_fireDirection.x = 0;
-
 		}
+
 		m_fireDirection = m_fireDirection.Scale(m_speed);
 		m_position = m_position.Add(m_fireDirection);
+	
 	}
+	
 	if (!m_isBulletShot)
 	{
-
-		if (input.getKeyDown() == SDLK_w)
+		m_fireDirection.x = 0;
+		/*if (input.getKeyDown() == SDLK_w)
 		{
 			m_direction.y = -1;
 			m_fireDirection.y = -1;
@@ -88,13 +84,13 @@ void Bullet::Update(Input& input)
 		{
 			m_direction.y = 0;
 			m_fireDirection.y = 0;
-		}
+		}*/
 
 		m_direction = m_direction.Scale(m_speed);
 		m_position = m_position.Add(m_direction);
 
 	}
-
+		
 	if (m_position.y < 280)
 	{
 		m_position.y = 280;
@@ -124,5 +120,35 @@ void Bullet::Render(Screen& screen)
 	}*/
 
 	m_images.Render(m_position.x, m_position.y, m_angle, screen);
+}
+
+bool Bullet::BulletShot(bool bulletShot)
+{
+	m_isBulletShot = bulletShot;
+	return m_isBulletShot;
+}
+
+bool Bullet::GetState(bool getState)
+{
+	m_isAlive = getState;
+	return m_isAlive;
+}
+
+int Bullet::SetFireDirection(int direction)
+{
+	direction = m_fireDirection.x;
+	return m_fireDirection.x;
+}
+
+int Bullet::IsPositionX(Vector2D pos)
+{
+	if (m_position.x == pos.x)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 

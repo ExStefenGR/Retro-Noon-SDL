@@ -22,6 +22,13 @@ public:
 	virtual void Update(Input& input);
 	virtual void Render(Screen& screen);
 
+	bool BulletShot(bool bulletShot);
+	bool GetState(bool getState);
+
+	int SetFireDirection(int direction);
+
+	int IsPositionX(Vector2D pos);
+
 
 private:
 
