@@ -15,144 +15,138 @@
 #include "Text.h"
 #include "score.h"
 #include "Timer.h"
-
-
-
-//TODO: Collision
-//
-//TODO: Music / SFX
-//
-//TODO: Sprites / animations
-
+#include "Menu.h"
+//TODO: Enemy Animations via photoshop and Music/Sound
 
 bool isGameRunning = true;
-int gameMode;
-Vector2D test = { 1280 , 0 };
+
+enum GameMode
+{
+	NOMODE,
+	NORMAL,
+	TIME_ATTACK,
+	TWO_PLAYER,
+	TOTAL_MODES
+};
 
 int main(int argc, char* argv[])
 {
-	
-
 	Screen screen; //Declaring Screen 	
 	screen.Init(); //Initialising screen
 
+	//TODO: Check compatibility with the rest
+	Text::Initialise(); //Implemented in Menu
 
 
-									//Loading game objects (Background and Player) into memory via GameObject and image class
-
-	Text::Initialise();
+	//TODO: Implement Later Properly in the game's mode Function
 	Background background(screen);
+
 	Player player(screen);
 	CowboyP2 cowboy(screen);
 	Bullet bullet(screen);
-
 	Input input;
-
-	//Vector2D endOfScreen = { 1280,720 }; <- Would teleport bullet away from the enemy object to avoid continuous score increase
-	//Removed because of making the Y position of the bullet more inaccurate than it already is
+	//Input input; //Implemented in Menu
 
 	//Score and Score trigger (in the gameModes)
 	Score* score = new Score;
 	Timer* timer = new Timer;
+	Menu* menu = new Menu;
 
-	std::cout << "Select Game mode" << std::endl;
-	std::cout << "1. Arcade Mode" << std::endl;
-	std::cout << "2. Time Attack Mode" << std::endl;
-	std::cout << "3. 2P Mode" << std::endl;
-
-	std::cin >> gameMode;
-
-	if(gameMode == 1)
+	while (isGameRunning)
 	{
-		//timer->CountDown();
-		
-		//Setting variables for background
-		background.SetPosition(0, 0);
-		background.SetAngle(0.0);
-		background.SetSize(1280, 720);
-		//Setting Variables for Player
-		player.SetPosition(50, 400);
-		player.SetAngle(0.0);
-		player.SetSize(128, 128);
-		player.SetVelocity(2);
-		//Setting variables for cowboy
-		cowboy.SetPosition(1150, 400);
-		cowboy.SetSize(128, 128);
-		cowboy.SetVelocity(3);
-		//Setting variables for Player's bullet
-		bullet.SetSize(32, 32);
-		bullet.SetVelocity(2);
-		bullet.SetPosition(player.GetPosition());
 
-		score->SetScore(0);
-		int scoreTrigger = 500;
-
-		//On-Collider with Enemy player Var
-		bool isBulletHit = false;
-
-
-		while (isGameRunning)
+		screen.Clear();
+		menu->Update(input);
+		if (menu->GetGameMode() == NOMODE)
 		{
+			if (input.IsWindowClosed())
+			{
+				isGameRunning = false;
+			}
+			menu->Render(screen);
+		}
+
+		if (menu->GetGameMode() == NORMAL)
+		{
+			//Setting variables for background
+			background.SetPosition(0, 0);
+			background.SetAngle(0.0);
+			background.SetSize(1280, 720);
+			//Setting Variables for Player
+			player.SetPosition(50, 400);
+			player.SetAngle(0.0);
+			player.SetSize(128, 128);
+			player.SetVelocity(2);
+			//Setting variables for cowboy
+			cowboy.SetPosition(1150, 400);
+			cowboy.SetSize(128, 128);
+			cowboy.SetVelocity(3);
+			//Setting variables for Player's bullet
+			bullet.SetSize(32, 32);
+			bullet.SetVelocity(2);
+			bullet.SetPosition(player.GetPosition());
+			score->SetScore(0);
+
+
 			screen.Clear();
 
 			//========Updating position and/or Input translation============
 			player.Update(input);
-			bullet.Update(input);
+			if (player.IsBulletShot() && !bullet.IsActive())
+			{
+				bullet.IsActive(true);
+				bullet.IsVisible(true);
+				bullet.SetPosition(player.GetPosition());
+			}
+			if (bullet.IsActive())
+			{
+				bullet.Update(input);
+				//=====Box Collision Detection=========
+
+				BoxCollider CowBoyCollider = cowboy.GetCollider();
+				BoxCollider bulletCollider = bullet.GetCollider();
+				if (bulletCollider.IsColliding(CowBoyCollider))
+				{
+					std::cout << "Collision!" << std::endl;
+					score->AddScore(500);
+					bullet.IsActive(false);
+					bullet.IsVisible(false);
+					bullet.SetPosition(player.GetPosition());
+					player.IsBulletShot(false);
+				}
+			}
+			if (bullet.GetPosition().x > 1280)
+			{
+				bullet.IsActive(false);
+				bullet.IsVisible(false);
+				bullet.SetPosition(player.GetPosition());
+				player.IsBulletShot(false);
+			}
 			cowboy.Update(input);
 
 			if (input.IsWindowClosed())
 			{
 				isGameRunning = false;
 			}
-
-			//=====Box Collision Detection=========
-
-			BoxCollider CowBoyCollider = cowboy.GetCollider();
-			BoxCollider bulletCollider = bullet.GetCollider();
-
-			if (bulletCollider.IsColliding(CowBoyCollider) && isBulletHit == false)
-			{
-				std::cout << "Collision!" << std::endl;
-				score->AddScore(500);
-				isBulletHit = true;
-				//repositions the bullet object to the end of the screen
-
-				bullet.IsAlive(false);
-				bullet.SetPosition(player.GetPosition());
-
-			}
-			else
-			{
-				isBulletHit = false;
-				std::cout << "NO Collision!" << std::endl;
-			}
-			if (isBulletHit & !bullet.IsAlive())//Also checks if the Bullet can be reset back to the player's position
-			{
-				//bullet.SetPosition(player.GetYCords());
-
-				bullet.SetPosition(player.GetPosition());
-			}
-
-
 			//=====================================
 			//========rendering objects============
-
 			background.Render(screen);
 			player.Render(screen);
 			cowboy.Render(screen);
-			bullet.Render(screen);
-
+			if (bullet.IsVisible())
+			{
+				bullet.Render(screen);
+			}
 			score->Render(screen);
 
-			screen.Present();
 		}
-		
-	}
-	
-	else if (gameMode == 2)
-	{
-	
 
+		screen.Present(); //TODO: Render Menu and ask for input from player, remove virtual Update Input
+
+	}
+
+	if (menu->GetGameMode() == TIME_ATTACK)
+	{
 		//Setting variables for background
 		background.SetPosition(0, 0);
 		background.SetAngle(0.0);
@@ -170,102 +164,67 @@ int main(int argc, char* argv[])
 		bullet.SetSize(32, 32);
 		//bullet.SetVelocity(2);
 		bullet.SetPosition(player.GetPosition());
-
-		
-		
+		//Initialising text objects
 		score->SetScore(0);
-		int scoreTrigger = 500;
-
-		//On-Collider with Enemy player Var
-		bool isBulletHit = false;
 
 
-		while (isGameRunning)
+		timer->CountDown(50);
+		screen.Clear();
+
+		//========Updating position and/or Input translation============
+		player.Update(input);
+		if (player.IsBulletShot() && !bullet.IsActive())
 		{
-			timer->CountDown(50);
-			screen.Clear();
-
-			//========Updating position and/or Input translation============
-			player.Update(input);
+			bullet.IsActive(true);
+			bullet.IsVisible(true);
+			bullet.SetPosition(player.GetPosition());
+		}
+		if (bullet.IsActive())
+		{
 			bullet.Update(input);
-			cowboy.Update(input);
-
-			if (input.IsWindowClosed())
-			{
-				isGameRunning = false;
-			}
-
-			
 			//=====Box Collision Detection=========
-
 			BoxCollider CowBoyCollider = cowboy.GetCollider();
 			BoxCollider bulletCollider = bullet.GetCollider();
 			if (bulletCollider.IsColliding(CowBoyCollider))
 			{
-
-
-
 				std::cout << "Collision!" << std::endl;
 				score->AddScore(500);
-				isBulletHit = true;
-				//repositions the bullet object to the end of the screen
-				if (isBulletHit)
-				{
-					bullet.GetState(false);
-					bullet.IsAlive(false);
-					bullet.SetPosition(player.GetPosition());
-					bullet.SetVelocity(0);
-					bullet.SetFireDirection(0);
-				}
-			
-
-				//std::cout << "Collision!" << std::endl;
-				//score->AddScore(500);
-				//isBulletHit = true;
-				////repositions the bullet object to the end of the screen
-
-				//bullet.IsAlive(false);
-				//bullet.SetPosition(player.GetPosition());
-				///*bullet.SetFireDirection(0);*/
-
-			}
-			else
-			{
-				//bullet.GetState(true);
-				/*bullet.IsAlive(true);*/
-				bullet.SetFireDirection(0);
-				bullet.SetVelocity(2);
-				isBulletHit = false;
+				bullet.IsActive(false);
+				bullet.IsVisible(false);
 				bullet.SetPosition(player.GetPosition());
-				std::cout << "NO Collision!" << std::endl;
+				player.IsBulletShot(false);
 			}
-			if (bullet.IsPositionX(test.x))//Also checks if the Bullet can be reset back to the player's position
-			{
-				bullet.GetState(false);
-				bullet.SetVelocity(2);
-				bullet.SetFireDirection(0);
-				bullet.BulletShot(false);
-				bullet.SetPosition(player.GetYCords());
-
-				bullet.SetPosition(player.GetPosition());
-				
-			}
-
-			//=====================================
-			//========rendering objects============
-
-			background.Render(screen);
-			player.Render(screen);
-			cowboy.Render(screen);
-			bullet.Render(screen);
-
-			score->Render(screen);
-			timer->Render(screen);
-
-			screen.Present();
 		}
+		if (bullet.GetPosition().x > 1280)
+		{
+			bullet.IsActive(false);
+			bullet.IsVisible(false);
+			bullet.SetPosition(player.GetPosition());
+			player.IsBulletShot(false);
+		}
+		cowboy.Update(input);
+
+		if (input.IsWindowClosed())
+		{
+			isGameRunning = false;
+		}
+		//=====================================
+		//========rendering objects============
+		background.Render(screen);
+		player.Render(screen);
+		cowboy.Render(screen);
+		if (bullet.IsVisible())
+		{
+			bullet.Render(screen);
+		}
+
+		score->Render(screen);
+		timer->Render(screen);
+
+
+		screen.Present();
+
 	}
-	
 
 	delete score;
 	delete timer;

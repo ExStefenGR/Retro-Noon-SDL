@@ -23,7 +23,7 @@ private:
 	clock_t m_start;
 
 
-	Text m_text;
+	Text m_line;
 
 
 };

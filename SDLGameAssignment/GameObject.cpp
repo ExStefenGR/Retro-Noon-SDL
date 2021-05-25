@@ -2,6 +2,9 @@
 
 GameObject::GameObject()
 {
+	m_isActive = false;
+	m_isAlive = false;
+	m_isVisible = false;
 	m_angle = 0.0f;
 }
 
@@ -24,8 +27,6 @@ const Vector2D& GameObject::GetPosition() const
 {
 	return m_position;
 }
-
-
 
 void GameObject::SetTag(const std::string& tag)
 {

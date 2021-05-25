@@ -27,7 +27,7 @@ Text::Text()
 
 void Text::SetText(const std::string text)
 {
-	m_text = text;
+	m_line = text;
 	m_isDirty = true;
 }
 
@@ -77,7 +77,7 @@ void Text::Render(int xPos, int yPos, Screen& screen)
 	if (m_isDirty)
 	{
 		SDL_DestroyTexture(m_texture);
-		SDL_Surface* textData = TTF_RenderText_Blended(m_font, m_text.c_str(), m_color);
+		SDL_Surface* textData = TTF_RenderText_Blended(m_font, m_line.c_str(), m_color);
 		m_texture = SDL_CreateTextureFromSurface(screen.getRenderer(), textData);
 		SDL_FreeSurface(textData);
 		m_isDirty = false;

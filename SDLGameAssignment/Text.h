@@ -31,7 +31,7 @@ public:
 private:
 
 	bool m_isDirty;
-	std::string m_text;
+	std::string m_line;
 
 	TTF_Font* m_font;
 	SDL_Color m_color;
