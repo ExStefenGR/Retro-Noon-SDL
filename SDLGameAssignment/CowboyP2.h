@@ -18,7 +18,6 @@ public:
 	virtual void Update(Input& input);
 	virtual void Render(Screen& screen);
 protected:
-
 	bool isTopReached;
 	bool isBotReached;
 	int m_velocity;

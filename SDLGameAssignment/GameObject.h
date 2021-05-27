@@ -9,19 +9,14 @@
 //Abstract base class - any class with at least 1 pure virtual function
 
 class GameObject
-{
-	
+{	
 public:
-
 	GameObject();
 	
 	float GetAngle() const;
 	const std::string& GetTag() const;
 	const Vector2D& GetSize() const;
 	const Vector2D& GetPosition() const;
-
-
-
 
 	void SetTag(const std::string& tag);
 
@@ -44,9 +39,7 @@ public:
 	void IsAlive(bool flag);
 	void IsVisible(bool flag);
 	void IsActive(bool flag);
-
 protected:
-
 	float m_angle;
 	std::string m_tag;
 	
