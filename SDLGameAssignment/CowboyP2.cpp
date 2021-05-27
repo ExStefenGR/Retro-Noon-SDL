@@ -11,8 +11,6 @@ CowboyP2::CowboyP2(Screen& screen)
 	isBotReached = false;
 	m_velocity = 0;
 	m_collider.SetDimension(128, 128);
-
-
 }
 
 CowboyP2::~CowboyP2()
@@ -33,12 +31,9 @@ int CowboyP2::SetVelocity(int velocity)
 
 void CowboyP2::Update(Input& input)
 {
-
 	input.Update();
-
-
 	//Below I could use the same function for the next assignment as a second player in a competitive setting
-
+	//Could be used with a flag "isPlayer" but updating only works with one button at a time with current input class
 	/*if (input.getKeyDown() == SDLK_i)
 	{
 		m_position.y -= m_velocity;
@@ -66,8 +61,6 @@ void CowboyP2::Update(Input& input)
 	{
 		m_position.y += m_velocity;
 	}
-
-
 
 	if (m_position.y < 226)
 	{

@@ -2,29 +2,23 @@
 
 Input::Input()
 {
-
-
+	m_mousePosition = { 0,0 };
 	m_isMouseClicked = false;
 	m_isKeyPressed = false;
 	m_isWindowClosed = false;
-	m_keyDown = ' ';
-	m_keyUp = ' ';
 	m_mouseButtonDown = 0;
 	m_mouseButtonUp = 0;
-
+	m_keyUp = ' ';
+	m_keyDown = ' ';
 }
 
 void Input::Update()
 {
-
-
 	SDL_Event events;
-
 
 
 	while (SDL_PollEvent(&events))
 	{
-
 		if (events.type == SDL_QUIT)
 		{
 			m_isWindowClosed = true;
@@ -61,10 +55,7 @@ void Input::Update()
 			m_mousePosition.x = events.motion.x;
 			m_mousePosition.y = events.motion.y;
 		}
-
 	}
-
-
 }
 
 char Input::getKeyUp()

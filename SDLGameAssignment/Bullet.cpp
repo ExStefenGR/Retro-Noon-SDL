@@ -1,15 +1,14 @@
 #include "Bullet.h"
 
-
 Bullet::Bullet(Screen& screen)
 {
-	
 	m_speed = 10;
 	m_images.Load("Assets/Images/Bullet.png", screen);
 	m_images.SetImageDimension(1, 1, 32, 32);
 	m_images.SetSpriteDimension(32, 32);
 	m_collider.SetDimension(32, 32);
-
+	m_gunshot.Load("Assets/Sounds/gunshot.wav");
+	m_gunshot.SetVolume(7);
 }
 
 Bullet::~Bullet()
@@ -22,8 +21,6 @@ const BoxCollider& Bullet::GetCollider() const
 	return m_collider;
 }
 
-
-
 int Bullet::SetVelocity(int speed)
 {
 	m_speed = speed;
@@ -35,14 +32,17 @@ void Bullet::ResetPos(Vector2D a, Vector2D b)
 	a = b;
 }
 
+void Bullet::ShootSound()
+{
+	m_gunshot.Play();
+}
+
 
 void Bullet::Update(Input& input)
 {	
-
 	m_direction = Vector2D(1, 0);
 	m_direction = m_direction.Scale(m_speed);
 	m_position = m_position.Add(m_direction);
-	
 
 	m_collider.SetPosition(m_position.x, m_position.y);
 	m_collider.Update();

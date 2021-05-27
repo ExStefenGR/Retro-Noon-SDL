@@ -15,8 +15,7 @@ Background::~Background()
 }
 
 void Background::Update(Input& input)
-{
-}
+{}
 
 void Background::Render(Screen& screen)
 {

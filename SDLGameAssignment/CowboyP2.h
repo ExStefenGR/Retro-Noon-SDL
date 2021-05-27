@@ -8,10 +8,8 @@
 class CowboyP2 : public GameObject
 {
 public:
-
 	CowboyP2(Screen& screen);
 	~CowboyP2();
-
 
 	const BoxCollider& GetCollider() const;
 
@@ -19,7 +17,6 @@ public:
 
 	virtual void Update(Input& input);
 	virtual void Render(Screen& screen);
-
 protected:
 
 	bool isTopReached;
