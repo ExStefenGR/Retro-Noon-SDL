@@ -11,13 +11,10 @@ struct MousePos
 
 class Input
 {
-
 public:
-
 	Input();
 	void Update();
 	
-
 	char getKeyUp();
 	char getKeyDown();
 
@@ -28,10 +25,7 @@ public:
 	bool isMouseClicked();
 	bool isKeyPressed();
 	bool IsWindowClosed();
-	
-
 private:
-
 	char m_keyUp;
 	char m_keyDown;
 	
@@ -43,6 +37,4 @@ private:
 	bool m_isWindowClosed;
 
 	MousePos m_mousePosition;
-	
 };
-
