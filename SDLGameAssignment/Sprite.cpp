@@ -4,6 +4,7 @@
 
 Sprite::Sprite()
 {
+	m_imageCel = 0;
 	m_flip = NO_FLIP;
 	m_image = nullptr;
 	m_animationVelocity = 0.0f;
@@ -49,7 +50,6 @@ void Sprite::SetImageDimension(int columns, int rows, int width, int height)
 {
 	m_imageDimension.x = columns;
 	m_imageDimension.y = rows;
-
 	m_celDimension.x = width / columns;
 	m_celDimension.y = height / rows;
 }
@@ -78,7 +78,6 @@ void Sprite::Update()
 {
 	if (m_isAnimated)
 	{
-
 		static float total = 0.0f;
 		total += 0.1f;
 
@@ -108,7 +107,7 @@ void Sprite::Render(int xPos, int yPos, double angle, Screen& screen)
 		targetRect.w = m_spriteDimension.x;
 		targetRect.h = m_spriteDimension.y;
 
-		SDL_Point centre{static_cast<int>( m_spriteDimension.x * 0.5f, m_spriteDimension.y * 0.5f )};
+		SDL_Point centre{ static_cast<int>(m_spriteDimension.x * 0.5f, m_spriteDimension.y * 0.5f) };
 		SDL_RenderCopyEx(screen.getRenderer(), m_image, &sourceRect, &targetRect, angle, &centre, static_cast<SDL_RendererFlip>(m_flip));
 	}
 }

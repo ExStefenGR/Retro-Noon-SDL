@@ -10,7 +10,6 @@ Vector2D::~Vector2D()
 {
 }
 
-
 Vector2D Vector2D::Add(const Vector2D& rhs)
 {
 	Vector2D result;
@@ -27,7 +26,6 @@ Vector2D Vector2D::Subtract(const Vector2D& rhs)
 
 	result.x = x - rhs.x;
 	result.y = y - rhs.y;
-
 	return result;
 }
 
@@ -71,6 +69,5 @@ Vector2D Vector2D::Negate()
 
 	result.x = x * -1;
 	result.y = y * -1;
-
 	return result;
 }

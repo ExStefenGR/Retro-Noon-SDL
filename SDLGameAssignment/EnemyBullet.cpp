@@ -1,9 +1,9 @@
-#include "Bullet.h"
+#include "EnemyBullet.h"
 
-Bullet::Bullet(Screen& screen)
+EnemyBullet::EnemyBullet(Screen& screen)
 {
 	m_speed = 10;
-	m_images.Load("Assets/Images/Bullet.png", screen);
+	m_images.Load("Assets/Images/BulletFlipped.png", screen);
 	m_images.SetImageDimension(1, 1, 32, 32);
 	m_images.SetSpriteDimension(32, 32);
 	m_collider.SetDimension(32, 32);
@@ -11,30 +11,30 @@ Bullet::Bullet(Screen& screen)
 	m_gunshot.SetVolume(7);
 }
 
-Bullet::~Bullet()
+EnemyBullet::~EnemyBullet()
 {
 	m_images.Unload();
 }
 
-const BoxCollider& Bullet::GetCollider() const
+const BoxCollider& EnemyBullet::GetCollider() const
 {
 	return m_collider;
 }
 
-int Bullet::SetVelocity(int speed)
+int EnemyBullet::SetVelocity(int speed)
 {
 	m_speed = speed;
 	return m_speed;
 }
 
-void Bullet::ShootSound()
+void EnemyBullet::ShootSound()
 {
 	m_gunshot.Play();
 }
 
-void Bullet::Update(Input& input)
-{	
-	m_direction = Vector2D(1, 0);
+void EnemyBullet::Update(Input& input)
+{
+	m_direction = Vector2D(-1, 0);
 	m_direction = m_direction.Scale(m_speed);
 	m_position = m_position.Add(m_direction);
 
@@ -42,7 +42,7 @@ void Bullet::Update(Input& input)
 	m_collider.Update();
 }
 
-void Bullet::Render(Screen& screen)
+void EnemyBullet::Render(Screen& screen)
 {
 	m_images.Render(m_position.x, m_position.y, m_angle, screen);
 }

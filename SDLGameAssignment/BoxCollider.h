@@ -17,4 +17,3 @@ private:
 	Vector2D m_dimension;
 	Vector2D m_position;
 };
-

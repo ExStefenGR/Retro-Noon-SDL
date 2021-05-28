@@ -4,15 +4,15 @@
 #include "Input.h"
 #include "BoxCollider.h"
 #include "Sound.h"
-class Bullet : public GameObject
+class EnemyBullet : public GameObject
 {
 public:
-	Bullet(Screen& screen);
-	~Bullet();
+	EnemyBullet(Screen& screen);
+	~EnemyBullet();
 
 	const BoxCollider& GetCollider() const;
 
-	int SetVelocity(int velocity);
+	int SetVelocity(int speed);
 	void ShootSound();
 
 	virtual void Update(Input& input);

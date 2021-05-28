@@ -3,9 +3,7 @@
 
 class Vector2D
 {
-
 public:
-
 	Vector2D(int x = 0, int y = 0);
 	~Vector2D();
 
@@ -17,14 +15,9 @@ public:
 
 	int Distance(const Vector2D& rhs);
 	int Magnitude();
-
-	Vector2D Divide(int rhs);
-
 	Vector2D Negate();
-
 
 	int x;
 	int y;
-
 };
 

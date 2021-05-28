@@ -2,20 +2,29 @@
 
 CowboyP2::CowboyP2(Screen& screen)
 {
-	m_images.Load("Assets/Images/characters.png", screen);
-	m_images.SetSpriteDimension(128, 128);
-	m_images.SetImageDimension(2, 1, 256, 128); //Check
-	m_images.SetImageCel(2, 1);
+	m_state = UP;
+	m_isBulletShot = false;
+	m_image[UP].Load("Assets/Images/Cboy2UP.png", screen);
+	m_image[DOWN].Load("Assets/Images/Cboy2DOWN.png", screen);
 
-	isTopReached = false;
-	isBotReached = false;
+	for (int i = 0; i < TOTAL_STATES; i++)
+	{
+		m_image[i].SetImageDimension(3, 1, 384, 128);
+		m_image[i].SetSpriteDimension(128, 128);
+		m_image[i].SetAnimationVelocity(0.5f);
+		m_image[i].IsAnimated(true);
+		m_image[i].IsAnimationLooping(true);
+	}
+	m_isTopReached = false;
+	m_isBotReached = false;
 	m_velocity = 0;
+
 	m_collider.SetDimension(128, 128);
 }
 
 CowboyP2::~CowboyP2()
 {
-	m_images.Unload();
+	m_image[DOWN].Unload();
 }
 
 const BoxCollider& CowboyP2::GetCollider() const
@@ -23,10 +32,20 @@ const BoxCollider& CowboyP2::GetCollider() const
 	return m_collider;
 }
 
-int CowboyP2::SetVelocity(int velocity)
+Vector2D CowboyP2::SetVelocity(int velocity)
 {
 	m_velocity = velocity;
 	return m_velocity;
+}
+
+bool CowboyP2::IsBulletShot()
+{
+	return m_isBulletShot;
+}
+
+void CowboyP2::IsBulletShot(bool flag)
+{
+	m_isBulletShot = flag;
 }
 
 void CowboyP2::Update(Input& input)
@@ -43,34 +62,42 @@ void CowboyP2::Update(Input& input)
 		m_position.y += m_velocity;
 	}*/
 
+	if (input.getKeyDown() == SDLK_a)
+	{
+		m_isBulletShot = true;
+	}
+
 	if (m_position.y == 226)
 	{
-		isTopReached = true;
+		m_isTopReached = true;
 	}
-
 	if (m_position.y == 720 - 128)
 	{
-		isTopReached = false;
+		m_isTopReached = false;
 	}
 
-	if (!isTopReached)
+	if (!m_isTopReached)
 	{
 		m_position.y -= m_velocity;
+
+		m_state = UP;
 	}
-	if (isTopReached)
+	if (m_isTopReached)
 	{
 		m_position.y += m_velocity;
+
+		m_state = DOWN;
 	}
 
 	if (m_position.y < 226)
 	{
 		m_position.y = 226;
 	}
-
 	else if (m_position.y >= 720 - 128)
 	{
 		m_position.y = 720 - 128;
 	}
+	m_image[m_state].Update();
 
 	m_collider.SetPosition(m_position.x, m_position.y);
 	m_collider.Update();
@@ -78,5 +105,5 @@ void CowboyP2::Update(Input& input)
 
 void CowboyP2::Render(Screen& screen)
 {
-	m_images.Render(m_position.x, m_position.y, m_angle, screen);
+	m_image[m_state].Render(m_position.x, m_position.y, m_angle, screen);
 }

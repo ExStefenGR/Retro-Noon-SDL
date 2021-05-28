@@ -17,7 +17,7 @@
 #include "Timer.h"
 #include "Music.h"
 #include "Vector2D.h"
-//TODO: Enemy Animations via photoshop and Music/Sound
+
 bool isGameRunning = true;
 
 int main(int argc, char* argv[])
@@ -27,13 +27,12 @@ int main(int argc, char* argv[])
 	screen.Init(); //Initialising screen
 	Text::Initialise(); //Implemented in Menu
 	Music::Initialize();
-	//TODO: Implement Later Properly in the game's mode Function
 	Background background(screen);
 	Bullet bullet(screen);
 	CowboyP2 cowboy(screen);
 	Player player(screen);
 	Input input;
-	//Score and Score trigger (in the gameModes)
+	//Score and Timer
 	Score* score = new Score;
 	Timer* timer = new Timer;
 	//Setting variables for background
@@ -54,7 +53,7 @@ int main(int argc, char* argv[])
 	bullet.SetPosition(player.GetPosition());
 	//Initialising text objects
 	score->SetScore(0);
-	timer->SetTime(5);
+	timer->SetTime(50);
 
 	while (isGameRunning)
 	{
@@ -75,6 +74,7 @@ int main(int argc, char* argv[])
 			timer->CountDown();
 			//========Updating position and/or Input translation============
 			player.Update(input);
+			cowboy.Update(input);
 			if (player.IsBulletShot() && !bullet.IsActive())
 			{
 				bullet.ShootSound();
@@ -86,9 +86,9 @@ int main(int argc, char* argv[])
 			{
 				bullet.Update(input);
 				//=====Box Collision Detection=========
-				BoxCollider CowBoyCollider = cowboy.GetCollider();
+				BoxCollider cowBoyCollider = cowboy.GetCollider();
 				BoxCollider bulletCollider = bullet.GetCollider();
-				if (bulletCollider.IsColliding(CowBoyCollider))
+				if (bulletCollider.IsColliding(cowBoyCollider))
 				{
 					std::cout << "Collision!" << std::endl;
 					score->AddScore(500);
@@ -105,7 +105,6 @@ int main(int argc, char* argv[])
 				bullet.SetPosition(player.GetPosition());
 				player.IsBulletShot(false);
 			}
-			cowboy.Update(input);
 		}
 		//=====================================
 		//========rendering objects============

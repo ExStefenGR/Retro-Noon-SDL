@@ -7,7 +7,6 @@ bool Text::Initialise()
 		std::cout << "Error initializing font system." << std::endl;
 		return false;
 	}
-
 	return true;
 }
 
@@ -60,15 +59,12 @@ bool Text::Load(const std::string& filename, int fontSize)
 		std::cout << "Error loading font file." << std::endl;
 		return false;
 	}
-
 	return true;
 }
 
 void Text::Render(int xPos, int yPos, Screen& screen)
 {
-
 	SDL_Rect targetRect;
-
 	targetRect.x = xPos;
 	targetRect.y = yPos;
 	targetRect.w = m_dimension.x;

@@ -6,11 +6,7 @@
 
 class Text
 {
-
-
-
 public:
-
 	static bool Initialise();
 	static void ShutDown();
 
@@ -24,12 +20,8 @@ public:
 
 	bool Load(const std::string& filename, int fontSize);
 	void Render(int xPos, int yPos, Screen& screen);
-	void Unload();
-
-
-	
+	void Unload();	
 private:
-
 	bool m_isDirty;
 	std::string m_line;
 

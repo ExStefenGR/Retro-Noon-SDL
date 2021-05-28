@@ -6,16 +6,13 @@
 
 class Sprite
 {
-
 	enum Flip
 	{
 		NO_FLIP = SDL_FLIP_NONE,
 		HORZ_FLIP = SDL_FLIP_HORIZONTAL,
 		VERT_FLIP = SDL_FLIP_VERTICAL
 	};
-
 public:
-
 	Sprite();
 	~Sprite() {}
 
@@ -30,14 +27,9 @@ public:
 
 	bool Load(const std::string& filename, Screen& screen);
 	void Unload();
-
 	void Update();
 	void Render(int xPos, int yPos, double angle, Screen& screen);
-
-	
-
 private:
-
 	bool m_isAnimated;
 	bool m_isAnimationLooping;
 	bool m_isAnimationDead;
@@ -51,5 +43,4 @@ private:
 
 	float m_animationVelocity;
 	int m_imageCel;
-
 };
