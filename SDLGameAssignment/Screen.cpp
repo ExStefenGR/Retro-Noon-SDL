@@ -28,7 +28,6 @@ void Screen::Present()
 {
 	//render the screen (swap buffer)
 	SDL_RenderPresent(m_renderer);
-
 }
 
 void Screen::Clear()
