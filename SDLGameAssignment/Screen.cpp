@@ -7,20 +7,13 @@ bool Screen::Init()
 		std::cout << "Error, SDL could not initialise" << std::endl;
 		return false;
 	}
-
 	m_window = SDL_CreateWindow("Game that is fun a bit",
 								SDL_WINDOWPOS_CENTERED,	//X or Horizontal
 								SDL_WINDOWPOS_CENTERED, //Y or Vertical position
 								1280,		//Width
 								720,		//height
 								0	);		//flags (fullscreen,focus,etc)
-
-	std::cout << "Window created" << std::endl;
-
 	m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-	
-	std::cout << "Render created" << std::endl;
-
 	return true;
 }
 

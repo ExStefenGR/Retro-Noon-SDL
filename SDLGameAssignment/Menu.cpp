@@ -1,8 +1,6 @@
 #include "Menu.h"
-
 Menu::Menu()
 {
-
 	m_currentMode = NOMODE;
 	m_gameMode[NOMODE];
 	m_line.Load("Assets/Fonts/p.ttf", 400);

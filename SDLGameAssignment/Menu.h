@@ -15,7 +15,6 @@ class Menu : public GameObject
 		TOTAL_MODES
 	};
 public:
-
 	Menu();
 	~Menu();
 
@@ -25,8 +24,6 @@ public:
 	virtual void Render(Screen& screen);
 	
 	void Update(Input& input);
-
-
 private:
 	int m_gameMode[TOTAL_MODES];
 	int m_currentMode;

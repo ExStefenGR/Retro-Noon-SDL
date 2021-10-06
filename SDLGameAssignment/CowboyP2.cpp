@@ -51,6 +51,16 @@ void CowboyP2::IsBulletShot(bool flag)
 void CowboyP2::Update(Input& input)
 {
 	input.Update();
+	//Below I could use the same function for the next assignment as a second player in a competitive setting
+	//Could be used with a flag "isPlayer" but updating only works with one button at a time with current input class
+	/*if (input.getKeyDown() == SDLK_i)
+	{
+		m_position.y -= m_velocity;
+	}
+	else if (input.getKeyDown() == SDLK_k)
+	{
+		m_position.y += m_velocity;
+	}*/
 
 	if (input.getKeyDown() == SDLK_a)
 	{

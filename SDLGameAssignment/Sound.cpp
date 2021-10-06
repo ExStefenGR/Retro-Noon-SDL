@@ -1,5 +1,5 @@
 #include "Sound.h"
-
+#include <assert.h>
 Sound::Sound()
 {
 	m_sound = nullptr;
@@ -8,7 +8,7 @@ Sound::Sound()
 bool Sound::Load(const std::string& filename)
 {
     m_sound = Mix_LoadWAV(filename.c_str());
-
+	assert(m_sound != nullptr);
     if (!m_sound)
     {
         std::cout << "Error loading audio file " << filename << std::endl;
@@ -30,7 +30,7 @@ void Sound::SetVolume(int volume)
         normalizedValue = static_cast<int>(volume / 128);
         volume = normalizedValue;
     }
-    Mix_VolumeChunk(m_sound, volume); //Flagging up as access violation reading location: 0x0000000C
+    Mix_VolumeChunk(m_sound, volume);
 }
 
 void Sound::Play(int loop)

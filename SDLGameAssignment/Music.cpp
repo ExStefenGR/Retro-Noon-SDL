@@ -18,6 +18,7 @@ Music::Music()
 bool Music::Load(const std::string& filename)
 {
     m_music = Mix_LoadMUS(filename.c_str());
+
     if (!m_music)
     {
         std::cout << "Error loading audio file " << filename << std::endl;
