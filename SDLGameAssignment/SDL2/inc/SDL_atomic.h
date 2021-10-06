@@ -95,7 +95,7 @@ typedef int SDL_SpinLock;
  * doing. Please be careful using any sort of spinlock!***
  *
  * \param lock a pointer to a lock variable
- * \returns SDL_TRUE if the lock succeeded, SDL_FALSE if the lock is already
+ * \returns SDL_True if the lock succeeded, SDL_False if the lock is already
  *          held.
  *
  * \sa SDL_AtomicLock
@@ -246,7 +246,7 @@ typedef struct { int value; } SDL_atomic_t;
  * \param a a pointer to an SDL_atomic_t variable to be modified
  * \param oldval the old value
  * \param newval the new value
- * \returns SDL_TRUE if the atomic variable was set, SDL_FALSE otherwise.
+ * \returns SDL_True if the atomic variable was set, SDL_False otherwise.
  *
  * \since This function is available since SDL 2.0.0.
  *
@@ -312,8 +312,8 @@ extern DECLSPEC int SDLCALL SDL_AtomicAdd(SDL_atomic_t *a, int v);
 /**
  * \brief Decrement an atomic variable used as a reference count.
  *
- * \return SDL_TRUE if the variable reached zero after decrementing,
- *         SDL_FALSE otherwise
+ * \return SDL_True if the variable reached zero after decrementing,
+ *         SDL_False otherwise
  */
 #ifndef SDL_AtomicDecRef
 #define SDL_AtomicDecRef(a)    (SDL_AtomicAdd(a, -1) == 1)
@@ -328,7 +328,7 @@ extern DECLSPEC int SDLCALL SDL_AtomicAdd(SDL_atomic_t *a, int v);
  * \param a a pointer to a pointer
  * \param oldval the old pointer value
  * \param newval the new pointer value
- * \returns SDL_TRUE if the pointer was set, SDL_FALSE otherwise.
+ * \returns SDL_True if the pointer was set, SDL_False otherwise.
  *
  * \since This function is available since SDL 2.0.0.
  *

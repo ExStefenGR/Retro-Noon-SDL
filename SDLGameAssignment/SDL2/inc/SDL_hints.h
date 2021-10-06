@@ -1727,7 +1727,7 @@ typedef enum
  * \param name the hint to set
  * \param value the value of the hint variable
  * \param priority the SDL_HintPriority level for the hint
- * \returns SDL_TRUE if the hint was set, SDL_FALSE otherwise.
+ * \returns SDL_True if the hint was set, SDL_False otherwise.
  *
  * \sa SDL_GetHint
  * \sa SDL_SetHint
@@ -1745,7 +1745,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_SetHintWithPriority(const char *name,
  *
  * \param name the hint to set
  * \param value the value of the hint variable
- * \returns SDL_TRUE if the hint was set, SDL_FALSE otherwise.
+ * \returns SDL_True if the hint was set, SDL_False otherwise.
  *
  * \sa SDL_GetHint
  * \sa SDL_SetHintWithPriority

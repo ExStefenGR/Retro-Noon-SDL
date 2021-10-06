@@ -720,7 +720,7 @@ extern DECLSPEC int SDLCALL SDL_PeepEvents(SDL_Event * events, int numevents,
  * instead.
  *
  * \param type the type of event to be queried; see SDL_EventType for details
- * \returns SDL_TRUE if events matching `type` are present, or SDL_FALSE if
+ * \returns SDL_True if events matching `type` are present, or SDL_False if
  *          events matching `type` are not present.
  *
  * \sa SDL_HasEvents
@@ -737,8 +737,8 @@ extern DECLSPEC SDL_bool SDLCALL SDL_HasEvent(Uint32 type);
  *                SDL_EventType for details
  * \param maxType the high end of event type to be queried, inclusive; see
  *                SDL_EventType for details
- * \returns SDL_TRUE if events with type >= `minType` and <= `maxType` are
- *          present, or SDL_FALSE if not.
+ * \returns SDL_True if events with type >= `minType` and <= `maxType` are
+ *          present, or SDL_False if not.
  *
  * \sa SDL_HasEvents
  */
@@ -975,7 +975,7 @@ extern DECLSPEC void SDLCALL SDL_SetEventFilter(SDL_EventFilter filter,
  * \param filter the current callback function will be stored here
  * \param userdata the pointer that is passed to the current event filter will
  *                 be stored here
- * \returns SDL_TRUE on success or SDL_FALSE if there is no event filter set.
+ * \returns SDL_True on success or SDL_False if there is no event filter set.
  *
  * \sa SDL_SetEventFilter
  */

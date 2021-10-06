@@ -68,7 +68,7 @@ extern DECLSPEC char * SDLCALL SDL_GetClipboardText(void);
 /**
  * Query whether the clipboard exists and contains a non-empty text string.
  *
- * \returns SDL_TRUE if the clipboard has text, or SDL_FALSE if it does not.
+ * \returns SDL_True if the clipboard has text, or SDL_False if it does not.
  *
  * \since This function is available since SDL 2.0.0.
  *

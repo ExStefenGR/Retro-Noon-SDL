@@ -70,7 +70,7 @@ extern DECLSPEC SDL_Window * SDLCALL SDL_CreateShapedWindow(const char *title,un
  * Return whether the given window is a shaped window.
  *
  * \param window The window to query for being shaped.
- * \return SDL_TRUE if the window is a window that can be shaped, SDL_FALSE if
+ * \return SDL_True if the window is a window that can be shaped, SDL_False if
  *         the window is unshaped or NULL.
  *
  * \sa SDL_CreateShapedWindow

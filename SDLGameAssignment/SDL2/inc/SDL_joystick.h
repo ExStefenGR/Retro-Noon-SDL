@@ -315,7 +315,7 @@ extern DECLSPEC int SDLCALL SDL_JoystickDetachVirtual(int device_index);
  * Query whether or not the joystick at a given device index is virtual.
  *
  * \param device_index a joystick device index.
- * \returns SDL_TRUE if the joystick is virtual, SDL_FALSE otherwise.
+ * \returns SDL_True if the joystick is virtual, SDL_False otherwise.
  */
 extern DECLSPEC SDL_bool SDLCALL SDL_JoystickIsVirtual(int device_index);
 
@@ -497,7 +497,7 @@ extern DECLSPEC SDL_JoystickGUID SDLCALL SDL_JoystickGetGUIDFromString(const cha
  * Get the status of a specified joystick.
  *
  * \param joystick the joystick to query
- * \returns SDL_TRUE if the joystick has been opened, SDL_FALSE if it has not;
+ * \returns SDL_True if the joystick has been opened, SDL_False if it has not;
  *          call SDL_GetError() for more information.
  *
  * \sa SDL_JoystickClose
@@ -641,7 +641,7 @@ extern DECLSPEC Sint16 SDLCALL SDL_JoystickGetAxis(SDL_Joystick *joystick,
  * \param joystick an SDL_Joystick structure containing joystick information
  * \param axis the axis to query; the axis indices start at index 0
  * \param state Upon return, the initial value is supplied here.
- * \return SDL_TRUE if this axis has any initial value, or SDL_FALSE if not.
+ * \return SDL_True if this axis has any initial value, or SDL_False if not.
  */
 extern DECLSPEC SDL_bool SDLCALL SDL_JoystickGetAxisInitialState(SDL_Joystick *joystick,
                                                    int axis, Sint16 *state);
@@ -762,7 +762,7 @@ extern DECLSPEC int SDLCALL SDL_JoystickRumbleTriggers(SDL_Joystick *joystick, U
  * DualShock 4 controller.
  *
  * \param joystick The joystick to query
- * \return SDL_TRUE if the joystick has a modifiable LED, SDL_FALSE otherwise.
+ * \return SDL_True if the joystick has a modifiable LED, SDL_False otherwise.
  */
 extern DECLSPEC SDL_bool SDLCALL SDL_JoystickHasLED(SDL_Joystick *joystick);
 

@@ -376,10 +376,10 @@ extern DECLSPEC int SDLCALL SDL_SetSurfaceRLE(SDL_Surface * surface,
 /**
  * Returns whether the surface is RLE enabled
  *
- * It is safe to pass a NULL `surface` here; it will return SDL_FALSE.
+ * It is safe to pass a NULL `surface` here; it will return SDL_False.
  *
  * \param surface the SDL_Surface structure to query
- * \returns SDL_TRUE if the surface is RLE enabled, SDL_FALSE otherwise.
+ * \returns SDL_True if the surface is RLE enabled, SDL_False otherwise.
  *
  * \sa SDL_SetSurfaceRLE
  */
@@ -399,7 +399,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_HasSurfaceRLE(SDL_Surface * surface);
  * horizontal runs of transparent pixels. See SDL_SetSurfaceRLE() for details.
  *
  * \param surface the SDL_Surface structure to update
- * \param flag SDL_TRUE to enable color key, SDL_FALSE to disable color key
+ * \param flag SDL_True to enable color key, SDL_False to disable color key
  * \param key the transparent pixel
  * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
@@ -413,10 +413,10 @@ extern DECLSPEC int SDLCALL SDL_SetColorKey(SDL_Surface * surface,
 /**
  * Returns whether the surface has a color key
  *
- * It is safe to pass a NULL `surface` here; it will return SDL_FALSE.
+ * It is safe to pass a NULL `surface` here; it will return SDL_False.
  *
  * \param surface the SDL_Surface structure to query
- * \return SDL_TRUE if the surface has a color key, SDL_FALSE otherwise.
+ * \return SDL_True if the surface has a color key, SDL_False otherwise.
  *
  * \sa SDL_SetColorKey
  * \sa SDL_GetColorKey
@@ -557,8 +557,8 @@ extern DECLSPEC int SDLCALL SDL_GetSurfaceBlendMode(SDL_Surface * surface,
  * \param surface the SDL_Surface structure to be clipped
  * \param rect the SDL_Rect structure representing the clipping rectangle, or
  *             NULL to disable clipping
- * \returns SDL_TRUE if the rectangle intersects the surface, otherwise
- *          SDL_FALSE and blits will be completely clipped.
+ * \returns SDL_True if the rectangle intersects the surface, otherwise
+ *          SDL_False and blits will be completely clipped.
  *
  * \sa SDL_BlitSurface
  * \sa SDL_GetClipRect

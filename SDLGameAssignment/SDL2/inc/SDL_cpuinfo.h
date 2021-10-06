@@ -153,7 +153,7 @@ extern DECLSPEC int SDLCALL SDL_GetCPUCacheLineSize(void);
  *
  * This always returns false on CPUs that aren't using Intel instruction sets.
  *
- * \returns SDL_TRUE if the CPU has the RDTSC instruction or SDL_FALSE if not.
+ * \returns SDL_True if the CPU has the RDTSC instruction or SDL_False if not.
  *
  * \sa SDL_Has3DNow
  * \sa SDL_HasAltiVec
@@ -174,7 +174,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_HasRDTSC(void);
  * This always returns false on CPUs that aren't using PowerPC instruction
  * sets.
  *
- * \returns SDL_TRUE if the CPU has AltiVec features or SDL_FALSE if not.
+ * \returns SDL_True if the CPU has AltiVec features or SDL_False if not.
  *
  * \sa SDL_Has3DNow
  * \sa SDL_HasAVX
@@ -194,7 +194,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_HasAltiVec(void);
  *
  * This always returns false on CPUs that aren't using Intel instruction sets.
  *
- * \returns SDL_TRUE if the CPU has MMX features or SDL_FALSE if not.
+ * \returns SDL_True if the CPU has MMX features or SDL_False if not.
  *
  * \sa SDL_Has3DNow
  * \sa SDL_HasAltiVec
@@ -214,7 +214,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_HasMMX(void);
  *
  * This always returns false on CPUs that aren't using AMD instruction sets.
  *
- * \returns SDL_TRUE if the CPU has 3DNow! features or SDL_FALSE if not.
+ * \returns SDL_True if the CPU has 3DNow! features or SDL_False if not.
  *
  * \sa SDL_HasAltiVec
  * \sa SDL_HasAVX
@@ -234,7 +234,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_Has3DNow(void);
  *
  * This always returns false on CPUs that aren't using Intel instruction sets.
  *
- * \returns SDL_TRUE if the CPU has SSE features or SDL_FALSE if not.
+ * \returns SDL_True if the CPU has SSE features or SDL_False if not.
  *
  * \sa SDL_Has3DNow
  * \sa SDL_HasAltiVec
@@ -254,7 +254,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_HasSSE(void);
  *
  * This always returns false on CPUs that aren't using Intel instruction sets.
  *
- * \returns SDL_TRUE if the CPU has SSE2 features or SDL_FALSE if not.
+ * \returns SDL_True if the CPU has SSE2 features or SDL_False if not.
  *
  * \sa SDL_Has3DNow
  * \sa SDL_HasAltiVec
@@ -274,7 +274,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_HasSSE2(void);
  *
  * This always returns false on CPUs that aren't using Intel instruction sets.
  *
- * \returns SDL_TRUE if the CPU has SSE3 features or SDL_FALSE if not.
+ * \returns SDL_True if the CPU has SSE3 features or SDL_False if not.
  *
  * \sa SDL_Has3DNow
  * \sa SDL_HasAltiVec
@@ -294,7 +294,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_HasSSE3(void);
  *
  * This always returns false on CPUs that aren't using Intel instruction sets.
  *
- * \returns SDL_TRUE if the CPU has SSE4.1 features or SDL_FALSE if not.
+ * \returns SDL_True if the CPU has SSE4.1 features or SDL_False if not.
  *
  * \sa SDL_Has3DNow
  * \sa SDL_HasAltiVec
@@ -314,7 +314,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_HasSSE41(void);
  *
  * This always returns false on CPUs that aren't using Intel instruction sets.
  *
- * \returns SDL_TRUE if the CPU has SSE4.2 features or SDL_FALSE if not.
+ * \returns SDL_True if the CPU has SSE4.2 features or SDL_False if not.
  *
  * \sa SDL_Has3DNow
  * \sa SDL_HasAltiVec
@@ -334,7 +334,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_HasSSE42(void);
  *
  * This always returns false on CPUs that aren't using Intel instruction sets.
  *
- * \returns SDL_TRUE if the CPU has AVX features or SDL_FALSE if not.
+ * \returns SDL_True if the CPU has AVX features or SDL_False if not.
  *
  * \since This function is available since SDL 2.0.2.
  *
@@ -356,7 +356,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_HasAVX(void);
  *
  * This always returns false on CPUs that aren't using Intel instruction sets.
  *
- * \returns SDL_TRUE if the CPU has AVX2 features or SDL_FALSE if not.
+ * \returns SDL_True if the CPU has AVX2 features or SDL_False if not.
  *
  * \since This function is available since SDL 2.0.4.
  *
@@ -378,7 +378,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_HasAVX2(void);
  *
  * This always returns false on CPUs that aren't using Intel instruction sets.
  *
- * \returns SDL_TRUE if the CPU has AVX-512F features or SDL_FALSE if not.
+ * \returns SDL_True if the CPU has AVX-512F features or SDL_False if not.
  *
  * \sa SDL_HasAVX
  */
@@ -391,7 +391,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_HasAVX512F(void);
  *
  * This always returns false on CPUs that aren't using ARM instruction sets.
  *
- * \returns SDL_TRUE if the CPU has ARM SIMD features or SDL_FALSE if not.
+ * \returns SDL_True if the CPU has ARM SIMD features or SDL_False if not.
  *
  * \sa SDL_HasNEON
  */
@@ -402,7 +402,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_HasARMSIMD(void);
  *
  * This always returns false on CPUs that aren't using ARM instruction sets.
  *
- * \returns SDL_TRUE if the CPU has ARM NEON features or SDL_FALSE if not.
+ * \returns SDL_True if the CPU has ARM NEON features or SDL_False if not.
  */
 extern DECLSPEC SDL_bool SDLCALL SDL_HasNEON(void);
 

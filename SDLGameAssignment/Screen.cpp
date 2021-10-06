@@ -15,26 +15,22 @@ bool Screen::Init()
 	m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 	return true;
 }
-
 void Screen::Present()
 {
 	//render the screen (swap buffer)
 	SDL_RenderPresent(m_renderer);
 }
-
 void Screen::Clear()
 {
 	//clears the screen, (frame buffer)
 	SDL_RenderClear(m_renderer);
 }
-
 void Screen::Exit()
 {
 	SDL_DestroyRenderer(m_renderer);
 	SDL_DestroyWindow(m_window);
 	SDL_Quit();
 }
-
 SDL_Renderer* Screen::getRenderer()
 {
 	return m_renderer;

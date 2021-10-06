@@ -111,7 +111,7 @@ extern DECLSPEC ID3D11Device* SDLCALL SDL_RenderGetD3D11Device(SDL_Renderer * re
  * \param displayIndex the display index for which to get both indices
  * \param adapterIndex a pointer to be filled in with the adapter index
  * \param outputIndex a pointer to be filled in with the output index
- * \returns SDL_TRUE on success or SDL_FALSE on failure; call SDL_GetError()
+ * \returns SDL_True on success or SDL_False on failure; call SDL_GetError()
  *          for more information.
  *
  * \since This function is available since SDL 2.0.2.
@@ -225,21 +225,21 @@ extern DECLSPEC int SDLCALL SDL_GetAndroidSDKVersion(void);
 /**
  * Query if the application is running on Android TV.
  *
- * \returns SDL_TRUE if this is Android TV, SDL_FALSE otherwise.
+ * \returns SDL_True if this is Android TV, SDL_False otherwise.
  */
 extern DECLSPEC SDL_bool SDLCALL SDL_IsAndroidTV(void);
 
 /**
  * Query if the application is running on a Chromebook.
  *
- * \returns SDL_TRUE if this is a Chromebook, SDL_FALSE otherwise.
+ * \returns SDL_True if this is a Chromebook, SDL_False otherwise.
  */
 extern DECLSPEC SDL_bool SDLCALL SDL_IsChromebook(void);
 
 /**
  * Query if the application is running on a Samsung DeX docking station.
  *
- * \returns SDL_TRUE if this is a DeX docking station, SDL_FALSE otherwise.
+ * \returns SDL_True if this is a DeX docking station, SDL_False otherwise.
  */
 extern DECLSPEC SDL_bool SDLCALL SDL_IsDeXMode(void);
 
@@ -314,7 +314,7 @@ extern DECLSPEC const char * SDLCALL SDL_AndroidGetExternalStoragePath(void);
  * This blocks the calling thread until the permission is granted or denied.
  *
  * \param permission The permission to request.
- * \returns SDL_TRUE if the permission was granted, SDL_FALSE otherwise.
+ * \returns SDL_True if the permission was granted, SDL_False otherwise.
  */
 extern DECLSPEC SDL_bool SDLCALL SDL_AndroidRequestPermission(const char *permission);
 
@@ -447,9 +447,9 @@ extern DECLSPEC SDL_WinRT_DeviceFamily SDLCALL SDL_WinRTGetDeviceFamily();
 /**
  * Query if the current device is a tablet.
  *
- * If SDL can't determine this, it will return SDL_FALSE.
+ * If SDL can't determine this, it will return SDL_False.
  *
- * \returns SDL_TRUE if the device is a tablet, SDL_FALSE otherwise.
+ * \returns SDL_True if the device is a tablet, SDL_False otherwise.
  */
 extern DECLSPEC SDL_bool SDLCALL SDL_IsTablet(void);
 

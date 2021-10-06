@@ -8,15 +8,11 @@ class Score : public GameObject
 public:
 	Score();
 	~Score();
-
 	void SetScore(int score);
 	void SetPosition(int x, int y);
 	void AddScore(int add);
-
 	void SetText(std::string text);
-
 	int GetScore();
-
 	virtual void Update(Input& input) {}
 	virtual void Render(Screen& screen);
 private:

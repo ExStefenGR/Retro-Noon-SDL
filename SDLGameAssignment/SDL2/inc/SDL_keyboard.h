@@ -233,7 +233,7 @@ extern DECLSPEC void SDLCALL SDL_StartTextInput(void);
 /**
  * Check whether or not Unicode text input events are enabled.
  *
- * \returns SDL_TRUE if text input events are enabled else SDL_FALSE.
+ * \returns SDL_True if text input events are enabled else SDL_False.
  *
  * \since This function is available since SDL 2.0.0.
  *
@@ -261,8 +261,8 @@ extern DECLSPEC void SDLCALL SDL_SetTextInputRect(SDL_Rect *rect);
 /**
  * Check whether the platform has screen keyboard support.
  *
- * \returns SDL_TRUE if the platform has some screen keyboard support or
- *          SDL_FALSE if not.
+ * \returns SDL_True if the platform has some screen keyboard support or
+ *          SDL_False if not.
  *
  * \since This function is available since SDL 2.0.0.
  *
@@ -275,7 +275,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_HasScreenKeyboardSupport(void);
  * Check whether the screen keyboard is shown for given window.
  *
  * \param window the window for which screen keyboard should be queried
- * \returns SDL_TRUE if screen keyboard is shown or SDL_FALSE if not.
+ * \returns SDL_True if screen keyboard is shown or SDL_False if not.
  *
  * \since This function is available since SDL 2.0.0.
  *

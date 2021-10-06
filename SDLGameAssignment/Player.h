@@ -10,33 +10,28 @@
 class Player : public GameObject
 {
 public:
-	enum State
+	enum class State
 	{
-		IDLE,
-		UP,
-		DOWN,
-		TOTAL_STATES
+		Idle,
+		Up,
+		Down,
+		Total_States
 	};
 	Player(Screen& screen);
 	~Player();
-
 	Vector2D SetVelocity(int velocity);
-
 	const BoxCollider& GetCollider() const;
-
 	virtual void Update(Input& input);
 	virtual void Render(Screen& screen);
-
 	bool IsBulletShot();
 	void IsBulletShot(bool flag);
 protected:
 	int m_velocity;
 	bool m_isBulletShot;
-
 	BoxCollider m_collider;
 	Screen& m_screen;
 	Sound m_gunshot;
-	Sprite m_image[TOTAL_STATES];   //spritesheet container
+	Sprite m_image[static_cast<int>(State::Total_States)];   //spritesheet container
 	State m_state;
 	Vector2D m_direction;
 };

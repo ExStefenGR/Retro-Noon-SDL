@@ -153,7 +153,7 @@ extern DECLSPEC SDL_TimerID SDLCALL SDL_AddTimer(Uint32 interval,
  * Remove a timer created with SDL_AddTimer().
  *
  * \param id the ID of the timer to remove
- * \returns SDL_TRUE if the timer is removed or SDL_FALSE if the timer wasn't
+ * \returns SDL_True if the timer is removed or SDL_False if the timer wasn't
  *          found.
  *
  * \sa SDL_AddTimer

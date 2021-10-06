@@ -906,7 +906,7 @@ extern DECLSPEC int SDLCALL SDL_HapticIndex(SDL_Haptic * haptic);
 /**
  * Query whether or not the current mouse has haptic capabilities.
  *
- * \returns SDL_TRUE if the mouse is haptic or SDL_FALSE if it isn't.
+ * \returns SDL_True if the mouse is haptic or SDL_False if it isn't.
  *
  * \since This function is available since SDL 2.0.0.
  *
@@ -931,7 +931,7 @@ extern DECLSPEC SDL_Haptic *SDLCALL SDL_HapticOpenFromMouse(void);
  * Query if a joystick has haptic features.
  *
  * \param joystick the SDL_Joystick to test for haptic capabilities
- * \returns SDL_TRUE if the joystick is haptic, SDL_FALSE if it isn't, or a
+ * \returns SDL_True if the joystick is haptic, SDL_False if it isn't, or a
  *          negative error code on failure; call SDL_GetError() for more
  *          information.
  *
@@ -1041,7 +1041,7 @@ extern DECLSPEC int SDLCALL SDL_HapticNumAxes(SDL_Haptic * haptic);
  *
  * \param haptic the SDL_Haptic device to query
  * \param effect the desired effect to query
- * \returns SDL_TRUE if effect is supported, SDL_FALSE if it isn't, or a
+ * \returns SDL_True if effect is supported, SDL_False if it isn't, or a
  *          negative error code on failure; call SDL_GetError() for more
  *          information.
  *
@@ -1255,7 +1255,7 @@ extern DECLSPEC int SDLCALL SDL_HapticStopAll(SDL_Haptic * haptic);
  * Check whether rumble is supported on a haptic device.
  *
  * \param haptic haptic device to check for rumble support
- * \returns SDL_TRUE if effect is supported, SDL_FALSE if it isn't, or a
+ * \returns SDL_True if effect is supported, SDL_False if it isn't, or a
  *          negative error code on failure; call SDL_GetError() for more
  *          information.
  *

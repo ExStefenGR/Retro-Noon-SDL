@@ -164,10 +164,10 @@ char *alloca();
 #define SDL_TRUE 1
 typedef int SDL_bool;
 #else
-typedef enum
+typedef enum class SDL_Bool
 {
-    SDL_FALSE = 0,
-    SDL_TRUE = 1
+    SDL_False = 0,
+    SDL_True = 1
 } SDL_bool;
 #endif
 

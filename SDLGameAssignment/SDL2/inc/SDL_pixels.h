@@ -364,7 +364,7 @@ extern DECLSPEC const char* SDLCALL SDL_GetPixelFormatName(Uint32 format);
  * \param Gmask a pointer filled in with the green mask for the format
  * \param Bmask a pointer filled in with the blue mask for the format
  * \param Amask a pointer filled in with the alpha mask for the format
- * \returns SDL_TRUE on success or SDL_FALSE if the conversion wasn't
+ * \returns SDL_True on success or SDL_False if the conversion wasn't
  *          possible; call SDL_GetError() for more information.
  *
  * \sa SDL_MasksToPixelFormatEnum

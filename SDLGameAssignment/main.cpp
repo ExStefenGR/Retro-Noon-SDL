@@ -52,7 +52,6 @@ int main(int argc, char* argv[])
 	//Initialising text objects
 	score->SetScore(0);
 	timer->SetTime(50);
-
 	while (isGameRunning)
 	{
 		screen.Clear();
@@ -61,7 +60,6 @@ int main(int argc, char* argv[])
 		{
 			isGameRunning = false;
 		}
-
 		if (timer->GetTime() <= 0)
 		{
 			timer->SetText("Time up!");
@@ -114,7 +112,6 @@ int main(int argc, char* argv[])
 		}
 		score->Render(screen);
 		timer->Render(screen);
-
 		screen.Present();
 	}
 	delete score;

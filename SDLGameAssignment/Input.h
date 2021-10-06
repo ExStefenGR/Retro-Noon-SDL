@@ -7,7 +7,6 @@ struct MousePos
 	int x;
 	int y;
 };
-
 class Input
 {
 public:
@@ -22,10 +21,10 @@ public:
 	bool isKeyPressed();
 	bool IsWindowClosed();
 private:
-	char m_keyUp;
-	char m_keyDown;
 	int m_mouseButtonUp;
 	int m_mouseButtonDown;
+	char m_keyUp;
+	char m_keyDown;
 	bool m_isMouseClicked;
 	bool m_isKeyPressed;
 	bool m_isWindowClosed;

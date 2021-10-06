@@ -7,12 +7,10 @@ class Timer : public GameObject
 public:
 	Timer();
 	~Timer();
-
 	void CountDown();
 	void SetText(std::string text);
 	int GetTime();
 	int SetTime(int time);
-
 	virtual void Update(Input& input) {}
 	virtual void Render(Screen& screen);
 private:

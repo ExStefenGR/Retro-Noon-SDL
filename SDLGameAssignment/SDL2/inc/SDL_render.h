@@ -651,7 +651,7 @@ extern DECLSPEC void SDLCALL SDL_UnlockTexture(SDL_Texture * texture);
  * Determine whether a renderer supports the use of render targets.
  *
  * \param renderer the renderer that will be checked
- * \returns SDL_TRUE if supported or SDL_FALSE if not.
+ * \returns SDL_True if supported or SDL_False if not.
  *
  * \since This function is available since SDL 2.0.0.
  *
@@ -768,7 +768,7 @@ extern DECLSPEC int SDLCALL SDL_RenderSetIntegerScale(SDL_Renderer * renderer,
  * Get whether integer scales are forced for resolution-independent rendering.
  *
  * \param renderer the renderer from which integer scaling should be queried
- * \returns SDL_TRUE if integer scales are forced or SDL_FALSE if not and on
+ * \returns SDL_True if integer scales are forced or SDL_False if not and on
  *          failure; call SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.5.
@@ -839,7 +839,7 @@ extern DECLSPEC void SDLCALL SDL_RenderGetClipRect(SDL_Renderer * renderer,
  * Get whether clipping is enabled on the given renderer.
  *
  * \param renderer the renderer from which clip state should be queried
- * \returns SDL_TRUE if clipping is enabled or SDL_FALSE if not; call
+ * \returns SDL_True if clipping is enabled or SDL_False if not; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.4.

@@ -3,15 +3,13 @@
 
 bool Text::Initialise()
 {
-	if (TTF_Init() == -1){return false;}
+	if (TTF_Init() == -1) { return false; }
 	return true;
 }
-
 void Text::ShutDown()
 {
 	TTF_Quit();
 }
-
 Text::Text()
 {
 	m_texture = nullptr;
@@ -20,19 +18,16 @@ Text::Text()
 	m_color = { 255, 255, 255, 255 };
 	m_dimension = { 10, 10 };
 }
-
 void Text::SetText(const std::string text)
 {
 	m_line = text;
 	m_isDirty = true;
 }
-
 void Text::SetColor(const SDL_Color& color)
 {
 	m_color = color;
 	m_isDirty = true;
 }
-
 void Text::SetColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a)
 {
 	m_color.r = r;
@@ -41,20 +36,19 @@ void Text::SetColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a)
 	m_color.a = a;
 	m_isDirty = true;
 }
-
 void Text::SetDimension(int width, int height)
 {
 	m_dimension = { width, height };
 }
-
 bool Text::Load(const std::string& filename, int fontSize)
 {
 	m_font = TTF_OpenFont(filename.c_str(), fontSize);
 	if (!m_font)
-	{return false;}
+	{
+		return false;
+	}
 	return true;
 }
-
 void Text::Render(int xPos, int yPos, Screen& screen)
 {
 	SDL_Rect targetRect;
@@ -62,7 +56,6 @@ void Text::Render(int xPos, int yPos, Screen& screen)
 	targetRect.y = yPos;
 	targetRect.w = m_dimension.x;
 	targetRect.h = m_dimension.y;
-
 	if (m_isDirty)
 	{
 		SDL_DestroyTexture(m_texture);
@@ -73,7 +66,6 @@ void Text::Render(int xPos, int yPos, Screen& screen)
 	}
 	SDL_RenderCopy(screen.getRenderer(), m_texture, nullptr, &targetRect);
 }
-
 void Text::Unload()
 {
 	TTF_CloseFont(m_font);

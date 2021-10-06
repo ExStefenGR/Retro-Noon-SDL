@@ -6,16 +6,15 @@ Input::Input()
 	m_isMouseClicked = false;
 	m_isKeyPressed = false;
 	m_isWindowClosed = false;
+	m_keyDown = {};
+	m_keyUp = {};
 	m_mouseButtonDown = 0;
 	m_mouseButtonUp = 0;
-	m_keyUp = ' ';
-	m_keyDown = ' ';
 }
 
 void Input::Update()
 {
 	SDL_Event events;
-
 	while (SDL_PollEvent(&events))
 	{
 		if (events.type == SDL_QUIT)
@@ -25,13 +24,11 @@ void Input::Update()
 		else if (events.type == SDL_KEYDOWN)
 		{
 			m_isKeyPressed = true;
-			m_keyUp = ' ';
 			m_keyDown = events.key.keysym.sym;
 		}
 		else if (events.type == SDL_KEYUP)
 		{
 			m_isKeyPressed = false;
-			m_keyDown = ' ';
 			m_keyUp = events.key.keysym.sym;
 		}
 		else if (events.type == SDL_MOUSEBUTTONDOWN)

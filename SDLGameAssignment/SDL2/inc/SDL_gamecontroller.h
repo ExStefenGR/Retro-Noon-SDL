@@ -250,8 +250,8 @@ extern DECLSPEC char * SDLCALL SDL_GameControllerMapping(SDL_GameController *gam
  *
  * \param joystick_index the device_index of a device, up to
  *                       SDL_NumJoysticks()
- * \returns SDL_TRUE if the given joystick is supported by the game controller
- *          interface, SDL_FALSE if it isn't or it's an invalid index.
+ * \returns SDL_True if the given joystick is supported by the game controller
+ *          interface, SDL_False if it isn't or it's an invalid index.
  *
  * \since This function is available since SDL 2.0.0.
  *
@@ -447,8 +447,8 @@ extern DECLSPEC const char * SDLCALL SDL_GameControllerGetSerial(SDL_GameControl
  *
  * \param gamecontroller a game controller identifier previously returned by
  *                       SDL_GameControllerOpen()
- * \returns SDL_TRUE if the controller has been opened and is currently
- *          connected, or SDL_FALSE if not.
+ * \returns SDL_True if the controller has been opened and is currently
+ *          connected, or SDL_False if not.
  *
  * \sa SDL_GameControllerClose
  * \sa SDL_GameControllerOpen
@@ -584,7 +584,7 @@ SDL_GameControllerGetBindForAxis(SDL_GameController *gamecontroller,
  *
  * \param gamecontroller a game controller
  * \param axis an axis enum value (an SDL_GameControllerAxis value)
- * \returns SDL_TRUE if the controller has this axis, SDL_FALSE otherwise.
+ * \returns SDL_True if the controller has this axis, SDL_False otherwise.
  */
 extern DECLSPEC SDL_bool SDLCALL
 SDL_GameControllerHasAxis(SDL_GameController *gamecontroller, SDL_GameControllerAxis axis);
@@ -694,7 +694,7 @@ SDL_GameControllerGetBindForButton(SDL_GameController *gamecontroller,
  *
  * \param gamecontroller a game controller
  * \param button a button enum value (an SDL_GameControllerButton value)
- * \returns SDL_TRUE if the controller has this button, SDL_FALSE otherwise.
+ * \returns SDL_True if the controller has this button, SDL_False otherwise.
  */
 extern DECLSPEC SDL_bool SDLCALL SDL_GameControllerHasButton(SDL_GameController *gamecontroller,
                                                              SDL_GameControllerButton button);
@@ -735,7 +735,7 @@ extern DECLSPEC int SDLCALL SDL_GameControllerGetTouchpadFinger(SDL_GameControll
  *
  * \param gamecontroller The controller to query
  * \param type The type of sensor to query
- * \returns SDL_TRUE if the sensor exists, SDL_FALSE otherwise.
+ * \returns SDL_True if the sensor exists, SDL_False otherwise.
  */
 extern DECLSPEC SDL_bool SDLCALL SDL_GameControllerHasSensor(SDL_GameController *gamecontroller, SDL_SensorType type);
 
@@ -754,7 +754,7 @@ extern DECLSPEC int SDLCALL SDL_GameControllerSetSensorEnabled(SDL_GameControlle
  *
  * \param gamecontroller The controller to query
  * \param type The type of sensor to query
- * \returns SDL_TRUE if the sensor is enabled, SDL_FALSE otherwise.
+ * \returns SDL_True if the sensor is enabled, SDL_False otherwise.
  */
 extern DECLSPEC SDL_bool SDLCALL SDL_GameControllerIsSensorEnabled(SDL_GameController *gamecontroller, SDL_SensorType type);
 
@@ -822,7 +822,7 @@ extern DECLSPEC int SDLCALL SDL_GameControllerRumbleTriggers(SDL_GameController 
  * Query whether a game controller has an LED.
  *
  * \param gamecontroller The controller to query
- * \returns SDL_TRUE, or SDL_FALSE if this controller does not have a
+ * \returns SDL_True, or SDL_False if this controller does not have a
  *          modifiable LED
  */
 extern DECLSPEC SDL_bool SDLCALL SDL_GameControllerHasLED(SDL_GameController *gamecontroller);

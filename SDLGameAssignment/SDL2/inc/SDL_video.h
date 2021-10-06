@@ -1002,7 +1002,7 @@ extern DECLSPEC void SDLCALL SDL_GetWindowMaximumSize(SDL_Window * window,
  * You can't change the border state of a fullscreen window.
  *
  * \param window the window of which to change the border state
- * \param bordered SDL_FALSE to remove border, SDL_TRUE to add border
+ * \param bordered SDL_False to remove border, SDL_True to add border
  *
  * \since This function is available since SDL 2.0.0.
  *
@@ -1021,7 +1021,7 @@ extern DECLSPEC void SDLCALL SDL_SetWindowBordered(SDL_Window * window,
  * You can't change the resizable state of a fullscreen window.
  *
  * \param window the window of which to change the resizable state
- * \param resizable SDL_TRUE to allow resizing, SDL_FALSE to disallow
+ * \param resizable SDL_True to allow resizing, SDL_False to disallow
  *
  * \since This function is available since SDL 2.0.5.
  *
@@ -1038,7 +1038,7 @@ extern DECLSPEC void SDLCALL SDL_SetWindowResizable(SDL_Window * window,
  *  the rest.
  *
  *  \param window The window of which to change the always on top state.
- *  \param on_top  SDL_TRUE to set the window always on top, SDL_FALSE to disable.
+ *  \param on_top  SDL_True to set the window always on top, SDL_False to disable.
  *
  *  \sa SDL_SetWindowAlwaysOnTop
  */
@@ -1192,7 +1192,7 @@ extern DECLSPEC int SDLCALL SDL_UpdateWindowSurfaceRects(SDL_Window * window,
  * other window loses its grab in favor of the caller's window.
  *
  * \param window the window for which the input grab mode should be set
- * \param grabbed SDL_TRUE to grab input or SDL_FALSE to release input
+ * \param grabbed SDL_True to grab input or SDL_False to release input
  *
  * \sa SDL_GetGrabbedWindow
  * \sa SDL_GetWindowGrab
@@ -1207,7 +1207,7 @@ extern DECLSPEC void SDLCALL SDL_SetWindowGrab(SDL_Window * window,
  * other window loses its grab in favor of the caller's window.
  *
  * \param window The window for which the keyboard grab mode should be set.
- * \param grabbed This is SDL_TRUE to grab keyboard, and SDL_FALSE to release.
+ * \param grabbed This is SDL_True to grab keyboard, and SDL_False to release.
  *
  * \sa SDL_GetWindowKeyboardGrab
  * \sa SDL_SetWindowMouseGrab
@@ -1232,7 +1232,7 @@ extern DECLSPEC void SDLCALL SDL_SetWindowMouseGrab(SDL_Window * window,
  * Get a window's input grab mode.
  *
  * \param window the window to query
- * \returns SDL_TRUE if input is grabbed, SDL_FALSE otherwise.
+ * \returns SDL_True if input is grabbed, SDL_False otherwise.
  *
  * \sa SDL_SetWindowGrab
  */
@@ -1242,7 +1242,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_GetWindowGrab(SDL_Window * window);
  * Get a window's keyboard grab mode.
  *
  * \param window the window to query
- * \returns SDL_TRUE if keyboard is grabbed, and SDL_FALSE otherwise.
+ * \returns SDL_True if keyboard is grabbed, and SDL_False otherwise.
  *
  * \sa SDL_SetWindowKeyboardGrab
  * \sa SDL_GetWindowGrab
@@ -1253,7 +1253,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_GetWindowKeyboardGrab(SDL_Window * window);
  * Get a window's mouse grab mode.
  *
  * \param window the window to query
- * \returns SDL_TRUE if mouse is grabbed, and SDL_FALSE otherwise.
+ * \returns SDL_True if mouse is grabbed, and SDL_False otherwise.
  *
  * \sa SDL_SetWindowKeyboardGrab
  * \sa SDL_GetWindowGrab
@@ -1552,7 +1552,7 @@ extern DECLSPEC void SDLCALL SDL_DestroyWindow(SDL_Window * window);
  *
  * The default can also be changed using `SDL_HINT_VIDEO_ALLOW_SCREENSAVER`.
  *
- * \returns SDL_TRUE if the screensaver is enabled, SDL_FALSE if it is
+ * \returns SDL_True if the screensaver is enabled, SDL_False if it is
  *          disabled.
  *
  * \since This function is available since SDL 2.0.0.
@@ -1684,7 +1684,7 @@ extern DECLSPEC void SDLCALL SDL_GL_UnloadLibrary(void);
  * every time you need to know.
  *
  * \param extension the name of the extension to check
- * \returns SDL_TRUE if the extension is supported, SDL_FALSE otherwise.
+ * \returns SDL_True if the extension is supported, SDL_False otherwise.
  *
  * \since This function is available since SDL 2.0.0.
  */

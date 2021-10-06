@@ -6,12 +6,10 @@ class Music
 {
 public:
 	enum class PlayLoop { PLAY = 1, PLAY_ENDLESS = -1 };
-
 	static bool Initialize();
 	Music();
 	bool Load(const std::string& filename);
 	void Unload();
-
 	void SetVolume(int volume);
 	void Play(PlayLoop playLoop);
 	void Pause();

@@ -198,7 +198,7 @@ extern DECLSPEC int SDLCALL SDL_WarpMouseGlobal(int x, int y);
  *
  * This function will flush any pending mouse motion.
  *
- * \param enabled SDL_TRUE to enable relative mode, SDL_FALSE to disable.
+ * \param enabled SDL_True to enable relative mode, SDL_False to disable.
  * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
@@ -235,7 +235,7 @@ extern DECLSPEC int SDLCALL SDL_SetRelativeMouseMode(SDL_bool enabled);
  * While capturing is enabled, the current window will have the
  * `SDL_WINDOW_MOUSE_CAPTURE` flag set.
  *
- * \param enabled SDL_TRUE to enable capturing, SDL_FALSE to disable.
+ * \param enabled SDL_True to enable capturing, SDL_False to disable.
  * \returns 0 on success or -1 if not supported; call SDL_GetError() for more
  *          information.
  *
@@ -248,7 +248,7 @@ extern DECLSPEC int SDLCALL SDL_CaptureMouse(SDL_bool enabled);
 /**
  * Query whether relative mouse mode is enabled.
  *
- * \returns SDL_TRUE if relative mode is enabled or SDL_FALSE otherwise.
+ * \returns SDL_True if relative mode is enabled or SDL_False otherwise.
  *
  * \sa SDL_SetRelativeMouseMode
  */
