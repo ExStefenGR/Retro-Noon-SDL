@@ -1,5 +1,9 @@
 #include "Sound.h"
 #include <assert.h>
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 Sound::Sound()
 {
 	m_sound = nullptr;
@@ -8,7 +12,14 @@ Sound::Sound()
 bool Sound::Load(const std::string& filename)
 {
     m_sound = Mix_LoadWAV(filename.c_str());
+<<<<<<< HEAD
 	assert(m_sound != nullptr);
+=======
+
+    //Possible missing sound file
+    assert(m_sound != nullptr); //if false this will break here
+
+>>>>>>> main
     if (!m_sound)
     {
         std::cout << "Error loading audio file " << filename << std::endl;
