@@ -88,7 +88,6 @@ int main(int argc, char* argv[])
 				BoxCollider bulletCollider = bullet.GetCollider();
 				if (bulletCollider.IsColliding(cowBoyCollider))
 				{
-					std::cout << "Collision!" << std::endl;
 					score->AddScore(500);
 					bullet.IsActive(false);
 					bullet.IsVisible(false);

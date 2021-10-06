@@ -1,6 +1,5 @@
 #pragma once
 #include <string>
-#include <iostream>
 #include <SDL_ttf.h>
 #include "Screen.h"
 

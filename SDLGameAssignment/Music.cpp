@@ -1,10 +1,9 @@
 #include "Music.h"
-
+#include <assert.h>
 bool Music::Initialize()
 {
     if (Mix_OpenAudio(44100, AUDIO_S16SYS, 2, 1024) == -1)
     {
-        std::cout << "Error in Audio system" << std::endl;
         return false;
     }
     return true;
@@ -18,10 +17,9 @@ Music::Music()
 bool Music::Load(const std::string& filename)
 {
     m_music = Mix_LoadMUS(filename.c_str());
-
+	assert(m_music != nullptr);
     if (!m_music)
     {
-        std::cout << "Error loading audio file " << filename << std::endl;
         return false;
     }
     return true;

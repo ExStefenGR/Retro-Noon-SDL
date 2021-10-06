@@ -4,7 +4,6 @@ bool Screen::Init()
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
 	{
-		std::cout << "Error, SDL could not initialise" << std::endl;
 		return false;
 	}
 	m_window = SDL_CreateWindow("Game that is fun a bit",
@@ -31,7 +30,6 @@ void Screen::Clear()
 
 void Screen::Exit()
 {
-	std::cout << "Exiting initialised.." << std::endl;
 	SDL_DestroyRenderer(m_renderer);
 	SDL_DestroyWindow(m_window);
 	SDL_Quit();

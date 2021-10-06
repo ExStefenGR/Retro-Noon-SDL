@@ -1,12 +1,9 @@
 #include "Text.h"
+#include <assert.h>
 
 bool Text::Initialise()
 {
-	if (TTF_Init() == -1)
-	{
-		std::cout << "Error initializing font system." << std::endl;
-		return false;
-	}
+	if (TTF_Init() == -1){return false;}
 	return true;
 }
 
@@ -53,12 +50,8 @@ void Text::SetDimension(int width, int height)
 bool Text::Load(const std::string& filename, int fontSize)
 {
 	m_font = TTF_OpenFont(filename.c_str(), fontSize);
-
 	if (!m_font)
-	{
-		std::cout << "Error loading font file." << std::endl;
-		return false;
-	}
+	{return false;}
 	return true;
 }
 
@@ -78,7 +71,6 @@ void Text::Render(int xPos, int yPos, Screen& screen)
 		SDL_FreeSurface(textData);
 		m_isDirty = false;
 	}
-
 	SDL_RenderCopy(screen.getRenderer(), m_texture, nullptr, &targetRect);
 }
 

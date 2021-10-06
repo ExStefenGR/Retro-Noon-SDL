@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Sprite.h"
 #include <SDL_image.h>
 
@@ -60,12 +59,9 @@ bool Sprite::Load(const std::string& filename, Screen& screen)
 
 	if (!rawImageData)
 	{
-		std::cout << "Error loading image file." << std::endl;
 		return false;
 	}
-
 	m_image = SDL_CreateTextureFromSurface(screen.getRenderer(), rawImageData);
-
 	return true;
 }
 
