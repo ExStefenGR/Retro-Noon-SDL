@@ -30,7 +30,7 @@ void Sound::SetVolume(int volume)
         normalizedValue = static_cast<int>(volume / 128);
         volume = normalizedValue;
     }
-    Mix_VolumeChunk(m_sound, volume);
+    Mix_VolumeChunk(m_sound, volume); //Flagging up as access violation reading location: 0x0000000C
 }
 
 void Sound::Play(int loop)
