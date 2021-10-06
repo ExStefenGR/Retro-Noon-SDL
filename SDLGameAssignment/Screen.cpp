@@ -9,8 +9,8 @@ bool Screen::Init()
 	m_window = SDL_CreateWindow("Game that is fun a bit",
 								SDL_WINDOWPOS_CENTERED,	//X or Horizontal
 								SDL_WINDOWPOS_CENTERED, //Y or Vertical position
-								1920,		//Width
-								1080,		//height
+								1280,		//Width
+								720,		//height
 								0	);		//flags (fullscreen,focus,etc)
 	m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED);
 	return true;
