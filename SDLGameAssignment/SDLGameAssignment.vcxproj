@@ -30,7 +30,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Music.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="score.cpp" />
+    <ClCompile Include="Score.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Text.cpp" />
@@ -48,7 +48,7 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="Music.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="score.h" />
+    <ClInclude Include="Score.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="Text.h" />
