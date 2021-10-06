@@ -4,3 +4,15 @@
 Debug/
 
 .vs/
+
+Release/Assets/Animations/
+
+Release/Assets/Fonts/
+
+Release/Assets/Images/
+
+Release/Assets/Music/
+
+Release/Assets/Sounds/
+
+Release/

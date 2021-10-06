@@ -24,27 +24,14 @@ void Input::Update()
 		else if (events.type == SDL_KEYDOWN)
 		{
 			m_isKeyPressed = true;
+			m_keyUp = {};
 			m_keyDown = events.key.keysym.sym;
 		}
 		else if (events.type == SDL_KEYUP)
 		{
 			m_isKeyPressed = false;
+			m_keyDown = {};
 			m_keyUp = events.key.keysym.sym;
-		}
-		else if (events.type == SDL_MOUSEBUTTONDOWN)
-		{
-			m_isMouseClicked = true;
-			m_mouseButtonDown = events.button.button;
-		}
-		else if (events.type == SDL_MOUSEBUTTONUP)
-		{
-			m_isMouseClicked = false;
-			m_mouseButtonUp = events.button.button;
-		}
-		else if (events.type == SDL_MOUSEMOTION)
-		{
-			m_mousePosition.x = events.motion.x;
-			m_mousePosition.y = events.motion.y;
 		}
 	}
 }

@@ -12,7 +12,7 @@ bool Screen::Init()
 								1280,		//Width
 								720,		//height
 								0	);		//flags (fullscreen,focus,etc)
-	m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+	m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED);
 	return true;
 }
 void Screen::Present()
