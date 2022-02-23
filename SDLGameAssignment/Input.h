@@ -1,7 +1,6 @@
 #pragma once
 #include <SDL.h>
 
-
 struct MousePos
 {
 	int x;
