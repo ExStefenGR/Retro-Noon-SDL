@@ -1,12 +1,6 @@
 #include "GameObject.h"
 
-GameObject::GameObject()
-{
-	m_isActive = false;
-	m_isAlive = false;
-	m_isVisible = false;
-	m_angle = 0.0f;
-}
+GameObject::GameObject(){}
 float GameObject::GetAngle() const
 {
 	return m_angle;

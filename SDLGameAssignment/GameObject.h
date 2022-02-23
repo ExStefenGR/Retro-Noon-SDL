@@ -13,30 +13,35 @@ class GameObject
 public:
 	GameObject();
 	
-	float GetAngle() const;
-	const std::string& GetTag() const;
-	const Vector2D& GetSize() const;
-	const Vector2D& GetPosition() const;
-	void SetTag(const std::string& tag);
-	void SetAngle(float angle);
-	void SetPosition(int x, int y);
-	void SetPosition(const Vector2D& position);
-	void SetSize(const Vector2D& size);
-	void SetSize(int width, int height);
-	virtual void Update(Input& input) = 0;
-	virtual void Render(Screen& screen) = 0;
+	bool IsActive() const;
 	bool IsAlive() const;
 	bool IsVisible() const;
-	bool IsActive() const;
+	
+	const std::string& GetTag() const;
+	const Vector2D& GetPosition() const;
+	const Vector2D& GetSize() const;
+	
+	float GetAngle() const;
+	
+	virtual void Render(Screen& screen) = 0;
+	virtual void Update(Input& input) = 0;
+	
+	void IsActive(bool flag);
 	void IsAlive(bool flag);
 	void IsVisible(bool flag);
-	void IsActive(bool flag);
+	
+	void SetPosition(const Vector2D& position);
+	void SetPosition(int x, int y);
+	void SetAngle(float angle);
+	void SetSize(const Vector2D& size);
+	void SetSize(int width, int height);
+	void SetTag(const std::string& tag);
 protected:
-	float m_angle;
-	std::string m_tag;
-	Vector2D m_size;
-	Vector2D m_position;
-	bool m_isAlive;
-	bool m_isActive;
-	bool m_isVisible;
+	bool m_isActive = false;
+	bool m_isAlive = false;
+	bool m_isVisible = false;
+	float m_angle = 0.0f;
+	std::string m_tag = {};
+	Vector2D m_position = {0,0};
+	Vector2D m_size = {0,0};
 };

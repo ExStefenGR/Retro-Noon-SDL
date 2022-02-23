@@ -6,10 +6,6 @@ bool Text::Initialise()
 	if (TTF_Init() == -1) { return false; }
 	return true;
 }
-void Text::ShutDown()
-{
-	TTF_Quit();
-}
 Text::Text(){}
 void Text::SetText(const std::string text)
 {
@@ -44,20 +40,19 @@ bool Text::Load(const std::string& filename, int fontSize)
 }
 void Text::Render(int xPos, int yPos, Screen& screen)
 {
-	SDL_Rect targetRect;
-	targetRect.x = xPos;
-	targetRect.y = yPos;
-	targetRect.w = m_dimension.x;
-	targetRect.h = m_dimension.y;
+	m_targetRect.x = xPos;
+	m_targetRect.y = yPos;
+	m_targetRect.w = m_dimension.x;
+	m_targetRect.h = m_dimension.y;
 	if (m_isDirty)
 	{
 		SDL_DestroyTexture(m_texture);
-		SDL_Surface* textData = TTF_RenderText_Blended(m_font, m_line.c_str(), m_color);
-		m_texture = SDL_CreateTextureFromSurface(screen.getRenderer(), textData);
-		SDL_FreeSurface(textData);
+		m_textData = TTF_RenderText_Blended(m_font, m_line.c_str(), m_color);
+		m_texture = SDL_CreateTextureFromSurface(screen.getRenderer(), m_textData);
+		SDL_FreeSurface(m_textData);
 		m_isDirty = false;
 	}
-	SDL_RenderCopy(screen.getRenderer(), m_texture, nullptr, &targetRect);
+	SDL_RenderCopy(screen.getRenderer(), m_texture, nullptr, &m_targetRect);
 }
 void Text::Unload()
 {
