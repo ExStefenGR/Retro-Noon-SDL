@@ -16,6 +16,7 @@
 #include "Timer.h"
 #include "Music.h"
 #include "Vector2D.h"
+#include <memory>
 
 bool isGameRunning = true;
 
@@ -31,8 +32,8 @@ int main(int argc, char* argv[])
 	Player player(screen);
 	Input input;
 	//Score and Timer
-	Score* score = new Score;
-	Timer* timer = new Timer;
+	std::unique_ptr<Score>score(new Score);
+	std::unique_ptr<Timer>timer(new Timer);
 	//Setting variables for background
 	background.SetPosition(0, 0);
 	background.SetAngle(0.0);
@@ -114,9 +115,6 @@ int main(int argc, char* argv[])
 		timer->Render(screen);
 		screen.Present();
 	}
-	delete score;
-	delete timer;
-	Text::ShutDown();
 	screen.Exit();
 	return 0;
 }

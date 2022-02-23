@@ -14,8 +14,8 @@ public:
 	virtual void Update(Input& input) {}
 	virtual void Render(Screen& screen);
 private:
-	int m_timeGet;
-	int m_timeSet;
-	clock_t m_start;
+	int m_timeGet = 0;
+	int m_timeSet = 0;
+	clock_t m_start = 0;
 	Text m_line;
 };

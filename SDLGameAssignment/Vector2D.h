@@ -13,7 +13,7 @@ public:
 	Vector2D Negate();
 	int Distance(const Vector2D& rhs);
 	int Magnitude();
-	int x;
-	int y;
+	int x = 0;
+	int y = 0;
 };
 

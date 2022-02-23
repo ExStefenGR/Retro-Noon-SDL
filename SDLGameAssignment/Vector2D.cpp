@@ -6,9 +6,7 @@ Vector2D::Vector2D(int x, int y)
 	this->y = y;
 }
 
-Vector2D::~Vector2D()
-{
-}
+Vector2D::~Vector2D(){}
 
 Vector2D Vector2D::Add(const Vector2D& rhs)
 {

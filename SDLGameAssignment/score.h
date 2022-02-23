@@ -16,9 +16,9 @@ public:
 	virtual void Update(Input& input) {}
 	virtual void Render(Screen& screen);
 private:
-	int m_positionX;
-	int m_positionY;
-	int m_score;
-	Text m_line;
+	int m_positionX = 0;
+	int m_positionY = 0;
+	int m_score = 0;
+	Text m_line = {};
 };
 

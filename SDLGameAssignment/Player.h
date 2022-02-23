@@ -26,12 +26,12 @@ public:
 	bool IsBulletShot();
 	void IsBulletShot(bool flag);
 protected:
-	int m_velocity;
-	bool m_isBulletShot;
+	bool m_isBulletShot = false;
 	BoxCollider m_collider;
+	int m_velocity = 0;
 	Screen& m_screen;
-	Sound m_gunshot;
+	Sound m_gunshot = {};
 	Sprite m_image[static_cast<int>(State::Total_States)];   //spritesheet container
-	State m_state;
-	Vector2D m_direction;
+	State m_state = State::Idle;
+	Vector2D m_direction = {0,0};
 };

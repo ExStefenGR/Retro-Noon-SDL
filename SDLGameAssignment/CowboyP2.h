@@ -23,12 +23,12 @@ public:
 	virtual void Update(Input& input);
 	virtual void Render(Screen& screen);
 protected:
-	bool m_isTopReached;
-	bool m_isBotReached;
-	bool m_isBulletShot;
-	int m_velocity;
+	bool m_isTopReached = false;
+	bool m_isBotReached = false;
+	bool m_isBulletShot = false;
+	int m_velocity = 0;
 	Sprite m_image[static_cast<int>(State::Total_States)];     //image container
-	State m_state;
+	State m_state = State::Up;
 	BoxCollider m_collider;
 };
 

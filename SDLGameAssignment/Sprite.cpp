@@ -1,19 +1,7 @@
 #include "Sprite.h"
 #include <SDL_image.h>
 
-Sprite::Sprite()
-{
-	m_imageCel = 0;
-	m_flip = Flip::No_Flip;
-	m_image = nullptr;
-	m_animationVelocity = 0.0f;
-	m_isAnimated = false;
-	m_isAnimationDead = false;
-	m_isAnimationLooping = false;
-	m_celDimension = { 0, 0 };
-	m_imageDimension = { 0, 0 };
-	m_spriteDimension = { 0, 0 };
-}
+Sprite::Sprite(){}
 void Sprite::IsAnimated(bool flag)
 {
 	m_isAnimated = flag;

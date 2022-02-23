@@ -2,9 +2,6 @@
 
 Score::Score()
 {
-	m_positionX = 0;
-	m_positionY = 0;
-	m_score = 0;
 	m_line.Load("Assets/Fonts/p.ttf", 400);
 	m_line.SetColor(49, 211, 243, 255);
 	m_line.SetDimension(150, 100);

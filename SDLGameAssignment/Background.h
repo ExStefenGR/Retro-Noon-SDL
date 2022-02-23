@@ -10,6 +10,6 @@ public:
 	virtual void Update(Input& input);
 	virtual void Render(Screen& screen);
 private:
-	Sprite m_images;
+	Sprite m_images{};
 };
 

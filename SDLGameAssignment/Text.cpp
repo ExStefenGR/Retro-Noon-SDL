@@ -10,14 +10,7 @@ void Text::ShutDown()
 {
 	TTF_Quit();
 }
-Text::Text()
-{
-	m_texture = nullptr;
-	m_font = nullptr;
-	m_isDirty = true;
-	m_color = { 255, 255, 255, 255 };
-	m_dimension = { 10, 10 };
-}
+Text::Text(){}
 void Text::SetText(const std::string text)
 {
 	m_line = text;

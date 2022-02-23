@@ -1,10 +1,7 @@
 #include "Sound.h"
 #include <assert.h>
 
-Sound::Sound()
-{
-	m_sound = nullptr;
-}
+Sound::Sound(){}
 bool Sound::Load(const std::string& filename)
 {
 	m_sound = Mix_LoadWAV(filename.c_str());
@@ -24,9 +21,8 @@ void Sound::SetVolume(int volume)
 {
 	if (volume > 128)
 	{
-		int normalizedValue;
-		normalizedValue = static_cast<int>(volume / 128);
-		volume = normalizedValue;
+		m_normalizedValue = static_cast<int>(volume / 128);
+		volume = m_normalizedValue;
 	}
 	Mix_VolumeChunk(m_sound, volume);
 }

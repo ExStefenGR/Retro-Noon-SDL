@@ -2,11 +2,8 @@
 
 CowboyP2::CowboyP2(Screen& screen)
 {
-	m_state = State::Up;
-	m_isBulletShot = false;
 	m_image[static_cast<int>(State::Up)].Load("Assets/Images/Cboy2UP.png", screen);
 	m_image[static_cast<int>(State::Down)].Load("Assets/Images/Cboy2DOWN.png", screen);
-
 	for (int i = 0; i < static_cast<int>(State::Total_States); i++)
 	{
 		m_image[i].SetImageDimension(3, 1, 384, 128);
@@ -15,9 +12,6 @@ CowboyP2::CowboyP2(Screen& screen)
 		m_image[i].IsAnimated(true);
 		m_image[i].IsAnimationLooping(true);
 	}
-	m_isTopReached = false;
-	m_isBotReached = false;
-	m_velocity = 0;
 	m_collider.SetDimension(128, 128);
 }
 

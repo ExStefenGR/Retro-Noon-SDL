@@ -2,7 +2,7 @@
 
 Bullet::Bullet(Screen& screen)
 {
-	m_speed = 10;
+
 	m_images.Load("Assets/Images/Bullet.png", screen);
 	m_images.SetImageDimension(1, 1, 32, 32);
 	m_images.SetSpriteDimension(32, 32);

@@ -18,10 +18,10 @@ public:
 	void Render(int xPos, int yPos, Screen& screen);
 	void Unload();	
 private:
-	bool m_isDirty;
-	std::string m_line;
-	TTF_Font* m_font;
-	SDL_Color m_color;
-	SDL_Point m_dimension;
-	SDL_Texture* m_texture;
+	SDL_Color m_color {255,255,255,255};
+	SDL_Point m_dimension{10,10};
+	SDL_Texture* m_texture = nullptr;
+	std::string m_line = {};
+	TTF_Font* m_font = nullptr;
+	bool m_isDirty = true;
 };

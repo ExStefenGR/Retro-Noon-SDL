@@ -1,16 +1,6 @@
 #include "Input.h"
 
-Input::Input()
-{
-	m_mousePosition = { 0,0 };
-	m_isMouseClicked = false;
-	m_isKeyPressed = false;
-	m_isWindowClosed = false;
-	m_keyDown = NULL;
-	m_keyUp = NULL;
-	m_mouseButtonDown = 0;
-	m_mouseButtonUp = 0;
-}
+Input::Input(){}
 
 void Input::Update()
 {
@@ -75,4 +65,3 @@ bool Input::IsWindowClosed()
 {
 	return m_isWindowClosed;
 }
-

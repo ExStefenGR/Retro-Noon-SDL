@@ -3,8 +3,6 @@
 
 Player::Player(Screen& screen) : m_screen(screen)
 {
-	m_state = State::Idle;
-	m_isBulletShot = false;
 	m_image[static_cast<int>(State::Idle)].Load("Assets/Images/CboyIDLE.png", screen);
 	m_image[static_cast<int>(State::Up)].Load("Assets/Images/CboyUP.png", screen);
 	m_image[static_cast<int>(State::Down)].Load("Assets/Images/CboyDOWN.png", screen);
@@ -16,8 +14,6 @@ Player::Player(Screen& screen) : m_screen(screen)
 		m_image[i].IsAnimated(true);
 		m_image[i].IsAnimationLooping(true);
 	}
-	m_velocity = 0;
-	m_direction = 0;
 }
 
 Player::~Player()

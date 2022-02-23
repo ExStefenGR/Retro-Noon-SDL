@@ -25,14 +25,14 @@ public:
 	void Update();
 	void Render(int xPos, int yPos, double angle, Screen& screen);
 private:
-	bool m_isAnimated;
-	bool m_isAnimationLooping;
-	bool m_isAnimationDead;
-	Flip m_flip;
-	SDL_Texture* m_image;
-	SDL_Point m_spriteDimension;
-	SDL_Point m_celDimension;
-	SDL_Point m_imageDimension;
-	float m_animationVelocity;
-	int m_imageCel;
+	bool m_isAnimated = false;
+	bool m_isAnimationLooping = false;
+	bool m_isAnimationDead = false;
+	Flip m_flip = Flip::No_Flip;
+	SDL_Texture* m_image = nullptr;
+	SDL_Point m_spriteDimension {0,0};
+	SDL_Point m_celDimension {0,0};
+	SDL_Point m_imageDimension {0,0};
+	float m_animationVelocity = 0.0f;
+	int m_imageCel = 0;
 };
