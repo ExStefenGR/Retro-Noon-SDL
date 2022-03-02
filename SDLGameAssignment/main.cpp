@@ -17,14 +17,20 @@
 #include "Music.h"
 #include "Vector2D.h"
 #include "Game.h"
+#include "PlayState.h"
 #include <memory>
 
-bool isGameRunning = true;
 
 int main(int argc, char* argv[])
 {
-	Game game;
-	game.Initialize();
-	game.Run();	
+	std::unique_ptr<Game> game = std::make_unique<Game>(new PlayState);
+
+	if (game->Initialize())
+	{
+		game->Run();
+		game->Shutdown();
+	}
+
+	system("pause");
 	return 0;
 }

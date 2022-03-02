@@ -25,7 +25,9 @@
     <ClCompile Include="CowboyP2.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GameState.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="PlayState.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
@@ -45,7 +47,9 @@
     <ClInclude Include="CowboyP2.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameState.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="PlayState.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Music.h" />
@@ -68,7 +72,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">

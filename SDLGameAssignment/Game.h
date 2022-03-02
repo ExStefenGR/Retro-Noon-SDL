@@ -10,25 +10,17 @@
 #include "Timer.h"
 #include "Music.h"
 #include "Sound.h"
+#include "Game.h"
+#include "GameState.h"
 class Game
 {
 public:
-	Game();
+	Game(GameState* initialState);
 	~Game();
 	bool Initialize();
 	bool Run();
 	void Shutdown();
 private:
-	bool m_isGameRunning = true;
-	Screen m_screen; //Declaring Screen 	  
-	Input m_input;
-	Music m_music;
-	BoxCollider m_cowBoyCollider = {};
-	BoxCollider m_bulletCollider = {};
 
-	//Cannot initialise from here??
-	//Background background;
-	//Player player;
-	//CowboyP2 cowboy;
-	//Bullet bullet;
+	std::unique_ptr<GameState> m_gameState;
 };
