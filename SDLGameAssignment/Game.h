@@ -20,9 +20,12 @@ public:
 	void Shutdown();
 private:
 	bool m_isGameRunning = true;
-	Screen screen; //Declaring Screen 	  
-	Input input;
-	Music music;
+	Screen m_screen; //Declaring Screen 	  
+	Input m_input;
+	Music m_music;
+	BoxCollider m_cowBoyCollider = {};
+	BoxCollider m_bulletCollider = {};
+
 	//Cannot initialise from here??
 	//Background background;
 	//Player player;

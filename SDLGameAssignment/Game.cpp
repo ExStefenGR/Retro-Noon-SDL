@@ -14,13 +14,11 @@ bool Game::Initialize()
 
 bool Game::Run()
 {
-	screen.Init(); //Initialising screen 
-	Background background(screen);
-	CowboyP2 cowboy(screen);
-	Player player(screen);
-	Bullet bullet(screen);
-	BoxCollider cowBoyCollider = cowboy.GetCollider();
-	BoxCollider bulletCollider = bullet.GetCollider();
+	m_screen.Init(); //Initialising screen 
+	Background background(m_screen);
+	CowboyP2 cowboy(m_screen);
+	Player player(m_screen);
+	Bullet bullet(m_screen);
 	//Setting variables for background 
 	background.SetPosition(0, 0);
 	background.SetAngle(0.0);
@@ -45,13 +43,12 @@ bool Game::Run()
 
 	while (m_isGameRunning)
 	{
-		screen.Clear();
-		input.Update();
-		if (input.IsWindowClosed())
+		m_screen.Clear();
+		m_input.Update();
+		if (m_input.IsWindowClosed())
 		{
 			m_isGameRunning = false;
 		}
-
 		if (timer->GetTime() <= 0)
 		{
 			timer->SetText("Time up!");
@@ -61,8 +58,8 @@ bool Game::Run()
 		{
 			timer->CountDown();
 			//========Updating position and/or Input translation============ 
-			player.Update(input);
-			cowboy.Update(input);
+			player.Update(m_input);
+			cowboy.Update(m_input);
 			if (player.IsBulletShot() && !bullet.IsActive())
 			{
 				bullet.ShootSound();
@@ -72,9 +69,11 @@ bool Game::Run()
 			}
 			if (bullet.IsActive())
 			{
-				bullet.Update(input);
+				m_cowBoyCollider = cowboy.GetCollider();
+				m_bulletCollider = bullet.GetCollider();
+				bullet.Update(m_input);
 				//=====Box Collision Detection========= 
-				if (bulletCollider.IsColliding(cowBoyCollider))
+				if (m_bulletCollider.IsColliding(m_cowBoyCollider))
 				{
 					score->AddScore(500);
 					bullet.IsActive(false);
@@ -93,17 +92,17 @@ bool Game::Run()
 		}
 		//===================================== 
 		//========rendering objects============ 
-		background.Render(screen);
-		player.Render(screen);
-		cowboy.Render(screen);
+		background.Render(m_screen);
+		player.Render(m_screen);
+		cowboy.Render(m_screen);
 		if (bullet.IsVisible())
 		{
-			bullet.Render(screen);
+			bullet.Render(m_screen);
 		}
-		score->Render(screen);
-		timer->Render(screen);
-		screen.Present();
+		score->Render(m_screen);
+		timer->Render(m_screen);
+		m_screen.Present();
 	}
-	screen.Exit();
+	m_screen.Exit();
 	return true;
 }

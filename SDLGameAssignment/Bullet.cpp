@@ -7,7 +7,7 @@ Bullet::Bullet(Screen& screen)
 	m_images.SetSpriteDimension(32, 32);
 	m_collider.SetDimension(32, 32);
 	m_gunshot.Load("Assets/Sounds/gunshot.wav");
-	m_gunshot.SetVolume(7);
+	m_gunshot.SetVolume(10);
 }
 
 Bullet::~Bullet()
