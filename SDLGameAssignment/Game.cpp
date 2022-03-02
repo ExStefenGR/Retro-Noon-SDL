@@ -1,19 +1,26 @@
 #include "Game.h" 
 
-Game::Game()
+Game::Game(){}
+Game::~Game(){}
+
+bool Game::Initialize()
 {
-	m_isGameRunning = true;
 	Screen screen; //Declaring Screen 	 
-	screen.Init(); //Initialising screen 
+	Input input;
 	Text::Initialise(); //Implemented in Menu 
+	Music::Initialize();
+	return true;
+}
+
+bool Game::Run()
+{
+	screen.Init(); //Initialising screen 
 	Background background(screen);
-	Bullet bullet(screen);
 	CowboyP2 cowboy(screen);
 	Player player(screen);
-	Input input;
-	//Score and Timer 
-	Score* score = new Score;
-	Timer* timer = new Timer;
+	Bullet bullet(screen);
+	BoxCollider cowBoyCollider = cowboy.GetCollider();
+	BoxCollider bulletCollider = bullet.GetCollider();
 	//Setting variables for background 
 	background.SetPosition(0, 0);
 	background.SetAngle(0.0);
@@ -31,8 +38,11 @@ Game::Game()
 	bullet.SetSize(32, 32);
 	bullet.SetPosition(player.GetPosition());
 	//Initialising text objects 
+	std::unique_ptr<Score>score(new Score);
+	std::unique_ptr<Timer>timer(new Timer);
 	score->SetScore(0);
 	timer->SetTime(50);
+
 	while (m_isGameRunning)
 	{
 		screen.Clear();
@@ -64,8 +74,6 @@ Game::Game()
 			{
 				bullet.Update(input);
 				//=====Box Collision Detection========= 
-				BoxCollider cowBoyCollider = cowboy.GetCollider();
-				BoxCollider bulletCollider = bullet.GetCollider();
 				if (bulletCollider.IsColliding(cowBoyCollider))
 				{
 					score->AddScore(500);
@@ -96,9 +104,6 @@ Game::Game()
 		timer->Render(screen);
 		screen.Present();
 	}
-	delete score;
-	delete timer;
-	Text::ShutDown();
 	screen.Exit();
+	return true;
 }
-Game::~Game() {}

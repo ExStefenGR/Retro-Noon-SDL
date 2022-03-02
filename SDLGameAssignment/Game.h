@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 #include "Screen.h"
 #include "Text.h"
 #include "Background.h"
@@ -14,6 +15,17 @@ class Game
 public:
 	Game();
 	~Game();
-	bool m_isGameRunning;
+	bool Initialize();
+	bool Run();
+	void Shutdown();
+private:
+	bool m_isGameRunning = true;
+	Screen screen; //Declaring Screen 	  
+	Input input;
+	Music music;
+	//Cannot initialise from here??
+	//Background background;
+	//Player player;
+	//CowboyP2 cowboy;
+	//Bullet bullet;
 };
-
