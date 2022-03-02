@@ -103,6 +103,11 @@ bool Game::Run()
 		timer->Render(m_screen);
 		m_screen.Present();
 	}
-	m_screen.Exit();
+	Shutdown();
 	return true;
+}
+
+void Game::Shutdown()
+{
+	m_screen.Exit();
 }

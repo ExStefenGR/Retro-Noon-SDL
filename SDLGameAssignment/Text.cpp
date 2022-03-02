@@ -7,7 +7,7 @@ bool Text::Initialise()
 	return true;
 }
 Text::Text(){}
-void Text::SetText(const std::string text)
+void Text::SetText(const std::string& text)
 {
 	m_line = text;
 	m_isDirty = true;
@@ -17,7 +17,7 @@ void Text::SetColor(const SDL_Color& color)
 	m_color = color;
 	m_isDirty = true;
 }
-void Text::SetColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a)
+void Text::SetColor(const Uint8 r, const Uint8 g, const Uint8 b, const Uint8 a)
 {
 	m_color.r = r;
 	m_color.g = g;
@@ -25,11 +25,11 @@ void Text::SetColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a)
 	m_color.a = a;
 	m_isDirty = true;
 }
-void Text::SetDimension(int width, int height)
+void Text::SetDimension(const int width, const int height)
 {
 	m_dimension = { width, height };
 }
-bool Text::Load(const std::string& filename, int fontSize)
+bool Text::Load(const std::string& filename, const int fontSize)
 {
 	m_font = TTF_OpenFont(filename.c_str(), fontSize);
 	if (!m_font)
@@ -38,7 +38,7 @@ bool Text::Load(const std::string& filename, int fontSize)
 	}
 	return true;
 }
-void Text::Render(int xPos, int yPos, Screen& screen)
+void Text::Render(const int xPos, const int yPos, Screen& screen)
 {
 	m_targetRect.x = xPos;
 	m_targetRect.y = yPos;

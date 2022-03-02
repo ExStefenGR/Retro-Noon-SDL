@@ -10,12 +10,12 @@ public:
 	static bool Initialise();
 	Text();
 	~Text() {}	
-	void SetText(const std::string text);
+	void SetText(const std::string& text);
 	void SetColor(const SDL_Color& color);
-	void SetColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a);
-	void SetDimension(int width, int height);
-	bool Load(const std::string& filename, int fontSize);
-	void Render(int xPos, int yPos, Screen& screen);
+	void SetColor(const Uint8 r, const Uint8 g, const Uint8 b, const Uint8 a);
+	void SetDimension(const int width,const int height);
+	bool Load(const std::string& filename, const int fontSize);
+	void Render(const int xPos,const int yPos, Screen& screen);
 	void Unload();	
 private:
 	SDL_Rect m_targetRect = { 0,0,0,0 };
