@@ -35,7 +35,6 @@ const BoxCollider& Player::GetCollider() const
 void Player::Update(Input& input)
 {
 	input.Update();
-
 	if (input.getKeyDown() == SDLK_w)
 	{
 		m_direction.y = -1;

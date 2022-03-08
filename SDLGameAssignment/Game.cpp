@@ -23,12 +23,9 @@ bool Game::Run()
 		//clearing the screen
 		m_screen.Clear();
 		//checking delta time
-
 		//updating the current game state
 		GameState* nextState = m_gameState->Update(m_input);
-
 		m_gameState->Render(m_screen);
-
 		//This will only run if a switch is required
 		if (nextState != m_gameState.get())
 		{
@@ -40,7 +37,6 @@ bool Game::Run()
 				m_gameState->OnEnter(m_screen);
 			}
 		}
-
 		//rendering the screen
 		m_screen.Present();
 	}
@@ -48,4 +44,6 @@ bool Game::Run()
 }
 
 void Game::Shutdown()
-{}
+{
+	m_screen.Exit();
+}

@@ -4,14 +4,12 @@
 class PlayState : public GameState
 {
 public:
-
 	~PlayState() override {}
 
 	bool OnEnter(Screen& screen) override;
 	GameState* Update(Input& input) override;
 	bool Render(Screen& screen) override;
 	void OnExit() override;
-
 private:  
 	BoxCollider m_cowBoyCollider = {};
 	BoxCollider m_bulletCollider = {};

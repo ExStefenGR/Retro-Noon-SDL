@@ -41,9 +41,9 @@ GameState* PlayState::Update(Input& input)
 	//check if buttons are clicked on
 	//All main game mechanics are updated here
 		input.Update();
-		if (input.IsWindowClosed())
+		if (input.getKeyDown() == SDLK_ESCAPE)
 		{
-			m_isGameRunning = false;
+			return 0;
 		}
 		if (m_timer->GetTime() <= 0)
 		{
@@ -88,7 +88,6 @@ GameState* PlayState::Update(Input& input)
 		}
 		//===================================== 
 		//========rendering objects============ 
-
 	return this;
 }
 
@@ -106,11 +105,8 @@ bool PlayState::Render(Screen& screen)
 	}
 	m_score->Render(screen);
 	m_timer->Render(screen);
-
 	return true;
 }
 
 void PlayState::OnExit()
-{
-	//unload all music, text, sprites for this state
-}
+{}
