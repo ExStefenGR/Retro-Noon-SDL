@@ -1,4 +1,5 @@
 #include "PlayState.h"
+#include <assert.h>
 
 bool PlayState::OnEnter()
 {
@@ -24,7 +25,11 @@ bool PlayState::OnEnter()
 	m_bullet.SetSize(32, 32);
 	m_bullet.SetPosition(m_player.GetPosition());
 	//Initialising text objects 
+	m_score = std::make_unique<Score>();
+	m_timer = std::make_unique<Timer>();
+
 	m_score->SetScore(0);
+
 	m_timer->SetTime(50);
 	return true;
 }
