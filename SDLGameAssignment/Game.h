@@ -1,6 +1,5 @@
 #pragma once
 #include <memory>
-#include "Screen.h"
 #include "Text.h"
 #include "Background.h"
 #include "Bullet.h"
@@ -21,6 +20,7 @@ public:
 	bool Run();
 	void Shutdown();
 private:
-
+	Screen m_screen; //Declaring Screen 
+	Input m_input;
 	std::unique_ptr<GameState> m_gameState;
 };

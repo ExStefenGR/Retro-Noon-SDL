@@ -1,16 +1,4 @@
 #pragma once
-#include "Background.h"
-#include "Bullet.h"
-#include "CowboyP2.h"
-#include "Input.h"
-#include "Player.h"
-#include "score.h"
-#include "Screen.h"
-#include "Sound.h"
-#include "Text.h"
-#include "Timer.h"
-#include "Music.h"
-#include "Vector2D.h"
 #include "GameState.h"
 #include "Game.h"
 class PlayState : public GameState
@@ -19,21 +7,19 @@ public:
 
 	~PlayState() override {}
 
-	bool OnEnter() override;
-	GameState* Update() override;
-	bool Render() override;
+	bool OnEnter(Screen& screen) override;
+	GameState* Update(Input& input) override;
+	bool Render(Screen& screen) override;
 	void OnExit() override;
 
-private:
-	Screen m_screen; //Declaring Screen 	  
-	Input m_input;
-	Music m_music;
+private:  
 	BoxCollider m_cowBoyCollider = {};
 	BoxCollider m_bulletCollider = {};
-	Background m_background{m_screen};
-	CowboyP2 m_cowboy{m_screen};
-	Player m_player{m_screen};
-	Bullet m_bullet{m_screen};
+	std::unique_ptr<Background>m_background;
+	std::unique_ptr<CowboyP2>m_cowboy;
+	std::unique_ptr<Player>m_player;
+	std::unique_ptr<Bullet>m_bullet;			
+
 	bool m_isGameRunning = true;
 
 	std::unique_ptr<Score>m_score;
