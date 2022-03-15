@@ -18,7 +18,7 @@ Player::Player(Screen& screen) : m_screen(screen)
 
 Player::~Player()
 {
-	m_image[static_cast<int>(State::Idle)].Unload();
+	m_image[static_cast<int>(State::Up,State::Down)].Unload();
 }
 
 Vector2D Player::SetVelocity(int velocity)

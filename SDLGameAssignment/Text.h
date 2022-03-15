@@ -20,7 +20,7 @@ public:
 private:
 	SDL_Rect m_targetRect = { 0,0,0,0 };
 	SDL_Color m_color {255,255,255,255};
-	SDL_Point m_dimension{10,10};
+	SDL_Point m_dimension{100,20};
 	SDL_Texture* m_texture = nullptr;
 	SDL_Surface* m_textData = nullptr;
 	std::string m_line = {};

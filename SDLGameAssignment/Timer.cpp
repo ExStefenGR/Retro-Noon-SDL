@@ -27,6 +27,17 @@ void Timer::SetText(std::string text)
 	m_line.SetText(text);
 }
 
+void Timer::SetDimension(const int width, const int height)
+{
+	m_line.SetDimension(width, height);
+}
+
+void Timer::SetPosition(int x, int y)
+{
+	m_positionX = x;
+	m_positionY = y;
+}
+
 int Timer::GetTime()
 {
 	return m_timeGet;
@@ -41,5 +52,5 @@ int Timer::SetTime(int time)
 
 void Timer::Render(Screen& screen)
 {
-	m_line.Render(500, 10, screen);
+	m_line.Render(m_positionX, m_positionY, screen);
 }

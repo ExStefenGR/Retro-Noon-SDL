@@ -28,7 +28,7 @@ int Bullet::SetVelocity(int speed)
 
 void Bullet::ShootSound()
 {
-	//m_gunshot.Play();
+	m_gunshot.Play();
 }
 
 void Bullet::Update(Input& input)

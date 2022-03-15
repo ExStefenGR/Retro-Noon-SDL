@@ -25,11 +25,26 @@ void Music::Unload()
 }
 void Music::SetVolume(int volume)
 {
-	m_normalizedValue = static_cast<int>(volume / 128);
-	Mix_VolumeMusic(m_normalizedValue);
+	if (volume > 128)
+	{
+		m_normalizedValue = static_cast<int>(volume / 128);
+		m_normalizedValue = volume;
+	}
+	Mix_VolumeMusic(volume);
 }
-void Music::Play(PlayLoop playLoop)
+void Music::Play(int playLoop)
 {
+	assert(m_music != nullptr);
+	if (Mix_PlayingMusic() == 0)
+	{
+		//Play the music
+		Mix_PlayMusic(m_music, -1);
+	}
+	if (Mix_PlayMusic(m_music, -1) == -1) 
+	{
+		printf("Mix_PlayMusic: %s\n", Mix_GetError());
+		// well, there's no music, but most games don't break without music...
+	}
 }
 void Music::Pause()
 {

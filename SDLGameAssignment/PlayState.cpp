@@ -17,6 +17,7 @@ bool PlayState::OnEnter(Screen& screen)
 	m_background->SetPosition(0, 0);
 	m_background->SetAngle(0.0);
 	m_background->SetSize(1280, 720);
+	m_background->PlayMusic();
 	//Setting Variables for Player 
 	m_player->SetPosition(50, 400);
 	m_player->SetAngle(0.0);
@@ -31,7 +32,8 @@ bool PlayState::OnEnter(Screen& screen)
 	m_bullet->SetPosition(m_player->GetPosition());
 	//Initialising text objects 
 	m_score->SetScore(0);
-	m_timer->SetTime(50);
+	m_timer->SetPosition(0, 80);
+	m_timer->SetTime(4);
 	return true;
 }
 
@@ -47,8 +49,12 @@ GameState* PlayState::Update(Input& input)
 		}
 		if (m_timer->GetTime() <= 0)
 		{
-			m_timer->SetText("Time up!");
+			m_timer->SetDimension(500,100);
+			m_timer->SetPosition(360, 100);
+			m_timer->SetText("Time up! Press ESC To Exit");
 			m_score->SetPosition(500, 500);
+			m_player->~Player();
+			m_cowboy->~CowboyP2();
 		}
 		else if (m_timer->GetTime() >= 0)
 		{
@@ -58,7 +64,7 @@ GameState* PlayState::Update(Input& input)
 			m_cowboy->Update(input);
 			if (m_player->IsBulletShot() && !m_bullet->IsActive())
 			{
-				//m_bullet.ShootSound();
+				m_bullet->ShootSound();
 				m_bullet->IsActive(true);
 				m_bullet->IsVisible(true);
 				m_bullet->SetPosition(m_player->GetPosition());

@@ -20,7 +20,7 @@ public:
 	bool Run();
 	void Shutdown();
 private:
-	Screen m_screen; //Declaring Screen 
+	Screen m_screen; //Declaring Screen
 	Input m_input;
 	std::unique_ptr<GameState> m_gameState;
 };
