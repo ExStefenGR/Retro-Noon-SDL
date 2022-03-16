@@ -25,7 +25,6 @@
     <ClCompile Include="CowboyP2.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="GameState.cpp" />
     <ClCompile Include="PlayState.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Input.cpp" />

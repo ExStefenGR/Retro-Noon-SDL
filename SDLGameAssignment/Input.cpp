@@ -36,26 +36,6 @@ char Input::getKeyDown()
 	return m_keyDown;
 }
 
-int Input::getMouseButtonUp()
-{
-	return m_mouseButtonUp;
-}
-
-int Input::getMouseButtonDown()
-{
-	return m_mouseButtonDown;
-}
-
-const MousePos& Input::getMousePosition()
-{
-	return m_mousePosition;
-}
-
-bool Input::isMouseClicked()
-{
-	return m_isMouseClicked;
-}
-
 bool Input::isKeyPressed()
 {
 	return m_isKeyPressed;

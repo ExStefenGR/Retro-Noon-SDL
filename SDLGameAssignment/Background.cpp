@@ -8,7 +8,7 @@ Background::Background(Screen& screen)
 	m_images.IsAnimated(false);
 	m_images.IsAnimationLooping(false);
 	music.Load("Assets/Music/yes.wav");
-	music.SetVolume(5);
+	music.SetVolume(12);
 }
 Background::~Background()
 {
@@ -18,7 +18,6 @@ void Background::PlayMusic()
 {
 	music.Play(1);
 }
-void Background::Update(Input& input) {}
 void Background::Render(Screen& screen)
 {
 	m_images.Render(m_position.x, m_position.y, m_angle, screen);

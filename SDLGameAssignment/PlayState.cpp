@@ -3,9 +3,6 @@
 
 bool PlayState::OnEnter(Screen& screen)
 {
-	//Load assets for player and enemy
-	//Load all music for game
-	//Load images and fonts
 	//Make Unique Pointers
 	m_background = std::make_unique<Background>(screen);
 	m_cowboy = std::make_unique<CowboyP2>(screen);
@@ -33,14 +30,12 @@ bool PlayState::OnEnter(Screen& screen)
 	//Initialising text objects 
 	m_score->SetScore(0);
 	m_timer->SetPosition(0, 80);
-	m_timer->SetTime(4);
+	m_timer->SetTime(40);
 	return true;
 }
 
 GameState* PlayState::Update(Input& input)
 {
-	//Check keypress and mouse clicks
-	//check if buttons are clicked on
 	//All main game mechanics are updated here
 		input.Update();
 		if (input.getKeyDown() == SDLK_ESCAPE)
@@ -53,8 +48,7 @@ GameState* PlayState::Update(Input& input)
 			m_timer->SetPosition(360, 100);
 			m_timer->SetText("Time up! Press ESC To Exit");
 			m_score->SetPosition(500, 500);
-			m_player->~Player();
-			m_cowboy->~CowboyP2();
+			m_background->Stop();
 		}
 		else if (m_timer->GetTime() >= 0)
 		{
@@ -92,16 +86,12 @@ GameState* PlayState::Update(Input& input)
 				m_player->IsBulletShot(false);
 			}
 		}
-		//===================================== 
-		//========rendering objects============ 
 	return this;
 }
 
 bool PlayState::Render(Screen& screen)
 {
 	//Render player
-	//render enemy
-	//render ...
 	m_background->Render(screen);
 	m_player->Render(screen);
 	m_cowboy->Render(screen);

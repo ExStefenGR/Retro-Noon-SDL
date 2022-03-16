@@ -34,7 +34,7 @@ void Music::SetVolume(int volume)
 }
 void Music::Play(int playLoop)
 {
-	assert(m_music != nullptr);
+	assert(m_music != nullptr); //Music is NULL
 	if (Mix_PlayingMusic() == 0)
 	{
 		//Play the music
@@ -62,7 +62,7 @@ void Music::Resume()
 }
 void Music::Stop()
 {
-	if (Mix_PausedMusic())
+	if (Mix_PausedMusic() || Mix_PlayingMusic())
 	{
 		Mix_HaltMusic();
 	}

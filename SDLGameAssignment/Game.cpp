@@ -4,7 +4,6 @@ Game::Game(GameState* initialState)
 {
 	m_gameState.reset(initialState);
 }
-Game::~Game(){}
 
 bool Game::Initialize()
 {
@@ -17,12 +16,10 @@ bool Game::Initialize()
 bool Game::Run()
 {
 	m_gameState->OnEnter(m_screen);
-
 	while (m_gameState)  //will break if m_gameState == nullptr
 	{
 		//clearing the screen
 		m_screen.Clear();
-		//checking delta time
 		//updating the current game state
 		GameState* nextState = m_gameState->Update(m_input);
 		m_gameState->Render(m_screen);

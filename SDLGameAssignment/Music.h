@@ -9,11 +9,11 @@ public:
 	Music();
 	bool Load(const std::string& filename);
 	void Unload();
-	void SetVolume(int volume);
-	void Play(int playLoop);
-	void Pause();
-	void Resume();
-	void Stop();
+	virtual void SetVolume(int volume);
+	virtual void Play(int playLoop);
+	virtual void Pause();
+	virtual void Resume();
+	virtual void Stop();
 private:
 	Mix_Music* m_music = nullptr;
 	int m_normalizedValue = 0;

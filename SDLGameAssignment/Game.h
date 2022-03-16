@@ -15,7 +15,7 @@ class Game
 {
 public:
 	Game(GameState* initialState);
-	~Game();
+	~Game() {};
 	bool Initialize();
 	bool Run();
 	void Shutdown();
