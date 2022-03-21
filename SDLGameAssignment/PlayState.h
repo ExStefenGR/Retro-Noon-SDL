@@ -8,7 +8,7 @@ public:
 	bool OnEnter(Screen& screen) override;
 	GameState* Update(Input& input) override;
 	bool Render(Screen& screen) override;
-	void OnExit() override;
+	void OnExit(Screen& screen) override;
 private:  
 	BoxCollider m_cowBoyCollider = {};
 	BoxCollider m_bulletCollider = {};
@@ -16,10 +16,6 @@ private:
 	std::unique_ptr<CowboyP2>m_cowboy;
 	std::unique_ptr<Player>m_player;
 	std::unique_ptr<Bullet>m_bullet;			
-
-	bool m_isGameRunning = true;
-
 	std::unique_ptr<Score>m_score;
 	std::unique_ptr<Timer>m_timer;
 };
-

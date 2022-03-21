@@ -26,9 +26,8 @@ bool Game::Run()
 		//This will only run if a switch is required
 		if (nextState != m_gameState.get())
 		{
-			m_gameState->OnExit();
+			m_gameState->OnExit(m_screen);
 			m_gameState.reset(nextState);
-
 			if (m_gameState)
 			{
 				m_gameState->OnEnter(m_screen);

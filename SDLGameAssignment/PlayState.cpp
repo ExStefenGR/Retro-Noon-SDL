@@ -11,13 +11,9 @@ bool PlayState::OnEnter(Screen& screen)
 	m_score = std::make_unique<Score>();
 	m_timer = std::make_unique<Timer>();
 	//Load Background
-	m_background->SetPosition(0, 0);
-	m_background->SetAngle(0.0);
-	m_background->SetSize(1280, 720);
 	m_background->PlayMusic();
 	//Setting Variables for Player 
 	m_player->SetPosition(50, 400);
-	m_player->SetAngle(0.0);
 	m_player->SetSize(128, 128);
 	m_player->SetVelocity(2);
 	//Setting variables for cowboy 
@@ -104,5 +100,6 @@ bool PlayState::Render(Screen& screen)
 	return true;
 }
 
-void PlayState::OnExit()
-{}
+void PlayState::OnExit(Screen& screen)
+{
+}

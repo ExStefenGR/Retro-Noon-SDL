@@ -2,7 +2,6 @@
 
 #include "GameObject.h"
 #include "Text.h"
-
 class Score : public GameObject
 {
 public:
@@ -21,4 +20,3 @@ private:
 	int m_score = 0;
 	Text m_line = {};
 };
-
