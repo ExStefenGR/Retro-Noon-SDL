@@ -14,14 +14,14 @@ class CowboyP2 : public GameObject
 		Total_States
 	};
 public:
-	CowboyP2(Screen& screen);
+	CowboyP2();
 	~CowboyP2();
 	const BoxCollider& GetCollider() const;
 	Vector2D SetVelocity(int velocity);
 	bool IsBulletShot();
 	void IsBulletShot(bool flag);
-	virtual void Update(Input& input);
-	virtual void Render(Screen& screen);
+	virtual void Update();
+	virtual void Render();
 protected:
 	bool m_isTopReached = false;
 	bool m_isBotReached = false;
@@ -31,4 +31,3 @@ protected:
 	State m_state = State::Up;
 	BoxCollider m_collider;
 };
-

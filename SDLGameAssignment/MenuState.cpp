@@ -1,26 +1,25 @@
 #include "MenuState.h"
 #include "PlayState.h"
 
-bool MenuState::OnEnter(Screen& screen)
+bool MenuState::OnEnter()
 {
     //Make Unique Pointers
-    m_background = std::make_unique<Background>(screen);
+    m_background = std::make_unique<Background>();
     m_menu = std::make_unique<MenuOptions>();
     return true;
 }
-
-GameState* MenuState::Update(Input& input)
+GameState* MenuState::Update()
 {
     m_menu->SetDimension(500, 100);
     m_menu->SetPosition(360, 100);
-    m_menu->SetText("Testing MenuState 123");
+    m_menu->SetText("WELCOME!!1!11 PRESS ENTER TO FIGHT");
     //Input
-    input.Update();
-    if (input.getKeyDown() == SDLK_ESCAPE)
+    Input::Instance()->Update();
+    if (Input::Instance()->getKeyDown() == SDLK_ESCAPE)
     {
-        return 0;
+		return 0;
     }
-    else if (input.getKeyDown() == SDLK_1)
+    else if (Input::Instance()->getKeyDown() == SDLK_RETURN)
     {
         std::unique_ptr<Game> game = std::make_unique<Game>(new PlayState);
 
@@ -32,19 +31,17 @@ GameState* MenuState::Update(Input& input)
     }
     return this;
 }
-
-bool MenuState::Render(Screen& screen)
+bool MenuState::Render()
 {
-    if (screen.getRenderer() == nullptr)
+    if (Screen::Instance()->getRenderer() == nullptr)
     {
         return false;
     }
-    m_background->Render(screen);
-    m_menu->Render(screen);
+    m_background->Render();
+    m_menu->Render();
     return true;
 }
-
-void MenuState::OnExit(Screen& screen)
+void MenuState::OnExit()
 {
-    screen.Exit();
+    Screen::Instance()->Exit();
 }

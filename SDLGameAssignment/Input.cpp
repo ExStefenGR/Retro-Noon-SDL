@@ -1,7 +1,10 @@
 #include "Input.h"
 
-Input::Input(){}
-
+Input* Input::Instance()
+{
+	static Input* inputObject = new Input();
+	return inputObject;
+}
 void Input::Update()
 {
 	SDL_Event events;
@@ -25,22 +28,18 @@ void Input::Update()
 		}
 	}
 }
-
 char Input::getKeyUp()
 {
 	return m_keyUp;
 }
-
 char Input::getKeyDown()
 {
 	return m_keyDown;
 }
-
 bool Input::isKeyPressed()
 {
 	return m_isKeyPressed;
 }
-
 bool Input::IsWindowClosed()
 {
 	return m_isWindowClosed;

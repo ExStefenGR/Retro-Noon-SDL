@@ -38,7 +38,7 @@ bool Text::Load(const std::string& filename, const int fontSize)
 	}
 	return true;
 }
-void Text::Render(const int xPos, const int yPos, Screen& screen)
+void Text::Render(const int xPos, const int yPos)
 {
 	m_targetRect.x = xPos;
 	m_targetRect.y = yPos;
@@ -48,11 +48,11 @@ void Text::Render(const int xPos, const int yPos, Screen& screen)
 	{
 		SDL_DestroyTexture(m_texture);
 		m_textData = TTF_RenderText_Blended(m_font, m_line.c_str(), m_color);
-		m_texture = SDL_CreateTextureFromSurface(screen.getRenderer(), m_textData);
+		m_texture = SDL_CreateTextureFromSurface(Screen::Instance()->getRenderer(), m_textData);
 		SDL_FreeSurface(m_textData);
 		m_isDirty = false;
 	}
-	SDL_RenderCopy(screen.getRenderer(), m_texture, nullptr, &m_targetRect);
+	SDL_RenderCopy(Screen::Instance()->getRenderer(), m_texture, nullptr, &m_targetRect);
 }
 void Text::Unload()
 {

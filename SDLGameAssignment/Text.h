@@ -15,7 +15,7 @@ public:
 	void SetColor(const Uint8 r, const Uint8 g, const Uint8 b, const Uint8 a);
 	void SetDimension(const int width,const int height);
 	bool Load(const std::string& filename, const int fontSize);
-	void Render(const int xPos,const int yPos, Screen& screen);
+	void Render(const int xPos,const int yPos);
 	void Unload();	
 private:
 	SDL_Rect m_targetRect = { 0,0,0,0 };

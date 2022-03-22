@@ -1,13 +1,13 @@
 #include "PlayState.h"
 #include <assert.h>
 
-bool PlayState::OnEnter(Screen& screen)
+bool PlayState::OnEnter()
 {
 	//Make Unique Pointers
-	m_background = std::make_unique<Background>(screen);
-	m_cowboy = std::make_unique<CowboyP2>(screen);
-	m_player = std::make_unique<Player>(screen);
-	m_bullet = std::make_unique<Bullet>(screen);
+	m_background = std::make_unique<Background>();
+	m_cowboy = std::make_unique<CowboyP2>();
+	m_player = std::make_unique<Player>();
+	m_bullet = std::make_unique<Bullet>();
 	m_score = std::make_unique<Score>();
 	m_timer = std::make_unique<Timer>();
 	//Load Background
@@ -29,12 +29,11 @@ bool PlayState::OnEnter(Screen& screen)
 	m_timer->SetTime(40);
 	return true;
 }
-
-GameState* PlayState::Update(Input& input)
+GameState* PlayState::Update()
 {
 	//All main game mechanics are updated here
-		input.Update();
-		if (input.getKeyDown() == SDLK_ESCAPE)
+		Input::Instance()->Update();
+		if (Input::Instance()->getKeyDown() == SDLK_ESCAPE)
 		{
 			return 0;
 		}
@@ -50,8 +49,8 @@ GameState* PlayState::Update(Input& input)
 		{
 			m_timer->CountDown();
 			//========Updating position and/or Input translation============ 
-			m_player->Update(input);
-			m_cowboy->Update(input);
+			m_player->Update();
+			m_cowboy->Update();
 			if (m_player->IsBulletShot() && !m_bullet->IsActive())
 			{
 				m_bullet->ShootSound();
@@ -63,7 +62,7 @@ GameState* PlayState::Update(Input& input)
 			{
 				m_cowBoyCollider = m_cowboy->GetCollider();
 				m_bulletCollider = m_bullet->GetCollider();
-				m_bullet->Update(input);
+				m_bullet->Update();
 				//=====Box Collision Detection========= 
 				if (m_bulletCollider.IsColliding(m_cowBoyCollider))
 				{
@@ -84,22 +83,21 @@ GameState* PlayState::Update(Input& input)
 		}
 	return this;
 }
-
-bool PlayState::Render(Screen& screen)
+bool PlayState::Render()
 {
 	//Render player
-	m_background->Render(screen);
-	m_player->Render(screen);
-	m_cowboy->Render(screen);
+	m_background->Render();
+	m_player->Render();
+	m_cowboy->Render();
 	if (m_bullet->IsVisible())
 	{
-		m_bullet->Render(screen);
+		m_bullet->Render();
 	}
-	m_score->Render(screen);
-	m_timer->Render(screen);
+	m_score->Render();
+	m_timer->Render();
 	return true;
 }
-
-void PlayState::OnExit(Screen& screen)
+void PlayState::OnExit()
 {
+	Screen::Instance()->Exit();
 }

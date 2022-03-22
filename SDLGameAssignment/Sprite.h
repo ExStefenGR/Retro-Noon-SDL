@@ -20,10 +20,10 @@ public:
 	void SetAnimationVelocity(float velocity);
 	void SetSpriteDimension(int width, int height); //on screen
 	void SetImageDimension(int columns, int rows, int width, int height); //in folder
-	bool Load(const std::string& filename, Screen& screen);
+	bool Load(const std::string& filename);
 	void Unload();
 	void Update();
-	void Render(int xPos, int yPos, double angle, Screen& screen);
+	void Render(int xPos, int yPos, double angle);
 private:
 	bool m_isAnimated = false;
 	bool m_isAnimationLooping = false;

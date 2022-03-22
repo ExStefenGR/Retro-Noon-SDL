@@ -1,21 +1,21 @@
 #pragma once
 #include <SDL.h>
 
-struct MousePos
-{
-	int x;
-	int y;
-};
 class Input
 {
 public:
-	Input();
+	static Input* Instance();
+
 	void Update();
 	char getKeyUp();
 	char getKeyDown();
 	bool isKeyPressed();
 	bool IsWindowClosed();
 private:
+	Input() {};
+	Input(const Input&);
+	Input& operator=(const Input&);
+
 	char m_keyUp = NULL;
 	char m_keyDown = NULL;
 	bool m_isKeyPressed = false;

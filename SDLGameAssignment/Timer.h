@@ -13,8 +13,8 @@ public:
 	void SetPosition(int x, int y);
 	int GetTime();
 	int SetTime(int time);
-	virtual void Update(Input& input) {}
-	virtual void Render(Screen& screen);
+	virtual void Update() {}
+	virtual void Render();
 private:
 	int m_positionX = 0;
 	int m_positionY = 0;

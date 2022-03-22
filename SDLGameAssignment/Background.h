@@ -5,11 +5,11 @@
 class Background : public GameObject
 {
 public:
-	Background(Screen& screen);
+	Background();
 	~Background();
 	void PlayMusic();
-	virtual void Update(Input& input) {};
-	virtual void Render(Screen& screen);
+	virtual void Update() {};
+	virtual void Render();
 	virtual void Stop() {music.Stop();};
 private:
 	Music music{};

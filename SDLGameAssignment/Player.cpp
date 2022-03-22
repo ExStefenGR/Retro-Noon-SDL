@@ -1,11 +1,11 @@
 #include "Player.h"
 
 
-Player::Player(Screen& screen) : m_screen(screen)
+Player::Player()
 {
-	m_image[static_cast<int>(State::Idle)].Load("Assets/Images/CboyIDLE.png", screen);
-	m_image[static_cast<int>(State::Up)].Load("Assets/Images/CboyUP.png", screen);
-	m_image[static_cast<int>(State::Down)].Load("Assets/Images/CboyDOWN.png", screen);
+	m_image[static_cast<int>(State::Idle)].Load("Assets/Images/CboyIDLE.png");
+	m_image[static_cast<int>(State::Up)].Load("Assets/Images/CboyUP.png");
+	m_image[static_cast<int>(State::Down)].Load("Assets/Images/CboyDOWN.png");
 	for (int i = 0; i < static_cast<int>(State::Total_States); i++)
 	{
 		m_image[i].SetImageDimension(3, 1, 384, 128);
@@ -15,33 +15,29 @@ Player::Player(Screen& screen) : m_screen(screen)
 		m_image[i].IsAnimationLooping(true);
 	}
 }
-
 Player::~Player()
 {
 	m_image[static_cast<int>(State::Up,State::Down)].Unload();
 }
-
 Vector2D Player::SetVelocity(int velocity)
 {
 	m_velocity = velocity;
 	return m_velocity;
 }
-
 const BoxCollider& Player::GetCollider() const
 {
 	return m_collider;
 }
-
-void Player::Update(Input& input)
+void Player::Update()
 {
-	input.Update();
-	if (input.getKeyDown() == SDLK_w)
+	Input::Instance()->Update();
+	if (Input::Instance()->getKeyDown() == SDLK_w)
 	{
 		m_direction.y = -1;
 		m_direction.x = 0;
 		m_state = State::Up;
 	}
-	else if (input.getKeyDown() == SDLK_s)
+	else if (Input::Instance()->getKeyDown() == SDLK_s)
 	{
 		m_direction.y = 1;
 		m_direction.x = 0;
@@ -56,7 +52,7 @@ void Player::Update(Input& input)
 	m_direction = m_direction.Scale(m_velocity);
 	m_position = m_position.Add(m_direction);
 	//====================Bullet Update=======================
-	if (input.getKeyDown() == SDLK_d)
+	if (Input::Instance()->getKeyDown() == SDLK_d)
 	{
 		m_isBulletShot = true;
 	}
@@ -72,17 +68,14 @@ void Player::Update(Input& input)
 	m_collider.SetPosition(m_position.x, m_position.y);
 	m_collider.Update();
 }
-
-void Player::Render(Screen& screen)
+void Player::Render()
 {
-	m_image[static_cast<int>(m_state)].Render(m_position.x, m_position.y, m_angle, screen);
+	m_image[static_cast<int>(m_state)].Render(m_position.x, m_position.y, m_angle);
 }
-
 bool Player::IsBulletShot()
 {
 	return m_isBulletShot;
 }
-
 void Player::IsBulletShot(bool flag)
 {
 	m_isBulletShot = flag;

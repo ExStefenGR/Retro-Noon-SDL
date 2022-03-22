@@ -1,8 +1,8 @@
 #include "Background.h"
 
-Background::Background(Screen& screen)
+Background::Background()
 {
-	m_images.Load("Assets/Images/Background.png", screen);
+	m_images.Load("Assets/Images/Background.png");
 	m_images.SetImageDimension(1, 1, 1280, 720);
 	m_images.SetSpriteDimension(1280, 720);
 	m_images.IsAnimated(false);
@@ -18,7 +18,7 @@ void Background::PlayMusic()
 {
 	music.Play(1);
 }
-void Background::Render(Screen& screen)
+void Background::Render()
 {
-	m_images.Render(m_position.x, m_position.y, m_angle, screen);
+	m_images.Render(m_position.x, m_position.y, m_angle);
 }

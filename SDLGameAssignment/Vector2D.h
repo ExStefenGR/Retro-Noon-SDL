@@ -5,7 +5,7 @@ class Vector2D
 {
 public:
 	Vector2D(int x = 0, int y = 0);
-	~Vector2D();
+	~Vector2D(){};
 	Vector2D Add(const Vector2D& rhs);
 	Vector2D Subtract(const Vector2D& rhs);
 	Vector2D Scale(const Vector2D& rhs);
@@ -16,4 +16,3 @@ public:
 	int x = 0;
 	int y = 0;
 };
-

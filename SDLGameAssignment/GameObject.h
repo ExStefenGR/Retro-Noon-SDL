@@ -16,20 +16,17 @@ public:
 	bool IsActive() const;
 	bool IsAlive() const;
 	bool IsVisible() const;
-	
 	const std::string& GetTag() const;
 	const Vector2D& GetPosition() const;
 	const Vector2D& GetSize() const;
-	
 	float GetAngle() const;
-	
+
 	virtual void Render() = 0;
-	virtual void Update(Input& input) = 0;
+	virtual void Update() = 0;
 	
 	void IsActive(bool flag);
 	void IsAlive(bool flag);
 	void IsVisible(bool flag);
-	
 	void SetPosition(const Vector2D& position);
 	void SetPosition(int x, int y);
 	void SetAngle(float angle);
