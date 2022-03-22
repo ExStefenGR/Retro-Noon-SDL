@@ -1,5 +1,11 @@
 #include "Screen.h"
 
+Screen* Screen::Instance()
+{
+	static Screen* screenObject = new Screen();
+	return screenObject;
+}
+
 bool Screen::Init()
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) == -1)

@@ -23,7 +23,7 @@ public:
 	
 	float GetAngle() const;
 	
-	virtual void Render(Screen& screen) = 0;
+	virtual void Render() = 0;
 	virtual void Update(Input& input) = 0;
 	
 	void IsActive(bool flag);
