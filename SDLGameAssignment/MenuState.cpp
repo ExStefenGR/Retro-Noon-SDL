@@ -37,4 +37,6 @@ bool MenuState::Render()
 }
 void MenuState::OnExit()
 {
+    m_background->~Background();
+    m_menu->~MenuOptions();
 }
