@@ -32,10 +32,9 @@ bool PlayState::OnEnter()
 GameState* PlayState::Update()
 {
 	//All main game mechanics are updated here
-		Input::Instance()->Update();
 		if (Input::Instance()->getKeyDown() == SDLK_ESCAPE)
 		{
-			return 0;
+			return nullptr;
 		}
 		if (m_timer->GetTime() <= 0)
 		{

@@ -21,13 +21,7 @@ GameState* MenuState::Update()
     }
     else if (Input::Instance()->getKeyDown() == SDLK_RETURN)
     {
-        std::unique_ptr<Game> game = std::make_unique<Game>(new PlayState);
-
-        if (game->Initialize())
-        {
-            game->Run();
-            game->Shutdown();
-        }
+        return new PlayState;  
     }
     return this;
 }
@@ -43,5 +37,4 @@ bool MenuState::Render()
 }
 void MenuState::OnExit()
 {
-    Screen::Instance()->Exit();
 }

@@ -20,4 +20,5 @@ private:
 	char m_keyDown = NULL;
 	bool m_isKeyPressed = false;
 	bool m_isWindowClosed = false;
+	const Uint8* keyboard_state_array = SDL_GetKeyboardState(NULL);
 };

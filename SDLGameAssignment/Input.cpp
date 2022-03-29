@@ -10,27 +10,46 @@ void Input::Update()
 	SDL_Event events;
 	while (SDL_PollEvent(&events))
 	{
-		if (events.type == SDL_QUIT)
+		if (events.type == SDL_KEYDOWN)
 		{
-			m_isWindowClosed = true;
-		}
-		else if (events.type == SDL_KEYDOWN)
-		{
-			m_isKeyPressed = true;
-			m_keyUp = NULL;
-			m_keyDown = events.key.keysym.sym;
+		  if (keyboard_state_array[SDL_SCANCODE_ESCAPE])
+			{
+				m_isKeyPressed = true;
+				m_isWindowClosed = true;
+				m_keyDown = events.key.keysym.sym;
+			}
+		  if (keyboard_state_array[SDL_SCANCODE_RETURN])
+		  {
+			  m_isKeyPressed = true;
+			  m_keyDown = events.key.keysym.sym;
+		  }
+		  if (keyboard_state_array[SDL_SCANCODE_W])
+		  {
+			  m_isKeyPressed = true;
+			  m_keyDown = events.key.keysym.sym;
+		  }
+		  if (keyboard_state_array[SDL_SCANCODE_D])
+		  {
+			  m_isKeyPressed = true;
+			  m_keyDown = events.key.keysym.sym;
+		  }
+		  if (keyboard_state_array[SDL_SCANCODE_A])
+		  {
+			  m_isKeyPressed = true;
+			  m_keyDown = events.key.keysym.sym;
+		  }
+		  if (keyboard_state_array[SDL_SCANCODE_S])
+		  {
+			  m_isKeyPressed = true;
+			  m_keyDown = events.key.keysym.sym;
+		  }
 		}
 		else if (events.type == SDL_KEYUP)
 		{
 			m_isKeyPressed = false;
 			m_keyDown = NULL;
-			m_keyUp = events.key.keysym.sym;
 		}
 	}
-}
-char Input::getKeyUp()
-{
-	return m_keyUp;
 }
 char Input::getKeyDown()
 {
