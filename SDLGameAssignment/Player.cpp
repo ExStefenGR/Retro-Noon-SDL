@@ -56,13 +56,13 @@ void Player::Update()
 	{
 		m_isBulletShot = true;
 	}
-	if (m_position.y < 226)
+	if (m_position.y < 420)
 	{
-		m_position.y = 226;
+		m_position.y = 420;
 	}
-	else if (m_position.y >= 720 - 128)
+	else if (m_position.y >= 952)
 	{
-		m_position.y = 720 - 128;
+		m_position.y = 952;
 	}
 	m_image[static_cast<int>(m_state)].Update();
 	m_collider.SetPosition(m_position.x, m_position.y);
