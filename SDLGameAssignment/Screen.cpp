@@ -11,12 +11,12 @@ bool Screen::Init()
 	{
 		return false;
 	}
-	m_window = SDL_CreateWindow("SDL Shooter Game",
+	m_window = SDL_CreateWindow("SDL Retro-Noon",
 								SDL_WINDOWPOS_CENTERED,	//X or Horizontal
 								SDL_WINDOWPOS_CENTERED, //Y or Vertical position
-								1280,		//Width
-								720,		//height
-								SDL_WINDOW_VULKAN);		//flags (fullscreen,focus,etc)
+								1920,		//Width
+								1080,		//height
+								SDL_WINDOW_VULKAN + SDL_WINDOW_MAXIMIZED);		//flags (fullscreen,focus,etc)
 	m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED);
 	return true;
 }
