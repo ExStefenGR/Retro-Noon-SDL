@@ -48,9 +48,8 @@ void Player::Update()
 		m_direction.x = 0;
 		m_direction.y = 0;
 		m_state = State::Idle;
-	}
-	m_direction = m_direction.Scale(m_velocity);
-	m_position = m_position.Add(m_direction);
+		m_direction = m_direction.Scale(m_velocity);
+		m_position = m_position.Add(m_direction);
 	//====================Bullet Update=======================
 	if (Input::Instance()->getKeyDown() == SDLK_d)
 	{
@@ -65,7 +64,6 @@ void Player::Update()
 		m_position.y = 952;
 	}
 	m_image[static_cast<int>(m_state)].Update();
-	m_collider.SetPosition(m_position.x, m_position.y);
 	m_collider.Update();
 }
 void Player::Render()
