@@ -13,11 +13,11 @@ bool PlayState::OnEnter()
 	//Load Background
 	m_background->PlayMusic();
 	//Setting Variables for Player 
-	m_player->SetPosition(50, 400);
+	m_player->SetPosition(50, 800);
 	m_player->SetSize(128, 128);
 	m_player->SetVelocity(2);
 	//Setting variables for cowboy 
-	m_cowboy->SetPosition(1150, 400);
+	m_cowboy->SetPosition(1690, 400);
 	m_cowboy->SetSize(128, 128);
 	m_cowboy->SetVelocity(1);
 	//Setting variables for Player's bullet
@@ -26,7 +26,7 @@ bool PlayState::OnEnter()
 	//Initialising text objects 
 	m_score->SetScore(0);
 	m_timer->SetPosition(0, 80);
-	m_timer->SetTime(5);
+	m_timer->SetTime(10);
 	return true;
 }
 GameState* PlayState::Update()
@@ -39,9 +39,9 @@ GameState* PlayState::Update()
 		if (m_timer->GetTime() <= 0)
 		{
 			m_timer->SetDimension(500,100);
-			m_timer->SetPosition(360, 100);
+			m_timer->SetPosition(650, 250);
 			m_timer->SetText("Time up! Press ESC To Exit");
-			m_score->SetPosition(500, 500);
+			m_score->SetPosition(800, 500);
 		}
 		else if (m_timer->GetTime() >= 0)
 		{
@@ -71,7 +71,7 @@ GameState* PlayState::Update()
 					m_player->IsBulletShot(false);
 				}
 			}
-			if (m_bullet->GetPosition().x > 1280)
+			if (m_bullet->GetPosition().x > 1920)
 			{
 				m_bullet->IsActive(false);
 				m_bullet->IsVisible(false);
