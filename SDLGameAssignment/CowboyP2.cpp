@@ -37,8 +37,6 @@ void CowboyP2::IsBulletShot(bool flag)
 }
 void CowboyP2::Update()
 {
-	Input::Instance()->Update();
-
 	if (Input::Instance()->getKeyDown() == SDLK_a)
 	{
 		m_isBulletShot = true;
