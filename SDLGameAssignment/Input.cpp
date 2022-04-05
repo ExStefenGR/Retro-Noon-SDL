@@ -14,32 +14,38 @@ void Input::Update()
 		{
 		  if (keyboard_state_array[SDL_SCANCODE_ESCAPE])
 			{
+				m_keyUp = false;
 				m_isKeyPressed = true;
 				m_isWindowClosed = true;
 				m_keyDown = events.key.keysym.sym;
 			}
 		  if (keyboard_state_array[SDL_SCANCODE_RETURN])
 		  {
+			  m_keyUp = false;
 			  m_isKeyPressed = true;
 			  m_keyDown = events.key.keysym.sym;
 		  }
 		  if (keyboard_state_array[SDL_SCANCODE_W])
 		  {
+			  m_keyUp = false;
 			  m_isKeyPressed = true;
 			  m_keyDown = events.key.keysym.sym;
 		  }
 		  if (keyboard_state_array[SDL_SCANCODE_D])
 		  {
+			  m_keyUp = false;
 			  m_isKeyPressed = true;
 			  m_keyDown = events.key.keysym.sym;
 		  }
 		  if (keyboard_state_array[SDL_SCANCODE_A])
 		  {
+			  m_keyUp = false;
 			  m_isKeyPressed = true;
 			  m_keyDown = events.key.keysym.sym;
 		  }
 		  if (keyboard_state_array[SDL_SCANCODE_S])
 		  {
+			  m_keyUp = false;
 			  m_isKeyPressed = true;
 			  m_keyDown = events.key.keysym.sym;
 		  }
@@ -48,8 +54,13 @@ void Input::Update()
 		{
 			m_isKeyPressed = false;
 			m_keyDown = NULL;
+			m_keyUp = true;
 		}
 	}
+}
+char Input::getKeyUp()
+{
+	return m_keyUp;
 }
 char Input::getKeyDown()
 {
