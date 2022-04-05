@@ -30,7 +30,6 @@ const BoxCollider& Player::GetCollider() const
 }
 void Player::Update()
 {
-	Input::Instance()->Update();
 	if (Input::Instance()->getKeyDown() == SDLK_w)
 	{
 		m_direction.y = -1;
@@ -50,6 +49,7 @@ void Player::Update()
 		m_state = State::Idle;
 		m_direction = m_direction.Scale(m_velocity);
 		m_position = m_position.Add(m_direction);
+	}
 	//====================Bullet Update=======================
 	if (Input::Instance()->getKeyDown() == SDLK_d)
 	{
@@ -63,6 +63,8 @@ void Player::Update()
 	{
 		m_position.y = 952;
 	}
+	m_direction = m_direction.Scale(m_velocity);
+	m_position = m_position.Add(m_direction);
 	m_image[static_cast<int>(m_state)].Update();
 	m_collider.Update();
 }

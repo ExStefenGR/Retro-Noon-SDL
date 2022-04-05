@@ -15,11 +15,11 @@ bool PlayState::OnEnter()
 	//Setting Variables for Player 
 	m_player->SetPosition(50, 800);
 	m_player->SetSize(128, 128);
-	m_player->SetVelocity(2);
+	m_player->SetVelocity(3);
 	//Setting variables for cowboy 
 	m_cowboy->SetPosition(1690, 400);
 	m_cowboy->SetSize(128, 128);
-	m_cowboy->SetVelocity(1);
+	m_cowboy->SetVelocity(2);
 	//Setting variables for Player's bullet
 	m_bullet->SetSize(32, 32);
 	m_bullet->SetPosition(m_player->GetPosition());
