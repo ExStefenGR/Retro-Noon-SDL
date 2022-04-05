@@ -26,7 +26,7 @@ bool PlayState::OnEnter()
 	//Initialising text objects 
 	m_score->SetScore(0);
 	m_timer->SetPosition(0, 80);
-	m_timer->SetTime(40);
+	m_timer->SetTime(5);
 	return true;
 }
 GameState* PlayState::Update()
@@ -42,7 +42,6 @@ GameState* PlayState::Update()
 			m_timer->SetPosition(360, 100);
 			m_timer->SetText("Time up! Press ESC To Exit");
 			m_score->SetPosition(500, 500);
-			m_background->Stop();
 		}
 		else if (m_timer->GetTime() >= 0)
 		{
@@ -84,7 +83,6 @@ GameState* PlayState::Update()
 }
 bool PlayState::Render()
 {
-	//Render player
 	m_background->Render();
 	m_player->Render();
 	m_cowboy->Render();

@@ -18,6 +18,7 @@ bool Game::Run()
 	{
 		//clearing the screen
 		Screen::Instance()->Clear();
+		Input::Instance()->Update();
 		//updating the current game state
 		GameState* nextState = m_gameState->Update();
 		m_gameState->Render();

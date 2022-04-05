@@ -13,8 +13,6 @@ GameState* MenuState::Update()
     m_menu->SetDimension(500, 100);
     m_menu->SetPosition(360, 100);
     m_menu->SetText("WELCOME!!1!11 PRESS ENTER TO FIGHT");
-    //Input
-    Input::Instance()->Update();
     if (Input::Instance()->getKeyDown() == SDLK_ESCAPE)
     {
 		return 0;
