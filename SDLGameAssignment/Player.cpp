@@ -30,13 +30,13 @@ const BoxCollider& Player::GetCollider() const
 }
 void Player::Update()
 {
-	if (Input::Instance()->getKeyDown() == SDLK_w)
+	if (Input::Instance()->GetKey() == SDLK_w)
 	{
 		m_direction.y = -1;
 		m_direction.x = 0;
 		m_state = State::Up;
 	}
-	else if (Input::Instance()->getKeyDown() == SDLK_s)
+	else if (Input::Instance()->GetKey() == SDLK_s)
 	{
 		m_direction.y = 1;
 		m_direction.x = 0;
@@ -51,7 +51,7 @@ void Player::Update()
 		m_position = m_position.Add(m_direction);
 	}
 	//====================Bullet Update=======================
-	if (Input::Instance()->getKeyDown() == SDLK_d)
+	if (Input::Instance()->GetKey() == SDLK_d)
 	{
 		m_isBulletShot = true;
 	}

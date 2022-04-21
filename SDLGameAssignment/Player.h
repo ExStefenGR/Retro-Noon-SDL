@@ -31,6 +31,6 @@ protected:
 	Vector2D m_direction = {0,0};
 	bool m_isBulletShot = false;
 	BoxCollider m_collider;
-	int m_velocity = 0;
+	float m_velocity = 0;
 	Sound m_gunshot = {};
 };
