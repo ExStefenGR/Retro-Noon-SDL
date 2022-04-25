@@ -12,12 +12,12 @@ GameState* MenuState::Update()
 {
     m_menu->SetDimension(500, 100);
     m_menu->SetPosition(360, 100);
-    m_menu->SetText("WELCOME!!1!11 PRESS ENTER TO FIGHT");
-    if (Input::Instance()->GetKey() == SDLK_ESCAPE)
+    m_menu->SetText("WELCOME!! PRESS ENTER TO FIGHT");
+    if (Input::Instance()->IsKeyPressed(HM_KEY_ESCAPE))
     {
 		return 0;
     }
-    else if (Input::Instance()->GetKey() == SDLK_RETURN)
+    else if (Input::Instance()->IsKeyPressed(HM_KEY_RETURN))
     {
         return new PlayState;  
     }
