@@ -72,23 +72,19 @@ bool Input::IsMouseClicked(int mouseButton_1, int mouseButton_2) const
 void Input::Update()
 {
 	SDL_Event events;
-
 	m_mouseWheel = 0;
 	m_mouseMotion.x = 0;
 	m_mouseMotion.y = 0;
 	m_isWindowClosed = false;
-
 	while (SDL_PollEvent(&events))
 	{
 		switch (events.type)
 		{
-
 		case SDL_QUIT:
 		{
 			m_isWindowClosed = true;
 			break;
 		}
-
 		case SDL_KEYUP:
 		{
 			m_isKeyPressed = false;
@@ -96,7 +92,6 @@ void Input::Update()
 			m_modifier = events.key.keysym.mod;
 			break;
 		}
-
 		case SDL_KEYDOWN:
 		{
 			m_isKeyPressed = true;
@@ -104,7 +99,6 @@ void Input::Update()
 			m_modifier |= events.key.keysym.mod;
 			break;
 		}
-
 		case SDL_MOUSEMOTION:
 		{
 			m_mousePosition.x = events.motion.x;
@@ -114,13 +108,11 @@ void Input::Update()
 			m_mouseMotion.y = events.motion.yrel;
 			break;
 		}
-
 		case SDL_MOUSEWHEEL:
 		{
 			m_mouseWheel = events.wheel.y;
 			break;
 		}
-
 		case SDL_MOUSEBUTTONUP:
 		{
 			m_isMouseClicked = false;
@@ -134,26 +126,21 @@ void Input::Update()
 			case SDL_BUTTON_MIDDLE: { m_mouseButton ^= HM_MOUSE_MIDDLE; break; }
 			case SDL_BUTTON_RIGHT: { m_mouseButton ^= HM_MOUSE_RIGHT; break;  }
 			}
-
 			break;
 		}
-
 		case SDL_MOUSEBUTTONDOWN:
 		{
 			m_isMouseClicked = true;
 			m_mousePosition.x = events.motion.x;
 			m_mousePosition.y = events.motion.y;
-
 			switch (events.button.button)
 			{
 			case SDL_BUTTON_LEFT: { m_mouseButton |= HM_MOUSE_LEFT; break;   }
 			case SDL_BUTTON_MIDDLE: { m_mouseButton |= HM_MOUSE_MIDDLE; break; }
 			case SDL_BUTTON_RIGHT: { m_mouseButton |= HM_MOUSE_RIGHT; break;  }
 			}
-
 			break;
 		}
-
 		}
 	}
 }
