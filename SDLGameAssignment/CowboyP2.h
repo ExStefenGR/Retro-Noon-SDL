@@ -22,7 +22,8 @@ public:
 	void IsBulletShot(bool flag);
 	virtual void Update();
 	virtual void Render();
-protected:
+
+private:
 	bool m_isTopReached = false;
 	bool m_isBotReached = false;
 	bool m_isBulletShot = false;

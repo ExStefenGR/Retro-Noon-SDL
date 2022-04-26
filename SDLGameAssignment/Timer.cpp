@@ -12,7 +12,7 @@ Timer::~Timer()
 }
 void Timer::CountDown()
 {
-	m_start = clock();
+	auto m_start = clock();
 	auto secondsNeeded = (m_timeSet * CLOCKS_PER_SEC);	
 	auto timeText = secondsNeeded - m_start;
 	auto result = static_cast<int>((timeText) / 1000);

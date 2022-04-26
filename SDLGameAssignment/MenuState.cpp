@@ -34,6 +34,4 @@ bool MenuState::Render()
     return true;
 }
 void MenuState::OnExit()
-{
-    
-}
+{}

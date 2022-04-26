@@ -24,6 +24,7 @@ bool PlayState::OnEnter()
 GameState* PlayState::Update()
 {
 	//All main game mechanics are updated here
+		m_timer->CountDown();
 		if (Input::Instance()->GetKey() == SDLK_ESCAPE)
 		{
 			return nullptr;
@@ -34,10 +35,10 @@ GameState* PlayState::Update()
 			m_timer->SetPosition(650, 250);
 			m_timer->SetText("Time up! Press ESC To Exit");
 			m_score->SetPosition(800, 500);
+			return new EndState;
 		}
 		else if (m_timer->GetTime() >= 0)
 		{
-			m_timer->CountDown();
 			//========Updating position and/or Input translation============ 
 			m_player->Update();
 			m_cowboy->Update();
@@ -59,5 +60,4 @@ bool PlayState::Render()
 }
 void PlayState::OnExit()
 {
-	Screen::Instance()->Exit();
 }
