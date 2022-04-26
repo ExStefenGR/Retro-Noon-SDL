@@ -1,5 +1,6 @@
 #include "Player.h"
-
+#include <assert.h>
+#include <algorithm>
 
 Player::Player()
 {
@@ -19,10 +20,11 @@ Player::~Player()
 {
 	m_image[static_cast<int>(State::Up,State::Down)].Unload();
 }
-Vector2D Player::SetVelocity(int velocity)
+void Player::SetVelocity(float velocity)
 {
+	//assert(velocity > 0);
+	velocity = std::clamp(velocity, 0.0f, 100.0f);
 	m_velocity = velocity;
-	return m_velocity;
 }
 const BoxCollider& Player::GetCollider() const
 {

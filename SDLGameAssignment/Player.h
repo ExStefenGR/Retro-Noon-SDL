@@ -6,6 +6,7 @@
 #include "Input.h"
 #include "BoxCollider.h"
 #include "Bullet.h"
+#include "CowboyP2.h"
 
 class Player : public GameObject
 {
@@ -17,20 +18,31 @@ public:
 		Down,
 		Total_States
 	};
+
 	Player();
 	~Player();
-	Vector2D SetVelocity(int velocity);
+
+	void SetVelocity(float velocity);
 	const BoxCollider& GetCollider() const;
 	virtual void Update();
 	virtual void Render();
 	bool IsBulletShot();
 	void IsBulletShot(bool flag);
-protected:
+
+	bool IsColliding(const CowboyP2& cowboy)
+	{
+		//check for collision with player/enemy collider
+		//if they collide update score
+		//reduce cowboy health
+	}
+
+private:
+
 	State m_state = State::Idle;
 	Sprite m_image[static_cast<int>(State::Total_States)];   //spritesheet container
-	Vector2D m_direction = {0,0};
-	bool m_isBulletShot = false;
+	Vector2D m_direction {0,0};
+	bool m_isBulletShot{ false };
 	BoxCollider m_collider;
-	float m_velocity = 0;
-	Sound m_gunshot = {};
+	float m_velocity{ 0.0f };
+	Sound m_gunshot;
 };

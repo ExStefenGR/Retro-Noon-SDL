@@ -2,7 +2,7 @@
 
 Score::Score()
 {
-	m_line.Load("Assets/Fonts/p.ttf", 400);
+	m_line.Load("Assets/Fonts/Pixeled.ttf", 400);
 	m_line.SetColor(49, 211, 243, 255);
 	m_line.SetDimension(150, 100);
 }

@@ -6,13 +6,13 @@ bool MenuState::OnEnter()
     //Make Unique Pointers
     m_background = std::make_unique<Background>();
     m_menu = std::make_unique<MenuOptions>();
+    m_menu->SetDimension(500, 100);
+    m_menu->SetPosition(360, 100);
+    m_menu->SetText("WELCOME!! PRESS ENTER TO FIGHT");
     return true;
 }
 GameState* MenuState::Update()
 {
-    m_menu->SetDimension(500, 100);
-    m_menu->SetPosition(360, 100);
-    m_menu->SetText("WELCOME!! PRESS ENTER TO FIGHT");
     if (Input::Instance()->IsKeyPressed(HM_KEY_ESCAPE))
     {
 		return 0;
@@ -35,6 +35,5 @@ bool MenuState::Render()
 }
 void MenuState::OnExit()
 {
-    m_background->~Background();
-    m_menu->~MenuOptions();
+    
 }

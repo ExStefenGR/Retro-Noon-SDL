@@ -30,7 +30,7 @@ void Bullet::ShootSound()
 void Bullet::Update()
 {	
 	m_direction = Vector2D(1, 0);
-	m_direction = m_direction.Scale(m_speed);
+	m_direction = m_direction.Scale(static_cast<float>(m_speed));
 	m_position = m_position.Add(m_direction);
 	m_collider.SetPosition(m_position.x, m_position.y);
 	m_collider.Update();

@@ -149,7 +149,7 @@ template <class T> Vector<T> Vector<T>::Lerp(const Vector<T>& second, float delt
 template<class T> Vector<T> Vector<T>::Slerp(const Vector<T>& second, float delta) const
 {
 	float dot = Dot(second);
-	dot = max(min(dot, 1), -1);
+	dot = std::max(std::min(dot, 1), -1);
 	float angle = acosf(dot) * delta;
 	Vector<T> relative = (second - *this * dot).Normalize();
 	return (*this * cosf(angle)) + (relative * sinf(angle));

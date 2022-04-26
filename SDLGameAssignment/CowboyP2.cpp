@@ -37,7 +37,7 @@ void CowboyP2::IsBulletShot(bool flag)
 }
 void CowboyP2::Update()
 {
-	if (Input::Instance()->IsKeyPressed() == SDLK_a)
+	if (Input::Instance()->IsKeyPressed(HM_KEY_A)) 
 	{
 		m_isBulletShot = true;
 	}
