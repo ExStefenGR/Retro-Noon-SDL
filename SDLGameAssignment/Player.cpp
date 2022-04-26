@@ -15,15 +15,18 @@ Player::Player()
 		m_image[i].IsAnimated(true);
 		m_image[i].IsAnimationLooping(true);
 	}
+	m_bullet = std::make_unique<Bullet>();
+	m_cowboy = std::make_unique<CowboyP2>();
+	m_bullet->SetSize(32, 32);
 }
 Player::~Player()
 {
 	m_image[static_cast<int>(State::Up,State::Down)].Unload();
 }
-void Player::SetVelocity(float velocity)
+void Player::SetVelocity(int velocity)
 {
 	//assert(velocity > 0);
-	velocity = std::clamp(velocity, 0.0f, 100.0f);
+	velocity = std::clamp(velocity, 0, 100);
 	m_velocity = velocity;
 }
 const BoxCollider& Player::GetCollider() const
@@ -63,13 +66,38 @@ void Player::Update()
 	{
 		m_position.y = 952;
 	}
-	m_direction = m_direction.Scale(m_velocity);
-	m_position = m_position.Add(m_direction);
+	if (IsBulletShot() && !m_bullet->IsActive())
+	{
+		m_bullet->ShootSound();
+		m_bullet->IsActive(true);
+		m_bullet->IsVisible(true);
+		m_bullet->SetPosition(GetPosition());
+	}
+	if (m_bullet->GetPosition().x > 1920)
+	{
+		m_bullet->IsActive(false);
+		m_bullet->IsVisible(false);
+		m_bullet->SetPosition(GetPosition());
+		IsBulletShot(false);
+	}
+	else if (!m_isBulletShot && !m_bullet->IsActive())
+	{
+		m_bullet->SetPosition(GetPosition());
+	}
+	m_direction = m_direction*(m_velocity);
+	m_position = m_position+(m_direction);
 	m_image[static_cast<int>(m_state)].Update();
 	m_collider.Update();
+	m_bullet->Update();
+	m_cowboy->Update();
 }
 void Player::Render()
 {
+	if (m_isBulletShot)
+	{
+		m_bullet->Render();
+	}
+	m_cowboy->Render();
 	m_image[static_cast<int>(m_state)].Render(m_position.x, m_position.y, m_angle);
 }
 bool Player::IsBulletShot()
@@ -79,4 +107,24 @@ bool Player::IsBulletShot()
 void Player::IsBulletShot(bool flag)
 {
 	m_isBulletShot = flag;
+}
+
+bool Player::IsBulletColliding()
+{
+	if (m_bullet->IsActive())
+	{
+		m_cowBoyCollider = m_cowboy->GetCollider();
+		m_bulletCollider = m_bullet->GetCollider();
+		m_bullet->Update();
+		//=====Box Collision Detection========= 
+		if (m_bulletCollider.IsColliding(m_cowBoyCollider))
+		{
+			m_bullet->IsActive(false);
+			m_bullet->IsVisible(false);
+			m_bullet->SetPosition(GetPosition());
+			IsBulletShot(false);
+			return true;
+		}
+	}
+	return false;
 }

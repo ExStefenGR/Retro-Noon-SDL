@@ -10,8 +10,6 @@ public:
 	bool Render() override;
 	void OnExit() override;
 private:  
-	BoxCollider m_cowBoyCollider = {};
-	BoxCollider m_bulletCollider = {};
 	std::unique_ptr<Background>m_background;
 	std::unique_ptr<CowboyP2>m_cowboy;
 	std::unique_ptr<Player>m_player;

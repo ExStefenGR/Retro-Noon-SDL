@@ -7,7 +7,6 @@ bool PlayState::OnEnter()
 	m_background = std::make_unique<Background>();
 	m_cowboy = std::make_unique<CowboyP2>();
 	m_player = std::make_unique<Player>();
-	m_bullet = std::make_unique<Bullet>();
 	m_score = std::make_unique<Score>();
 	m_timer = std::make_unique<Timer>();
 	//Load Background
@@ -16,13 +15,6 @@ bool PlayState::OnEnter()
 	m_player->SetPosition(50, 800);
 	m_player->SetSize(128, 128);
 	m_player->SetVelocity(3);
-	//Setting variables for cowboy 
-	m_cowboy->SetPosition(1690, 400);
-	m_cowboy->SetSize(128, 128);
-	m_cowboy->SetVelocity(2);
-	//Setting variables for Player's bullet
-	m_bullet->SetSize(32, 32);
-	m_bullet->SetPosition(m_player->GetPosition());
 	//Initialising text objects 
 	m_score->SetScore(0);
 	m_timer->SetPosition(0, 80);
@@ -49,35 +41,10 @@ GameState* PlayState::Update()
 			//========Updating position and/or Input translation============ 
 			m_player->Update();
 			m_cowboy->Update();
-			if (m_player->IsBulletShot() && !m_bullet->IsActive())
-			{
-				m_bullet->ShootSound();
-				m_bullet->IsActive(true);
-				m_bullet->IsVisible(true);
-				m_bullet->SetPosition(m_player->GetPosition());
-			}
-			if (m_bullet->IsActive())
-			{
-				m_cowBoyCollider = m_cowboy->GetCollider();
-				m_bulletCollider = m_bullet->GetCollider();
-				m_bullet->Update();
-				//=====Box Collision Detection========= 
-				if (m_bulletCollider.IsColliding(m_cowBoyCollider))
-				{
-					m_score->AddScore(500);
-					m_bullet->IsActive(false);
-					m_bullet->IsVisible(false);
-					m_bullet->SetPosition(m_player->GetPosition());
-					m_player->IsBulletShot(false);
-				}
-			}
-			if (m_bullet->GetPosition().x > 1920)
-			{
-				m_bullet->IsActive(false);
-				m_bullet->IsVisible(false);
-				m_bullet->SetPosition(m_player->GetPosition());
-				m_player->IsBulletShot(false);
-			}
+		}
+		if (m_player->IsBulletColliding())
+		{
+			m_score->AddScore(500);
 		}
 	return this;
 }
@@ -85,11 +52,7 @@ bool PlayState::Render()
 {
 	m_background->Render();
 	m_player->Render();
-	m_cowboy->Render();
-	if (m_bullet->IsVisible())
-	{
-		m_bullet->Render();
-	}
+	//m_cowboy->Render();
 	m_score->Render();
 	m_timer->Render();
 	return true;
