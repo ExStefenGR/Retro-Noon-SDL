@@ -54,9 +54,6 @@
     <ClCompile Include="Music.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Vector2D.cpp">
-      <Filter>Source Files\Components</Filter>
-    </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
@@ -101,9 +98,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Vector2D.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
     <ClInclude Include="Input.h">
       <Filter>Header Files\Main</Filter>
     </ClInclude>
@@ -158,10 +152,10 @@
     <ClInclude Include="MenuState.h">
       <Filter>Header Files\GameState</Filter>
     </ClInclude>
-    <ClInclude Include="MenuOptions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Vector.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuOptions.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
   </ItemGroup>

@@ -16,7 +16,7 @@ public:
 	virtual void Render();
 private:
 	int m_speed = 12; //Making velocity with Scalar speed and direction vectors
-	Vector2D m_direction {0,0};
+	Vector<int> m_direction {0,0};
 	Sound m_gunshot;
 	Sprite m_images;	//Spritesheet
 	BoxCollider m_collider;

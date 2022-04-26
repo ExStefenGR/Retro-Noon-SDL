@@ -1,7 +1,7 @@
 #include "GameObject.h"
 
 GameObject::GameObject(){}
-float GameObject::GetAngle() const
+double GameObject::GetAngle() const
 {
 	return m_angle;
 }
@@ -9,11 +9,11 @@ const std::string& GameObject::GetTag() const
 {
 	return m_tag;
 }
-const Vector2D& GameObject::GetSize() const
+const Vector<int>& GameObject::GetSize() const
 {
 	return m_size;
 }
-const Vector2D& GameObject::GetPosition() const
+const Vector<int>& GameObject::GetPosition() const
 {
 	return m_position;
 }
@@ -21,7 +21,7 @@ void GameObject::SetTag(const std::string& tag)
 {
 	m_tag = tag;
 }
-void GameObject::SetAngle(float angle)
+void GameObject::SetAngle(double angle)
 {
 	m_angle = angle;
 }
@@ -29,11 +29,11 @@ void GameObject::SetPosition(int x, int y)
 {
 	m_position = { x, y };
 }
-void GameObject::SetPosition(const Vector2D& position)
+void GameObject::SetPosition(const Vector<int>& position)
 {
 	m_position = position;
 }
-void GameObject::SetSize(const Vector2D& size)
+void GameObject::SetSize(const Vector<int>& size)
 {
 	m_size = size;
 }

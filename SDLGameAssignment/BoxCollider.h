@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Vector2D.h"
+#include "Vector.h"
 class BoxCollider
 {
 public:
@@ -9,8 +9,8 @@ public:
 	void Update();
 	bool IsColliding(const BoxCollider& secondBox)const;
 private:
-	Vector2D m_min {0,0};
-	Vector2D m_max{0,0};
-	Vector2D m_dimension{0,0};
-	Vector2D m_position{0,0};
+	Vector<int> m_min {0,0};
+	Vector<int> m_max{0,0};
+	Vector<int> m_dimension{0,0};
+	Vector<int> m_position{0,0};
 };

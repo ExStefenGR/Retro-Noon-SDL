@@ -13,6 +13,9 @@ CowboyP2::CowboyP2()
 		m_image[i].IsAnimationLooping(true);
 	}
 	m_collider.SetDimension(128, 128);
+	SetPosition(1690, 400);
+	SetSize(128, 128);
+	SetVelocity(2);
 }
 CowboyP2::~CowboyP2()
 {
@@ -22,7 +25,7 @@ const BoxCollider& CowboyP2::GetCollider() const
 {
 	return m_collider;
 }
-Vector2D CowboyP2::SetVelocity(int velocity)
+Vector<int> CowboyP2::SetVelocity(int velocity)
 {
 	m_velocity = velocity;
 	return m_velocity;

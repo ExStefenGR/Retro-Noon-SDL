@@ -17,7 +17,7 @@ public:
 	CowboyP2();
 	~CowboyP2();
 	const BoxCollider& GetCollider() const;
-	Vector2D SetVelocity(int velocity);
+	Vector<int> SetVelocity(int velocity);
 	bool IsBulletShot();
 	void IsBulletShot(bool flag);
 	virtual void Update();
