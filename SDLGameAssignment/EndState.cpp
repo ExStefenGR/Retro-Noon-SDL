@@ -37,4 +37,5 @@ bool EndState::Render()
 
 void EndState::OnExit()
 {
+
 }

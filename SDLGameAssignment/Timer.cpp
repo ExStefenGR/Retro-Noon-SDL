@@ -42,7 +42,6 @@ void Timer::SetTime(int time)
 	m_timeSet = time;
 	m_secondsNeeded = time;
 	m_result = 0;
-
 }
 void Timer::Render()
 {

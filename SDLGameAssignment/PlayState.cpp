@@ -1,4 +1,5 @@
 #include "PlayState.h"
+#include "EndState.h"
 #include <assert.h>
 
 bool PlayState::OnEnter()
@@ -49,11 +50,11 @@ bool PlayState::Render()
 {
 	m_background->Render();
 	m_player->Render();
-	//m_cowboy->Render();
 	m_score->Render();
 	m_timer->Render();
 	return true;
 }
 void PlayState::OnExit()
 {
+	
 }

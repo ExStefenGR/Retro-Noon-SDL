@@ -13,6 +13,7 @@ Background::Background()
 Background::~Background()
 {
 	m_images.Unload();
+	music.Unload();
 }
 void Background::PlayMusic()
 {
