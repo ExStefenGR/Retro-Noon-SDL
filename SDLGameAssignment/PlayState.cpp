@@ -31,10 +31,6 @@ GameState* PlayState::Update()
 		}
 		if (m_timer->GetTime() <= 0)
 		{
-			m_timer->SetDimension(500,100);
-			m_timer->SetPosition(650, 250);
-			m_timer->SetText("Time up! Press ESC To Exit");
-			m_score->SetPosition(800, 500);
 			return new EndState;
 		}
 		else if (m_timer->GetTime() >= 0)

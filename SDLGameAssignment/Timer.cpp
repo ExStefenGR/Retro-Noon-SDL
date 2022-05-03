@@ -12,12 +12,13 @@ Timer::~Timer()
 }
 void Timer::CountDown()
 {
-	auto m_start = clock();
-	auto secondsNeeded = (m_timeSet * CLOCKS_PER_SEC);	
-	auto timeText = secondsNeeded - m_start;
-	auto result = static_cast<int>((timeText) / 1000);
-	m_line.SetText("Time " + std::to_string(result));
-	m_timeGet = result;
+	m_start = clock();
+	m_result = static_cast<int>(m_secondsNeeded - (m_start / 1000));
+	m_line.SetText("Time " + std::to_string(m_result));
+	if (m_secondsNeeded > m_result)
+	{
+		m_result--;
+	}
 }
 void Timer::SetText(std::string text)
 {
@@ -34,15 +35,17 @@ void Timer::SetPosition(int x, int y)
 }
 int Timer::GetTime()
 {
-	return m_timeGet;
+	return m_result;
 }
-int Timer::SetTime(int time)
+void Timer::SetTime(int time)
 {
-	m_timeGet = time;
 	m_timeSet = time;
-	return m_timeSet;
+	m_secondsNeeded = time;
+	m_result = 0;
+
 }
 void Timer::Render()
 {
 	m_line.Render(m_positionX, m_positionY);
+	m_stopwatch = clock();
 }
