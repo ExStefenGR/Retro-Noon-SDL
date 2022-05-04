@@ -12,7 +12,6 @@ Timer::~Timer()
 }
 void Timer::CountDown()
 {
-	m_start = clock();
 	m_result = static_cast<int>(m_secondsNeeded - (m_start / 1000));
 	m_line.SetText("Time " + std::to_string(m_result));
 	if (m_secondsNeeded > m_result)
@@ -42,6 +41,10 @@ void Timer::SetTime(int time)
 	m_timeSet = time;
 	m_secondsNeeded = time;
 	m_result = 0;
+}
+void Timer::Update()
+{
+	m_start = clock();
 }
 void Timer::Render()
 {

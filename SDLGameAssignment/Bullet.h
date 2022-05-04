@@ -15,7 +15,7 @@ public:
 	virtual void Update();
 	virtual void Render();
 private:
-	int m_speed = 12; //Making velocity with Scalar speed and direction vectors
+	int m_speed{ 12 }; //Making velocity with Scalar speed and direction vectors
 	Vector<int> m_direction {0,0};
 	Sound m_gunshot;
 	Sprite m_images;	//Spritesheet

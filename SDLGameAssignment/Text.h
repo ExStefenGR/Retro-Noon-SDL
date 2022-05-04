@@ -21,9 +21,9 @@ private:
 	SDL_Rect m_targetRect = { 0,0,0,0 };
 	SDL_Color m_color {255,255,255,255};
 	SDL_Point m_dimension{100,20};
-	SDL_Texture* m_texture = nullptr;
-	SDL_Surface* m_textData = nullptr;
-	std::string m_line = {};
-	TTF_Font* m_font = nullptr;
-	bool m_isDirty = true;
+	SDL_Texture* m_texture{nullptr};
+	SDL_Surface* m_textData{nullptr};
+	std::string m_line{};
+	TTF_Font* m_font{nullptr};
+	bool m_isDirty{true};
 };

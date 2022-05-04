@@ -12,7 +12,7 @@ public:
 	virtual void Update() {}
 	virtual void Render();
 private:
-	int m_positionX = 0;
-	int m_positionY = 0;
-	Text m_line = {};
+	int m_positionX{0};
+	int m_positionY{0};
+	Text m_line{};
 };

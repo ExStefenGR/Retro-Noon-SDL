@@ -24,11 +24,11 @@ public:
 	virtual void Render();
 
 private:
-	bool m_isTopReached = false;
-	bool m_isBotReached = false;
-	bool m_isBulletShot = false;
-	int m_velocity = 0;
+	bool m_isTopReached{ false };
+	bool m_isBotReached{ false };
+	bool m_isBulletShot{ false };
+	int m_velocity{ 0 };
 	Sprite m_image[static_cast<int>(State::Total_States)];     //image container
-	State m_state = State::Up;
-	BoxCollider m_collider;
+	State m_state{ State::Up };
+	BoxCollider m_collider{};
 };

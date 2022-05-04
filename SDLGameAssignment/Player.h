@@ -34,11 +34,11 @@ public:
 
 private:
 	Sprite m_image[static_cast<int>(State::Total_States)];   //spritesheet container
-	BoxCollider m_cowBoyCollider = {};
-	BoxCollider m_bulletCollider = {};
+	BoxCollider m_cowBoyCollider{};
+	BoxCollider m_bulletCollider{};
 	std::unique_ptr<CowboyP2>m_cowboy;
 	std::unique_ptr<Bullet>m_bullet;
-	State m_state = State::Idle;
+	State m_state{ State::Idle };
 	BoxCollider m_collider;
 	Sound m_gunshot;
 

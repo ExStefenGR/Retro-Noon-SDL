@@ -11,6 +11,6 @@ public:
 	void SetVolume(int volume);
 	void Play(int loop = 0);
 private:
-	Mix_Chunk* m_sound = nullptr;
-	int m_normalizedValue = 0;
+	Mix_Chunk* m_sound{nullptr};
+	int m_normalizedValue{0};
 };
