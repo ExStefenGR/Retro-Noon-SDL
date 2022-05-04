@@ -21,6 +21,7 @@ private:
 	int m_timeSet{ 0 };
 	int m_result{ 0 };
 	int m_secondsNeeded{ 0 };
+	int checker{ 0 };
 	clock_t m_start{ 0 };
 	clock_t m_stopwatch{ 0 };
 	Text m_line{};

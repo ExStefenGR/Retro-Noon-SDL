@@ -12,11 +12,13 @@ Timer::~Timer()
 }
 void Timer::CountDown()
 {
-	m_result = static_cast<int>(m_secondsNeeded - (m_start / 1000));
+	m_start = clock();
+	checker = (m_stopwatch - m_start / CLOCKS_PER_SEC);
+	m_result = static_cast<int>((checker / CLOCKS_PER_SEC));
 	m_line.SetText("Time " + std::to_string(m_result));
-	if (m_secondsNeeded > m_result)
+	if (m_secondsNeeded < m_result)
 	{
-		m_result--;
+		checker = 0;
 	}
 }
 void Timer::SetText(std::string text)
@@ -44,7 +46,7 @@ void Timer::SetTime(int time)
 }
 void Timer::Update()
 {
-	m_start = clock();
+	m_stopwatch = clock();
 }
 void Timer::Render()
 {

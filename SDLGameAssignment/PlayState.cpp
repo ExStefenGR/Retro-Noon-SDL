@@ -23,21 +23,21 @@ bool PlayState::OnEnter()
 }
 GameState* PlayState::Update()
 {
-		m_timer->CountDown();
+		m_timer->Update();
 		/*TODO:A solution I have thought of would be to manually add the milliseconds on-enter in a variable and then
 		subtract the difference in order to for the countdown to work every time*/
 		if (Input::Instance()->IsKeyPressed(HM_KEY_ESCAPE) || Input::Instance()->IsWindowClosed())
 		{
 			return nullptr;
 		}
-		if (m_timer->GetTime() <= 0)
+		if (m_timer->GetTime() >= 10)
 		{
 			return new EndState;
 		}
 		else if (m_timer->GetTime() >= 0)
 		{
 			//========Update Functions============
-			m_timer->Update();
+			m_timer->CountDown();
 			m_player->Update();
 			//TODO: Add ability for the enemy to shoot bullets
 		}
