@@ -13,13 +13,9 @@ Timer::~Timer()
 void Timer::CountDown()
 {
 	m_start = clock();
-	checker = (m_stopwatch - m_start / CLOCKS_PER_SEC);
-	m_result = static_cast<int>((checker / CLOCKS_PER_SEC));
+	m_checker = (m_stopwatch - m_start / CLOCKS_PER_SEC);
+	m_result = static_cast<int>((m_checker / CLOCKS_PER_SEC));
 	m_line.SetText("Time " + std::to_string(m_result));
-	if (m_secondsNeeded < m_result)
-	{
-		checker = 0;
-	}
 }
 void Timer::SetText(std::string text)
 {
