@@ -6,7 +6,6 @@ bool PlayState::OnEnter()
 {
 	//Make Unique Pointers
 	m_background = std::make_unique<Background>();
-	m_cowboy = std::make_unique<CowboyP2>();
 	m_player = std::make_unique<Player>();
 	m_score = std::make_unique<Score>();
 	m_timer = std::make_unique<Timer>();
@@ -24,9 +23,10 @@ bool PlayState::OnEnter()
 }
 GameState* PlayState::Update()
 {
-	//All main game mechanics are updated here
 		m_timer->CountDown();
-		if (Input::Instance()->GetKey() == SDLK_ESCAPE)
+		/*TODO:A solution I have thought of would be to manually add the milliseconds on-enter in a variable and then
+		subtract the difference in order to for the countdown to work every time*/
+		if (Input::Instance()->IsKeyPressed(HM_KEY_ESCAPE) || Input::Instance()->IsWindowClosed())
 		{
 			return nullptr;
 		}
@@ -36,9 +36,10 @@ GameState* PlayState::Update()
 		}
 		else if (m_timer->GetTime() >= 0)
 		{
-			//========Updating position and/or Input translation============ 
+			//========Update Functions============
+			m_timer->Update();
 			m_player->Update();
-			m_cowboy->Update();
+			//TODO: Add ability for the enemy to shoot bullets
 		}
 		if (m_player->IsBulletColliding())
 		{
@@ -55,6 +56,4 @@ bool PlayState::Render()
 	return true;
 }
 void PlayState::OnExit()
-{
-	
-}
+{}
