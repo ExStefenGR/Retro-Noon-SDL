@@ -30,7 +30,7 @@ private:
 	int m_timeSet{ 0 };
 	int m_result{ 0 };
 	int m_secondsNeeded{ 0 };
-	S_t m_checker{};
+	US_t m_checker{};
 	Time_t m_start{};
 	Time_t m_stopwatch{};
 	Text m_line{};

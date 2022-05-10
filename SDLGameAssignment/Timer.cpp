@@ -13,8 +13,8 @@ Timer::~Timer()
 void Timer::CountDown()
 {
 	m_start = HRClk_t::now();
-	m_checker = std::chrono::duration_cast<S_t>(m_start - m_stopwatch);
-	m_line.SetText("Time " + m_checker.count());
+	m_checker = std::chrono::duration_cast<US_t>(m_stopwatch - m_start);
+	m_line.SetText("Time "+ m_checker.count());
 }
 void Timer::SetText(std::string text)
 {
