@@ -12,10 +12,9 @@ Timer::~Timer()
 }
 void Timer::CountDown()
 {
-	m_start = clock();
-	m_checker = (m_stopwatch - m_start / CLOCKS_PER_SEC);
-	m_result = static_cast<int>((m_checker / CLOCKS_PER_SEC));
-	m_line.SetText("Time " + std::to_string(m_result));
+	m_start = HRClk_t::now();
+	m_checker = std::chrono::duration_cast<S_t>(m_start - m_stopwatch);
+	m_line.SetText("Time " + m_checker.count());
 }
 void Timer::SetText(std::string text)
 {
@@ -42,10 +41,9 @@ void Timer::SetTime(int time)
 }
 void Timer::Update()
 {
-	m_stopwatch = clock();
+	m_stopwatch = HRClk_t::now();
 }
 void Timer::Render()
 {
 	m_line.Render(m_positionX, m_positionY);
-	m_stopwatch = clock();
 }

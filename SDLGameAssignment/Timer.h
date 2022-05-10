@@ -2,6 +2,15 @@
 #include <chrono>
 #include "GameObject.h"
 #include "Text.h"
+
+typedef std::chrono::high_resolution_clock  HRClk_t;
+typedef HRClk_t::time_point                 Time_t;
+typedef std::chrono::seconds				S_t;
+typedef std::chrono::milliseconds           MS_t;
+typedef std::chrono::microseconds           US_t;
+typedef std::chrono::nanoseconds            NS_t;
+using namespace std::chrono_literals;
+
 class Timer : public GameObject
 {
 public:
@@ -21,8 +30,8 @@ private:
 	int m_timeSet{ 0 };
 	int m_result{ 0 };
 	int m_secondsNeeded{ 0 };
-	int m_checker{ 0 };
-	clock_t m_start{ 0 };
-	clock_t m_stopwatch{ 0 };
+	S_t m_checker{};
+	Time_t m_start{};
+	Time_t m_stopwatch{};
 	Text m_line{};
 };
