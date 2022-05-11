@@ -4,17 +4,25 @@ Timer::Timer()
 {
 	m_line.Load("Assets/Fonts/Pixeled.ttf", 400);
 	m_line.SetColor(49, 211, 243, 255);
-	m_line.SetDimension(150, 100);
+	m_line.SetDimension(100, 100);
 }
 Timer::~Timer()
 {
 	m_line.Unload();
+	m_finish = 0.0f;
+	m_start = 0.0f;
+	m_result = 0.0f;
+	m_timeSet = 0;
+
 }
 void Timer::CountDown()
 {
-	m_start = HRClk_t::now();
-	m_checker = std::chrono::duration_cast<US_t>(m_stopwatch - m_start);
-	m_line.SetText("Time "+ m_checker.count());
+	if (m_finish == 0)
+	{
+		m_finish = m_timeSet;
+	}
+		m_result = (m_finish - m_start);
+		m_line.SetText(std::to_string(m_result));
 }
 void Timer::SetText(std::string text)
 {
@@ -36,12 +44,11 @@ int Timer::GetTime()
 void Timer::SetTime(int time)
 {
 	m_timeSet = time;
-	m_secondsNeeded = time;
-	m_result = 0;
+	m_result = time;
 }
 void Timer::Update()
 {
-	m_stopwatch = HRClk_t::now();
+	m_start = m_start + m_velocity;
 }
 void Timer::Render()
 {
