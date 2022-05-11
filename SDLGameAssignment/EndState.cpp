@@ -3,8 +3,11 @@
 
 bool EndState::OnEnter()
 {
-    m_background = std::make_unique<Background>();
-    m_replay = std::make_unique<MenuOptions>();
+    if ((m_background,m_replay) == nullptr)
+    {
+        m_background = std::make_unique_for_overwrite<Background>();
+        m_replay = std::make_unique_for_overwrite<MenuOptions>();
+    }
     m_replay->SetDimension(500, 100);
     m_replay->SetPosition(360, 100);
     m_replay->SetText("Play Again? Press Enter or ESCAPE to Leave");
@@ -37,5 +40,6 @@ bool EndState::Render()
 
 void EndState::OnExit()
 {
-
+    m_background.reset();
+    m_replay.reset();
 }

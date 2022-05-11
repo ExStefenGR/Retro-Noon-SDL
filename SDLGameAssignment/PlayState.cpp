@@ -5,10 +5,13 @@
 bool PlayState::OnEnter()
 {
 	//Make Unique Pointers
-	m_background = std::make_unique<Background>();
-	m_player = std::make_unique<Player>();
-	m_score = std::make_unique<Score>();
-	m_timer = std::make_unique<Timer>();
+	if ((m_background, m_player, m_score, m_timer) == nullptr)
+	{
+		m_background = std::make_unique_for_overwrite<Background>();
+		m_player = std::make_unique_for_overwrite<Player>();
+		m_score = std::make_unique_for_overwrite<Score>();
+		m_timer = std::make_unique_for_overwrite<Timer>();
+	}
 	//Load Background
 	m_background->PlayMusic();
 	//Setting Variables for Player 
@@ -18,7 +21,7 @@ bool PlayState::OnEnter()
 	//Initialising text objects 
 	m_score->SetScore(0);
 	m_timer->SetPosition(0, 80);
-	m_timer->SetTime(10);
+	m_timer->SetTime(2);
 	return true;
 }
 GameState* PlayState::Update()
@@ -56,4 +59,9 @@ bool PlayState::Render()
 	return true;
 }
 void PlayState::OnExit()
-{}
+{
+	m_background.reset();
+	m_player.reset();
+	m_score.reset();
+	m_timer.reset();
+}

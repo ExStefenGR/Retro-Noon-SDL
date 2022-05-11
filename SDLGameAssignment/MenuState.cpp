@@ -4,8 +4,11 @@
 bool MenuState::OnEnter()
 {
     //Make Unique Pointers
-    m_background = std::make_unique<Background>();
-    m_menu = std::make_unique<MenuOptions>();
+    if ((m_background, m_menu) == nullptr)
+    {
+        m_background = std::make_unique_for_overwrite<Background>();
+        m_menu = std::make_unique_for_overwrite<MenuOptions>();
+    }
     m_menu->SetDimension(500, 100);
     m_menu->SetPosition(360, 100);
     m_menu->SetText("WELCOME!! PRESS ENTER TO FIGHT");
@@ -34,4 +37,7 @@ bool MenuState::Render()
     return true;
 }
 void MenuState::OnExit()
-{}
+{
+    m_background.release();
+    m_menu.release();
+}

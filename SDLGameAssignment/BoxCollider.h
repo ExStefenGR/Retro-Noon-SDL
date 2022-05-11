@@ -8,9 +8,10 @@ public:
 	void SetDimension(int width, int height);
 	void Update();
 	bool IsColliding(const BoxCollider& secondBox)const;
+	~BoxCollider();
 private:
-	Vector<int> m_min {0,0};
-	Vector<int> m_max{0,0};
 	Vector<int> m_dimension{0,0};
 	Vector<int> m_position{0,0};
+	Vector<int> m_min {0,0};
+	Vector<int> m_max{0,0};
 };

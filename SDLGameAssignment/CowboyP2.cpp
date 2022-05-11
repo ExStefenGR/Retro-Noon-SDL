@@ -19,7 +19,8 @@ CowboyP2::CowboyP2()
 }
 CowboyP2::~CowboyP2()
 {
-	m_image[static_cast<int>(State::Up,State::Down)].Unload();
+	m_image[static_cast<int>(State::Up)].Unload();
+	m_image[static_cast<int>(State::Down)].Unload();
 }
 const BoxCollider& CowboyP2::GetCollider() const
 {
