@@ -17,7 +17,7 @@ bool Screen::Init()
 								1920,		//Width
 								1080,		//height
 								SDL_WINDOW_VULKAN + SDL_WINDOW_MAXIMIZED);		//flags (fullscreen,focus,etc)
-	m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED);
+	m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED + SDL_RENDERER_PRESENTVSYNC);
 	return true;
 }
 void Screen::Present()
