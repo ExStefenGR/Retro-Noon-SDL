@@ -30,7 +30,7 @@ GameState* PlayState::Update()
 		{
 			return nullptr;
 		}
-		if (m_timer->GetTime() >= 10)
+		if (m_timer->GetTime() <= 0)
 		{
 			return new EndState;
 		}
