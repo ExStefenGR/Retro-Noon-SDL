@@ -15,10 +15,10 @@ void Score::SetScore(int score)
 	m_score = score;
 	m_line.SetText("Score: " + std::to_string(m_score));
 }
-void Score::SetPosition(const Vector<int>& m_position)
+void Score::SetPosition(int x, int y)
 {
-	m_positionX = m_position.x;
-	m_positionY = m_position.y;
+	m_position.x = x;
+	m_position.y = y;
 }
 void Score::AddScore(int add)
 {
@@ -35,5 +35,5 @@ int Score::GetScore() const
 }
 void Score::Render()
 {
-	m_line.Render(m_positionX, m_positionY);
+	m_line.Render(m_position.x, m_position.y);
 }
