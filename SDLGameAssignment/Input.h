@@ -306,7 +306,6 @@ public:
 private:
 	Input() {}
 	Input(const Input&);
-	Input& operator=(Input&);
 
 	char m_key{ ' ' };
 

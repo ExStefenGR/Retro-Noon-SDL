@@ -13,7 +13,6 @@ public:
 private:
 	Screen() {};
 	Screen(const Screen&);
-	Screen& operator=(const Screen&);
 
 	SDL_Window* m_window{ nullptr };
 	SDL_Renderer* m_renderer{ nullptr };

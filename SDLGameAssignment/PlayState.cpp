@@ -21,7 +21,7 @@ bool PlayState::OnEnter()
 	//Initialising text objects 
 	m_score->SetScore(0);
 	m_timer->SetPosition(0, 80);
-	m_timer->SetTime(2);
+	m_timer->SetTime(20);
 	return true;
 }
 GameState* PlayState::Update()

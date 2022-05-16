@@ -18,8 +18,8 @@ bool Game::Run()
 	{
 		Screen::Instance()->Clear();
 		Input::Instance()->Update();
-
 		GameState* nextState = m_gameState->Update();
+		
 		m_gameState->Render();
 
 		if (nextState != m_gameState.get())
@@ -31,7 +31,6 @@ bool Game::Run()
 				m_gameState->OnEnter();
 			}
 		}
-		
 		Screen::Instance()->Present();
 	}
 	return true;
