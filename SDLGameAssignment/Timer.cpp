@@ -11,17 +11,17 @@ Timer::~Timer()
 	m_line.Unload();
 	m_finish = 0.0f;
 	m_start = 0.0f;
-	m_result = 0.0f;
+	m_result = 0;
 	m_timeSet = 0;
 
 }
 void Timer::CountDown()
 {
-	if (m_finish == 0)
+	if (m_finish == 0.0f)
 	{
 		m_finish = m_timeSet;
 	}
-		m_result = (m_finish - m_start);
+		m_result = static_cast<int>(m_finish - m_start);
 		m_line.SetText(std::to_string(m_result));
 }
 void Timer::SetText(std::string text)

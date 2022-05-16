@@ -279,7 +279,6 @@ class Input
 {
 
 public:
-
 	static Input* Instance();
 
 	char GetKey() const;
@@ -305,7 +304,6 @@ public:
 	void Update();
 
 private:
-
 	Input() {}
 	Input(const Input&);
 	Input& operator=(Input&);
@@ -323,5 +321,4 @@ private:
 
 	Vector<int> m_mouseMotion;
 	Vector<int> m_mousePosition;
-
 };

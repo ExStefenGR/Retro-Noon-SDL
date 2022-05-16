@@ -28,7 +28,6 @@ void Music::SetVolume(int volume)
 	if (volume > 128)
 	{
 		m_normalizedValue = static_cast<int>(volume / 128);
-		m_normalizedValue = volume;
 	}
 	Mix_VolumeMusic(volume);
 }

@@ -34,5 +34,5 @@ private:
 	SDL_Point m_celDimension{0,0};
 	SDL_Point m_imageDimension{0,0};
 	float m_animationVelocity{ 0.0f };
-	int m_imageCel{ 0 };
+	int m_imageCel{0};
 };

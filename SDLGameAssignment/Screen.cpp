@@ -22,12 +22,10 @@ bool Screen::Init()
 }
 void Screen::Present()
 {
-	//render the screen (swap buffer)
 	SDL_RenderPresent(m_renderer);
 }
 void Screen::Clear()
 {
-	//clears the screen, (frame buffer)
 	SDL_RenderClear(m_renderer);
 }
 void Screen::Exit()
