@@ -15,11 +15,11 @@
 class Game
 {
 public:
-	Game(GameState* initialState);
-	~Game() {};
-	bool Initialize();
+	explicit Game(GameState* initialState);
+	~Game() = default;
+	bool Initialize() const;
 	bool Run();
-	void Shutdown();
+	void Shutdown() const;
 private:
 	std::unique_ptr<GameState> m_gameState;
 };

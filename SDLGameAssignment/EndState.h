@@ -3,7 +3,7 @@
 class EndState : public GameState
 {
 public:
-	~EndState() override {}
+	~EndState() override = default;
 
 	bool OnEnter() override;
 	GameState* Update() override;

@@ -1,6 +1,5 @@
 #include "GameObject.h"
 
-GameObject::GameObject(){}
 double GameObject::GetAngle() const
 {
 	return m_angle;
@@ -17,7 +16,7 @@ const Vector<int>& GameObject::GetPosition() const
 {
 	return m_position;
 }
-void GameObject::SetTag(const std::string& tag)
+void GameObject::SetTag(const std::string_view& tag)
 {
 	m_tag = tag;
 }

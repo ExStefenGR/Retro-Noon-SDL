@@ -281,7 +281,7 @@ class Input
 public:
 	static Input* Instance();
 
-	char GetKey() const;
+	int GetKey() const;
 
 	int GetMouseButtonUp() const;
 	int GetMouseWheel() const;
@@ -290,7 +290,7 @@ public:
 	const Vector<int>& GetMouseMotion() const;
 	const Vector<int>& GetMousePosition() const;
 
-	void SetCursorState(bool isCursorEnabled, bool isCursorVisible);
+	void SetCursorState(const bool isCursorEnabled, const bool isCursorVisible) const;
 
 	bool IsWindowClosed() const;
 
@@ -304,10 +304,10 @@ public:
 	void Update();
 
 private:
-	Input() {}
+	Input() = default;
 	Input(const Input&);
 
-	char m_key{ ' ' };
+	int m_key{};
 
 	int m_mouseWheel{ 0 };
 	int m_modifier{ HM_MOD_NONE };

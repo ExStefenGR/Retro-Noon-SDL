@@ -15,13 +15,13 @@ class CowboyP2 : public GameObject
 	};
 public:
 	CowboyP2();
-	~CowboyP2();
+	virtual ~CowboyP2();
 	const BoxCollider& GetCollider() const;
 	Vector<int> SetVelocity(int velocity);
-	bool IsBulletShot();
+	bool IsBulletShot() const;
 	void IsBulletShot(bool flag);
-	virtual void Update();
-	virtual void Render();
+	void Update() final;
+	void Render() final;
 
 private:
 	bool m_isTopReached{ false };

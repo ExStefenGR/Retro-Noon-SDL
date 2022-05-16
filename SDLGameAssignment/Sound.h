@@ -5,7 +5,8 @@
 class Sound
 {
 public:
-	Sound();
+	Sound() = default;
+	~Sound() = default;
 	bool Load(const std::string& filename);
 	void Unload();
 	void SetVolume(int volume);

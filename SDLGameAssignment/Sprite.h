@@ -13,7 +13,7 @@ class Sprite
 	};
 public:
 	Sprite();
-	~Sprite() {}
+	~Sprite() = default;
 	void IsAnimated(bool flag);
 	void IsAnimationLooping(bool flag);
 	void SetImageCel(int column, int row);

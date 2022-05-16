@@ -31,7 +31,7 @@ Vector<int> CowboyP2::SetVelocity(int velocity)
 	m_velocity = velocity;
 	return m_velocity;
 }
-bool CowboyP2::IsBulletShot()
+bool CowboyP2::IsBulletShot() const
 {
 	return m_isBulletShot;
 }

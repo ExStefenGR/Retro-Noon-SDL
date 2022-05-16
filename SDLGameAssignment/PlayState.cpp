@@ -5,13 +5,12 @@
 bool PlayState::OnEnter()
 {
 	//Make Unique Pointers
-	if ((m_background, m_player, m_score, m_timer) == nullptr)
-	{
-		m_background = std::make_unique_for_overwrite<Background>();
-		m_player = std::make_unique_for_overwrite<Player>();
-		m_score = std::make_unique_for_overwrite<Score>();
-		m_timer = std::make_unique_for_overwrite<Timer>();
-	}
+
+	m_background = std::make_unique_for_overwrite<Background>();
+	m_player = std::make_unique_for_overwrite<Player>();
+	m_score = std::make_unique_for_overwrite<Score>();
+	m_timer = std::make_unique_for_overwrite<Timer>();
+	
 	//Load Background
 	m_background->PlayMusic();
 	//Setting Variables for Player 

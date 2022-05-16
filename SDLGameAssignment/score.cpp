@@ -15,21 +15,21 @@ void Score::SetScore(int score)
 	m_score = score;
 	m_line.SetText("Score: " + std::to_string(m_score));
 }
-void Score::SetPosition(int x, int y)
+void Score::SetPosition(const Vector<int>& m_position)
 {
-	m_positionX = x;
-	m_positionY = y;
+	m_positionX = m_position.x;
+	m_positionY = m_position.y;
 }
 void Score::AddScore(int add)
 {
 	m_score += add;
 	m_line.SetText("Score: " + std::to_string(m_score));
 }
-void Score::SetText(std::string text)
+void Score::SetText(std::string const &text)
 {
 	m_line.SetText(text);
 }
-int Score::GetScore()
+int Score::GetScore() const
 {
 	return m_score;
 }

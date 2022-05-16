@@ -3,7 +3,7 @@
 class PlayState : public GameState
 {
 public:
-	~PlayState() override {}
+	~PlayState() override = default;
 
 	bool OnEnter() override;
 	GameState* Update() override;

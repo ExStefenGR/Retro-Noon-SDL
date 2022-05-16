@@ -10,7 +10,7 @@
 class GameObject
 {
 public:
-	GameObject();
+	GameObject() = default;
 
 	bool IsActive() const;
 	bool IsAlive() const;
@@ -26,12 +26,12 @@ public:
 	void IsActive(bool flag);
 	void IsAlive(bool flag);
 	void IsVisible(bool flag);
-	void SetPosition(const Vector<int>& position);
-	void SetPosition(int x, int y);
+	virtual void SetPosition(const Vector<int>& position);
+	virtual void SetPosition(int x, int y);
 	void SetAngle(double angle);
 	void SetSize(const Vector<int>& size);
 	void SetSize(int width, int height);
-	void SetTag(const std::string& tag);
+	void SetTag(const std::string_view& tag);
 protected:
 	bool m_isActive{ false };
 	bool m_isAlive{ false };

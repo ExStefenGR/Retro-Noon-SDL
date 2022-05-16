@@ -6,10 +6,10 @@ class Background : public GameObject
 {
 public:
 	Background();
-	~Background();
+	virtual ~Background();
 	void PlayMusic();
-	virtual void Update() {};
-	virtual void Render();
+	void Update() final {};
+	void Render() final;
 	virtual void Stop() {music.Stop();};
 private:
 	Music music{};

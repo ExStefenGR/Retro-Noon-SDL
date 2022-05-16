@@ -2,6 +2,7 @@
 #include <assert.h>
 #include <algorithm>
 
+
 Player::Player()
 {
 	m_image[static_cast<int>(State::Idle)].Load("Assets/Images/CboyIDLE.png");
@@ -19,13 +20,8 @@ Player::Player()
 	m_cowboy = std::make_unique<CowboyP2>();
 	m_bullet->SetSize(32, 32);
 }
-Player::~Player()
-{
-	m_image[static_cast<int>(State::Up,State::Down)].Unload();
-}
 void Player::SetVelocity(int velocity)
 {
-	//assert(velocity > 0);
 	velocity = std::clamp(velocity, 0, 100);
 	m_velocity = velocity;
 }
@@ -84,8 +80,8 @@ void Player::Update()
 	{
 		m_bullet->SetPosition(GetPosition());
 	}
-	m_direction = m_direction*(m_velocity);
-	m_position = m_position+(m_direction);
+	m_direction = m_direction * m_velocity;
+	m_position = m_position + m_direction;
 	m_image[static_cast<int>(m_state)].Update();
 	m_collider.Update();
 	m_bullet->Update();
@@ -100,7 +96,7 @@ void Player::Render()
 	m_cowboy->Render();
 	m_image[static_cast<int>(m_state)].Render(m_position.x, m_position.y, m_angle);
 }
-bool Player::IsBulletShot()
+bool Player::IsBulletShot() const
 {
 	return m_isBulletShot;
 }

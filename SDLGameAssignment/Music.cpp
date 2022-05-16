@@ -8,7 +8,6 @@ bool Music::Initialize()
 	}
 	return true;
 }
-Music::Music(){}
 bool Music::Load(const std::string& filename)
 {
 	m_music = Mix_LoadMUS(filename.c_str());
@@ -27,7 +26,7 @@ void Music::SetVolume(int volume)
 {
 	if (volume > 128)
 	{
-		m_normalizedValue = static_cast<int>(volume / 128);
+		m_normalizedValue = volume / 128;
 	}
 	Mix_VolumeMusic(volume);
 }

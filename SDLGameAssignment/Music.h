@@ -5,8 +5,9 @@
 class Music
 {
 public:
+	Music() = default;
+	virtual ~Music() = default;
 	static bool Initialize();
-	Music();
 	bool Load(const std::string& filename);
 	void Unload();
 	virtual void SetVolume(int volume);

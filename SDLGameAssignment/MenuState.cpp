@@ -4,21 +4,19 @@
 bool MenuState::OnEnter()
 {
     //Make Unique Pointers
-    if ((m_background, m_menu) == nullptr)
-    {
-        m_background = std::make_unique_for_overwrite<Background>();
-        m_menu = std::make_unique_for_overwrite<MenuOptions>();
-    }
-    m_menu->SetDimension(500, 100);
-    m_menu->SetPosition(360, 100);
-    m_menu->SetText("WELCOME!! PRESS ENTER TO FIGHT");
-    return true;
+   
+   m_background = std::make_unique_for_overwrite<Background>();
+   m_menu = std::make_unique_for_overwrite<MenuOptions>();
+   m_menu->SetDimension(500, 100);
+   m_menu->SetPosition(360, 100);
+   m_menu->SetText("WELCOME!! PRESS ENTER TO FIGHT");
+   return true;
 }
 GameState* MenuState::Update()
 {
     if (Input::Instance()->IsKeyPressed(HM_KEY_ESCAPE))
     {
-		return 0;
+		return nullptr;
     }
     else if (Input::Instance()->IsKeyPressed(HM_KEY_RETURN))
     {

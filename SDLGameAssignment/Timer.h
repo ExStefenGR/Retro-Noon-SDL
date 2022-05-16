@@ -6,18 +6,16 @@ class Timer : public GameObject
 {
 public:
 	Timer();
-	~Timer();
-	virtual void Update();
-	virtual void Render();
+	virtual ~Timer();
+	void Update() final;
+	void Render() final;
 	void CountDown();
-	void SetText(std::string text);
+	void SetText(std::string const& text);
 	void SetDimension(const int width, const int height);
-	void SetPosition(int x, int y);
+	void SetPosition(int x, int y) final;
 	void SetTime(int time);
-	int GetTime();
+	int GetTime() const;
 private:
-	int m_positionX{ 0 };
-	int m_positionY{ 0 };
 	int m_timeSet{ 0 };
 	int m_result{ 0 };
 	double m_start{0.0f};

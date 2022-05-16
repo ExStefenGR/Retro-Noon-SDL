@@ -4,7 +4,7 @@
 class GameState
 {
 public:
-	virtual ~GameState() = 0 {}
+	virtual ~GameState() = default;
 
 	virtual bool OnEnter() = 0;       //Load assets in this function
 	virtual GameState* Update() = 0;  //Here we update all of our game mechanics

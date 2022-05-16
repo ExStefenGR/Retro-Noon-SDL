@@ -19,19 +19,17 @@ public:
 		Down,
 		Total_States
 	};
-
 	Player();
-	~Player();
+	virtual ~Player() = default;
 
 	void SetVelocity(int velocity);
 	const BoxCollider& GetCollider() const;
-	virtual void Update();
-	virtual void Render();
-	bool IsBulletShot();
+	void Update() final;
+	void Render() final;
+	bool IsBulletShot() const;
 	void IsBulletShot(bool flag);
 
 	bool IsBulletColliding();
-
 private:
 	Sprite m_image[static_cast<int>(State::Total_States)];   //spritesheet container
 	BoxCollider m_cowBoyCollider{};

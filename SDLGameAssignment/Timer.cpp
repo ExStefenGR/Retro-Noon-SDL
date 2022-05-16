@@ -24,7 +24,7 @@ void Timer::CountDown()
 		m_result = static_cast<int>(m_finish - m_start);
 		m_line.SetText(std::to_string(m_result));
 }
-void Timer::SetText(std::string text)
+void Timer::SetText(std::string const& text)
 {
 	m_line.SetText(text);
 }
@@ -34,10 +34,10 @@ void Timer::SetDimension(const int width, const int height)
 }
 void Timer::SetPosition(int x, int y)
 {
-	m_positionX = x;
-	m_positionY = y;
+	m_position.x = x;
+	m_position.y = y;
 }
-int Timer::GetTime()
+int Timer::GetTime() const
 {
 	return m_result;
 }
@@ -52,5 +52,5 @@ void Timer::Update()
 }
 void Timer::Render()
 {
-	m_line.Render(m_positionX, m_positionY);
+	m_line.Render(m_position.x, m_position.y);
 }

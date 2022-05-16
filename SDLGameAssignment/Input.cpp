@@ -4,11 +4,11 @@
 //======================================================================================================
 Input* Input::Instance()
 {
-	static Input* inputObject = new Input();
+	static auto* inputObject = new Input();
 	return inputObject;
 }
 //======================================================================================================
-char Input::GetKey() const
+int Input::GetKey() const
 {
 	return m_key;
 }
@@ -32,7 +32,7 @@ const Vector<int>& Input::GetMousePosition() const
 	return m_mousePosition;
 }
 //======================================================================================================
-void Input::SetCursorState(bool isCursorEnabled, bool isCursorVisible)
+void Input::SetCursorState(const bool isCursorEnabled, const bool isCursorVisible) const
 {
 	SDL_ShowCursor(static_cast<int>(isCursorVisible));
 	SDL_SetRelativeMouseMode(static_cast<SDL_bool>(isCursorEnabled));
@@ -125,6 +125,7 @@ void Input::Update()
 			case SDL_BUTTON_LEFT: { m_mouseButton ^= HM_MOUSE_LEFT; break;   }
 			case SDL_BUTTON_MIDDLE: { m_mouseButton ^= HM_MOUSE_MIDDLE; break; }
 			case SDL_BUTTON_RIGHT: { m_mouseButton ^= HM_MOUSE_RIGHT; break;  }
+			default: { break; }
 			}
 			break;
 		}
@@ -137,8 +138,13 @@ void Input::Update()
 			{
 			case SDL_BUTTON_LEFT: { m_mouseButton |= HM_MOUSE_LEFT; break;   }
 			case SDL_BUTTON_MIDDLE: { m_mouseButton |= HM_MOUSE_MIDDLE; break; }
-			case SDL_BUTTON_RIGHT: { m_mouseButton |= HM_MOUSE_RIGHT; break;  }
+			case SDL_BUTTON_RIGHT: { m_mouseButton |= HM_MOUSE_RIGHT; break; }
+			default: {break;}
 			}
+			break;
+		}
+		default: 
+		{
 			break;
 		}
 		}

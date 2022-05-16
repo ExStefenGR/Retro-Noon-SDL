@@ -3,7 +3,7 @@
 class MenuState : public GameState
 {
 public:
-	~MenuState() override {}
+	~MenuState() override = default;
 
 	bool OnEnter() override;
 	GameState* Update() override;

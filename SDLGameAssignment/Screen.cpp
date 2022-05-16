@@ -2,7 +2,7 @@
 
 Screen* Screen::Instance()
 {
-	static Screen* screenObject = new Screen();
+	static auto* screenObject = new Screen(); //Try to make this memory efficient
 	return screenObject;
 }
 bool Screen::Init()

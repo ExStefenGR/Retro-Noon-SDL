@@ -6,8 +6,7 @@ bool Text::Initialise()
 	if (TTF_Init() == -1) { return false; }
 	return true;
 }
-Text::Text(){}
-void Text::SetText(const std::string& text)
+void Text::SetText(const std::string_view& text)
 {
 	m_line = text;
 	m_isDirty = true;

@@ -1,7 +1,7 @@
 #include "Sprite.h"
 #include <SDL_image.h>
 
-Sprite::Sprite(){}
+Sprite::Sprite() = default;
 void Sprite::IsAnimated(bool flag)
 {
 	m_isAnimated = flag;
@@ -74,7 +74,7 @@ void Sprite::Render(int xPos, int yPos, double angle)
 		targetRect.y = yPos;
 		targetRect.w = m_spriteDimension.x;
 		targetRect.h = m_spriteDimension.y;
-		SDL_Point centre{ static_cast<int>(m_spriteDimension.x * 0.5f, m_spriteDimension.y * 0.5f) };
+		SDL_Point centre{ static_cast<int>((m_spriteDimension.x * 0.5f)) , static_cast<int>(m_spriteDimension.y * 0.5f) };
 		SDL_RenderCopyEx(Screen::Instance()->getRenderer(), m_image, &sourceRect, &targetRect, angle, &centre, static_cast<SDL_RendererFlip>(m_flip));
 	}
 }

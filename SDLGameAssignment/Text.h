@@ -8,15 +8,15 @@ class Text
 {
 public:
 	static bool Initialise();
-	Text();
-	~Text() {}	
-	void SetText(const std::string& text);
+	Text() = default;
+	~Text() = default;	
+	void SetText(const std::string_view& text);
 	void SetColor(const SDL_Color& color);
 	void SetColor(const Uint8 r, const Uint8 g, const Uint8 b, const Uint8 a);
 	void SetDimension(const int width,const int height);
 	bool Load(const std::string& filename, const int fontSize);
 	void Render(const int xPos,const int yPos);
-	void Unload();	
+	void Unload();
 private:
 	SDL_Rect m_targetRect = { 0,0,0,0 };
 	SDL_Color m_color {255,255,255,255};

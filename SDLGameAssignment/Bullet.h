@@ -8,12 +8,12 @@ class Bullet : public GameObject
 {
 public:
 	Bullet();
-	~Bullet();
+	virtual ~Bullet();
 	const BoxCollider& GetCollider() const;
 	int SetVelocity(int velocity);
 	void ShootSound();
-	virtual void Update();
-	virtual void Render();
+	void Update() final;
+	void Render() final;
 private:
 	int m_speed{ 12 }; //Making velocity with Scalar speed and direction vectors
 	Vector<int> m_direction {0,0};
