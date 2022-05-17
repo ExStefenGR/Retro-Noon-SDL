@@ -12,7 +12,7 @@ class Sprite
 		Vert_Flip = SDL_FLIP_VERTICAL
 	};
 public:
-	Sprite();
+	Sprite() = default;
 	~Sprite() = default;
 	void IsAnimated(bool flag);
 	void IsAnimationLooping(bool flag);

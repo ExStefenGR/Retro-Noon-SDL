@@ -2,7 +2,7 @@
 
 Screen* Screen::Instance()
 {
-	static auto* screenObject = new Screen(); //Try to make this memory efficient
+	static auto* screenObject = new Screen();
 	return screenObject;
 }
 bool Screen::Init()
@@ -33,6 +33,8 @@ void Screen::Exit()
 	SDL_DestroyRenderer(m_renderer);
 	SDL_DestroyWindow(m_window);
 	SDL_Quit();
+	static auto* screenObject = Instance(); //Try to make this memory efficient
+	delete screenObject;
 }
 SDL_Renderer* Screen::getRenderer()
 {

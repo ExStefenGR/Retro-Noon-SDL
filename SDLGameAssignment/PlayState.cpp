@@ -26,15 +26,14 @@ bool PlayState::OnEnter()
 GameState* PlayState::Update()
 {
 		m_timer->Update();
-		/*TODO:A solution I have thought of would be to manually add the milliseconds on-enter in a variable and then
-		subtract the difference in order to for the countdown to work every time*/
 		if (Input::Instance()->IsKeyPressed(HM_KEY_ESCAPE) || Input::Instance()->IsWindowClosed())
 		{
 			return nullptr;
 		}
 		if (m_timer->GetTime() <= 0)
 		{
-			return new EndState;
+			auto newstate = new EndState;
+			return newstate;
 		}
 		else if (m_timer->GetTime() >= 0)
 		{
@@ -59,8 +58,6 @@ bool PlayState::Render()
 }
 void PlayState::OnExit()
 {
-	m_background.reset();
-	m_player.reset();
-	m_score.reset();
-	m_timer.reset();
+	GameState* newstate = Update();
+	delete newstate;
 }

@@ -20,7 +20,8 @@ GameState* MenuState::Update()
     }
     else if (Input::Instance()->IsKeyPressed(HM_KEY_RETURN))
     {
-        return new PlayState;  
+        auto newstate = new PlayState;
+        return newstate;
     }
     return this;
 }
@@ -36,6 +37,6 @@ bool MenuState::Render()
 }
 void MenuState::OnExit()
 {
-    m_background.release();
-    m_menu.release();
+    GameState* newstate = Update();
+    delete newstate;
 }
