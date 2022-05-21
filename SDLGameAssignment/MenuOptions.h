@@ -7,7 +7,7 @@ class MenuOptions : public GameObject
 public:
 	MenuOptions();
 	virtual ~MenuOptions();
-	void SetPosition(int x, int y) final;
+	void SetPosition(int x, int y) override;
 	void SetText(std::string const& text);
 	void SetDimension(const int width, const int height);
 	void Update() final {}

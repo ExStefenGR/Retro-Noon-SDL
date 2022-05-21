@@ -40,7 +40,7 @@ GameState* PlayState::Update()
 			//========Update Functions============
 			m_timer->CountDown();
 			m_player->Update();
-			//TODO: Add ability for the enemy to shoot bullets
+			//For Future development: Add ability for the enemy to shoot bullets
 		}
 		if (m_player->IsBulletColliding())
 		{
