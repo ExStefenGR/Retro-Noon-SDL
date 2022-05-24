@@ -1,5 +1,4 @@
 #include "Text.h"
-#include <assert.h>
 
 bool Text::Initialise()
 {

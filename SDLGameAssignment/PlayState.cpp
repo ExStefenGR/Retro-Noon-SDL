@@ -1,16 +1,12 @@
 #include "PlayState.h"
-#include "EndState.h"
-#include <assert.h>
 
 bool PlayState::OnEnter()
 {
 	//Make Unique Pointers
-
 	m_background = std::make_unique_for_overwrite<Background>();
 	m_player = std::make_unique_for_overwrite<Player>();
 	m_score = std::make_unique_for_overwrite<Score>();
 	m_timer = std::make_unique_for_overwrite<Timer>();
-	
 	//Load Background
 	m_background->PlayMusic();
 	//Setting Variables for Player 

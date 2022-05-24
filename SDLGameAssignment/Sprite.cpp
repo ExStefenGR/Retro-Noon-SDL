@@ -1,5 +1,4 @@
 #include "Sprite.h"
-#include <SDL_image.h>
 
 void Sprite::IsAnimated(bool flag)
 {

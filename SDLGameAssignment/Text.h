@@ -2,6 +2,7 @@
 #include <SDL_ttf.h>
 #include <string>
 #include <memory>
+#include <assert.h>
 #include "Screen.h"
 
 class Text

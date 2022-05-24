@@ -1,7 +1,6 @@
 #pragma once
 #include "GameObject.h"
 #include "Sprite.h"
-#include "Input.h"
 #include "BoxCollider.h"
 #include "Sound.h"
 class Bullet : public GameObject

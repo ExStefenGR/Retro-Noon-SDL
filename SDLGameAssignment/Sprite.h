@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include <SDL.h>
+#include <SDL_image.h>
 #include "Screen.h"
 
 class Sprite

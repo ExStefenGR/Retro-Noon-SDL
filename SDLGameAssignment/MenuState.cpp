@@ -1,5 +1,4 @@
 #include "MenuState.h"
-#include "PlayState.h"
 
 bool MenuState::OnEnter()
 {

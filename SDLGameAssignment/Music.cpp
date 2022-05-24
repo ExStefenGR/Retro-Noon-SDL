@@ -1,5 +1,4 @@
 #include "Music.h"
-#include <assert.h>
 bool Music::Initialize()
 {
 	if (Mix_OpenAudio(44100, AUDIO_S16SYS, 2, 1024) == -1)

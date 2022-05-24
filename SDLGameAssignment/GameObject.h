@@ -2,8 +2,7 @@
 
 #include <SDL.h>
 #include <string>
-#include "Screen.h"
-#include "Input.h"
+#include "Vector.h"
 
 //Abstract base class - any class with at least 1 pure virtual function
 

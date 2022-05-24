@@ -19,6 +19,7 @@ Player::Player()
 	m_bullet = std::make_unique<Bullet>();
 	m_cowboy = std::make_unique<CowboyP2>();
 	m_bullet->SetSize(32, 32);
+	return;
 }
 void Player::SetVelocity(int velocity)
 {

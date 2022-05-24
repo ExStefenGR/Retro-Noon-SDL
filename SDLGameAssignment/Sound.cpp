@@ -27,5 +27,5 @@ void Sound::SetVolume(int volume)
 }
 void Sound::Play(int loop)
 {
-	if (Mix_PlayChannel(-1, m_sound, loop) == -1){}
+	Mix_PlayChannel(-1, m_sound, loop);
 }
