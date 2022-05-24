@@ -12,7 +12,7 @@ public:
 	bool Load(const std::string& filename);
 	void Unload();
 	virtual void SetVolume(int volume);
-	virtual void Play(int playLoop);
+	virtual void Play();
 	virtual void Pause();
 	virtual void Resume();
 	virtual void Stop();

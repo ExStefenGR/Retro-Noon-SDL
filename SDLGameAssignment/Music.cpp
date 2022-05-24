@@ -29,7 +29,7 @@ void Music::SetVolume(int volume)
 	}
 	Mix_VolumeMusic(volume);
 }
-void Music::Play(int playLoop)
+void Music::Play()
 {
 	assert(m_music != nullptr); //Music is NULL
 	if (Mix_PlayingMusic() == 0)
@@ -37,7 +37,7 @@ void Music::Play(int playLoop)
 		//Play the music
 		Mix_PlayMusic(m_music, -1);
 	}
-	if (Mix_PlayMusic(m_music, -1) == -1) 
+	else
 	{
 		printf("Mix_PlayMusic: %s\n", Mix_GetError());
 		// well, there's no music, but most games don't break without music...

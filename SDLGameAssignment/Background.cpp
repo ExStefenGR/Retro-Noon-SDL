@@ -19,7 +19,7 @@ Background::~Background()
 }
 void Background::PlayMusic()
 {
-	music.Play(1);
+	music.Play();
 }
 void Background::Render()
 {

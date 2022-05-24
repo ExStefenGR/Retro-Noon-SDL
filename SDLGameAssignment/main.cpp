@@ -3,7 +3,7 @@
 #include "PlayState.h"
 #include <memory>
 
-int main(int argc, char *argv[])
+int main([[maybe_unused]]int argc, [[maybe_unused]]char *argv[])
 {
 	if (auto game = std::make_unique<Game>(new MenuState); game->Initialize())
 	{
