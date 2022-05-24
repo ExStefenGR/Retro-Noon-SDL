@@ -30,10 +30,9 @@ GameState* PlayState::Update()
 		{
 			return nullptr;
 		}
-		if (m_timer->GetTime() <= 0)
+		if (m_player->IsBulletColliding())
 		{
-			auto newstate = new EndState;
-			return newstate;
+			m_score->AddScore(500);
 		}
 		else if (m_timer->GetTime() >= 0)
 		{
@@ -42,14 +41,22 @@ GameState* PlayState::Update()
 			m_player->Update();
 			//For Future development: Add ability for the enemy to shoot bullets
 		}
-		if (m_player->IsBulletColliding())
+		if (m_timer->GetTime() <= 0)
 		{
-			m_score->AddScore(500);
+			auto newstate = new EndState;
+			return newstate;
 		}
-	return this;
+		else
+		{
+			return this;
+		}
 }
 bool PlayState::Render()
 {
+	if (Screen::Instance()->getRenderer() == nullptr)
+	{
+		return false;
+	}
 	m_background->Render();
 	m_player->Render();
 	m_score->Render();

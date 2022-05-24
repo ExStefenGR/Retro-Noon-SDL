@@ -2,7 +2,7 @@
 
 Screen* Screen::Instance()
 {
-	static auto* screenObject = new Screen();
+	static auto* screenObject = new Screen;
 	return screenObject;
 }
 bool Screen::Init()

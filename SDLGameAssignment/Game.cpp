@@ -3,6 +3,7 @@
 Game::Game(GameState* initialState)
 {
 	m_gameState.reset(initialState);
+	return;
 }
 bool Game::Initialize() const
 {
@@ -26,12 +27,15 @@ bool Game::Run()
 		{
 			m_gameState->OnExit();
 			m_gameState.reset(nextState);
-			if (m_gameState)
+			if (m_gameState.get())
 			{
 				m_gameState->OnEnter();
 			}
 		}
-		Screen::Instance()->Present();
+		else
+		{
+			Screen::Instance()->Present();
+		}
 	}
 	return true;
 }

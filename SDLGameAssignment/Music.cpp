@@ -26,7 +26,7 @@ void Music::SetVolume(int volume)
 {
 	if (volume > 128)
 	{
-		m_normalizedValue = volume / 128;
+		volume = volume / 128;
 	}
 	Mix_VolumeMusic(volume);
 }

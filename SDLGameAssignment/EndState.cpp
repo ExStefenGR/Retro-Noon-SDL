@@ -22,7 +22,10 @@ GameState* EndState::Update()
         auto newstate = new PlayState;
         return newstate;
     }
-    return this;
+    else
+    {
+        return this;
+    }
 }
 
 bool EndState::Render()

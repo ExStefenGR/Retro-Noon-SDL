@@ -8,11 +8,13 @@ Bullet::Bullet()
 	m_collider.SetDimension(32, 32);
 	m_gunshot.Load("Assets/Sounds/gunshot.wav");
 	m_gunshot.SetVolume(20);
+	return;
 }
 Bullet::~Bullet()
 {
 	m_images.Unload();
 	m_gunshot.Unload();
+	return;
 }
 const BoxCollider& Bullet::GetCollider() const
 {

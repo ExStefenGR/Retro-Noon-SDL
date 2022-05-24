@@ -5,6 +5,7 @@ Timer::Timer()
 	m_line.Load("Assets/Fonts/Pixeled.ttf", 400);
 	m_line.SetColor(49, 211, 243, 255);
 	m_line.SetDimension(100, 100);
+	return;
 }
 Timer::~Timer()
 {
@@ -13,7 +14,7 @@ Timer::~Timer()
 	m_start = 0.0f;
 	m_result = 0;
 	m_timeSet = 0;
-
+	return;
 }
 void Timer::CountDown()
 {

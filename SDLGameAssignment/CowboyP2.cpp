@@ -16,11 +16,13 @@ CowboyP2::CowboyP2()
 	SetPosition(1690, 400);
 	SetSize(128, 128);
 	SetVelocity(2);
+	return;
 }
 CowboyP2::~CowboyP2()
 {
 	m_image[static_cast<int>(State::Up)].Unload();
 	m_image[static_cast<int>(State::Down)].Unload();
+	return;
 }
 const BoxCollider& CowboyP2::GetCollider() const
 {
@@ -41,15 +43,11 @@ void CowboyP2::IsBulletShot(bool flag)
 }
 void CowboyP2::Update()
 {
-	if (Input::Instance()->IsKeyPressed(HM_KEY_A)) 
-	{
-		m_isBulletShot = true;
-	}
 	if (m_position.y == 420)
 	{
 		m_isTopReached = true;
 	}
-	if (m_position.y == 952)
+	else if (m_position.y == 952)
 	{
 		m_isTopReached = false;
 	}
@@ -58,7 +56,7 @@ void CowboyP2::Update()
 		m_position.y -= m_velocity;
 		m_state = State::Up;
 	}
-	if (m_isTopReached)
+	else if (m_isTopReached)
 	{
 		m_position.y += m_velocity;
 		m_state = State::Down;
@@ -71,6 +69,7 @@ void CowboyP2::Update()
 	{
 		m_position.y = 952;
 	}
+
 	m_image[static_cast<int>(m_state)].Update();
 	m_collider.SetPosition(m_position.x, m_position.y);
 	m_collider.Update();

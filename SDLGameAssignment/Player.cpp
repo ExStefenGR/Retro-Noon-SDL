@@ -31,6 +31,7 @@ const BoxCollider& Player::GetCollider() const
 }
 void Player::Update()
 {
+	//====================Animation/Direction Update=======================
 	if (Input::Instance()->IsKeyPressed(HM_KEY_W))
 	{
 		m_direction.y = -1;
@@ -49,18 +50,25 @@ void Player::Update()
 		m_direction.y = 0;
 		m_state = State::Idle;
 	}
-	//====================Bullet Update=======================
-	if (Input::Instance()->IsKeyPressed(HM_KEY_D))
-	{
-		m_isBulletShot = true;
-	}
+	//====================Boundaries Update=======================
 	if (m_position.y < 420)
 	{
 		m_position.y = 420;
 	}
-	else if (m_position.y >= 952)
+	else if (m_position.y > 952)
 	{
 		m_position.y = 952;
+	}
+	else
+	{
+		m_direction = m_direction * m_velocity;
+		m_position = m_position + m_direction;
+		m_image[static_cast<int>(m_state)].Update();
+	}
+	//====================Bullet Update=======================
+	if (Input::Instance()->IsKeyPressed(HM_KEY_D))
+	{
+		m_isBulletShot = true;
 	}
 	if (IsBulletShot() && !m_bullet->IsActive())
 	{
@@ -69,7 +77,7 @@ void Player::Update()
 		m_bullet->IsVisible(true);
 		m_bullet->SetPosition(GetPosition());
 	}
-	if (m_bullet->GetPosition().x > 1920)
+	else if (m_bullet->GetPosition().x > 1920)
 	{
 		m_bullet->IsActive(false);
 		m_bullet->IsVisible(false);
@@ -80,12 +88,9 @@ void Player::Update()
 	{
 		m_bullet->SetPosition(GetPosition());
 	}
-	m_direction = m_direction * m_velocity;
-	m_position = m_position + m_direction;
-	m_image[static_cast<int>(m_state)].Update();
-	m_collider.Update();
-	m_bullet->Update();
-	m_cowboy->Update();
+		m_collider.Update();
+		m_bullet->Update();
+		m_cowboy->Update();
 }
 void Player::Render()
 {
@@ -121,6 +126,13 @@ bool Player::IsBulletColliding()
 			IsBulletShot(false);
 			return true;
 		}
+		else
+		{
+			return false;
+		}
 	}
-	return false;
+	else
+	{
+		return false;
+	}
 }

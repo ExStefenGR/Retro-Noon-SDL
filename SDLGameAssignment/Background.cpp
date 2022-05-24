@@ -9,11 +9,13 @@ Background::Background()
 	m_images.IsAnimationLooping(false);
 	music.Load("Assets/Music/yes.wav");
 	music.SetVolume(12);
+	return;
 }
 Background::~Background()
 {
 	m_images.Unload();
 	music.Unload();
+	return;
 }
 void Background::PlayMusic()
 {

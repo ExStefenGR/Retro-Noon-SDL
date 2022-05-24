@@ -17,5 +17,4 @@ public:
 	virtual void Stop();
 private:
 	Mix_Music* m_music{ nullptr };
-	int m_normalizedValue{ 0 };
 };

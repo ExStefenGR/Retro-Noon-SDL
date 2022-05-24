@@ -8,7 +8,7 @@ bool MenuState::OnEnter()
    m_background = std::make_unique_for_overwrite<Background>();
    m_menu = std::make_unique_for_overwrite<MenuOptions>();
    m_menu->SetDimension(500, 100);
-   m_menu->SetPosition(360, 100);
+   m_menu->SetPosition(650, 100);
    m_menu->SetText("WELCOME!! PRESS ENTER TO FIGHT");
    return true;
 }
@@ -23,7 +23,10 @@ GameState* MenuState::Update()
         auto newstate = new PlayState;
         return newstate;
     }
-    return this;
+    else
+    {
+        return this;
+    }
 }
 bool MenuState::Render()
 {
