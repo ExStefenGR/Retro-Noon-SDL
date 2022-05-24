@@ -13,5 +13,4 @@ public:
 	void Play(int loop = 0);
 private:
 	Mix_Chunk* m_sound{nullptr};
-	int m_normalizedValue{0};
 };

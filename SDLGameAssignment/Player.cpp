@@ -32,6 +32,10 @@ const BoxCollider& Player::GetCollider() const
 }
 void Player::Update()
 {
+	//====================Other Updates=======================
+		m_collider.Update();
+		m_bullet->Update();
+		m_cowboy->Update();
 	//====================Animation/Direction Update=======================
 	if (Input::Instance()->IsKeyPressed(HM_KEY_W))
 	{
@@ -89,9 +93,10 @@ void Player::Update()
 	{
 		m_bullet->SetPosition(GetPosition());
 	}
-		m_collider.Update();
-		m_bullet->Update();
-		m_cowboy->Update();
+	else
+	{
+		return;
+	}
 }
 void Player::Render()
 {

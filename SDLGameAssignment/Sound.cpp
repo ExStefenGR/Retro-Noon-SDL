@@ -20,8 +20,7 @@ void Sound::SetVolume(int volume)
 {
 	if (volume > 128)
 	{
-		m_normalizedValue = volume / 128;
-		volume = m_normalizedValue;
+		volume = 128;
 	}
 	Mix_VolumeChunk(m_sound, volume);
 }

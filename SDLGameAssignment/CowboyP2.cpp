@@ -56,7 +56,7 @@ void CowboyP2::Update()
 		m_position.y -= m_velocity;
 		m_state = State::Up;
 	}
-	else if (m_isTopReached)
+	else
 	{
 		m_position.y += m_velocity;
 		m_state = State::Down;
