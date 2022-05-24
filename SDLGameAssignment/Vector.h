@@ -3,9 +3,7 @@
 
 template <class T> class Vector
 {
-
 public:
-
 	static const Vector<T> Up;
 	static const Vector<T> Down;
 	static const Vector<T> Left;
