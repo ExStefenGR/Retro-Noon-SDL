@@ -1,16 +1,13 @@
 #pragma once
-
 #include <SDL.h>
 #include <string>
 #include "Vector.h"
-
-//Abstract base class - any class with at least 1 pure virtual function
 
 class GameObject
 {
 public:
 	GameObject() = default;
-
+	virtual ~GameObject() = default;
 	bool IsActive() const;
 	bool IsAlive() const;
 	bool IsVisible() const;

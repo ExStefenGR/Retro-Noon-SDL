@@ -32,13 +32,16 @@ void Sprite::SetImageDimension(int columns, int rows, int width, int height)
 }
 bool Sprite::Load(const std::string& filename)
 {
-	SDL_Surface* rawImageData = IMG_Load(filename.c_str());
+	auto const rawImageData = IMG_Load(filename.c_str());
 	if (!rawImageData)
 	{
 		return false;
 	}
+	else
+	{
 	m_image = SDL_CreateTextureFromSurface(Screen::Instance()->getRenderer(), rawImageData);
 	return true;
+	}
 }
 void Sprite::Unload()
 {
@@ -58,7 +61,7 @@ void Sprite::Update()
 	}
 }
 
-void Sprite::Render(int xPos, int yPos, double angle)
+void Sprite::Render(int const& xPos, int const& yPos, double const& angle)const 
 {
 	if (!m_isAnimationDead)
 	{

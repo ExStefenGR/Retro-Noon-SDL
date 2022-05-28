@@ -20,7 +20,7 @@ public:
 		Total_States
 	};
 	Player();
-	virtual ~Player() = default;
+	~Player() override = default;
 
 	void SetVelocity(int velocity);
 	const BoxCollider& GetCollider() const;

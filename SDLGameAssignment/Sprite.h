@@ -23,7 +23,7 @@ public:
 	bool Load(const std::string& filename);
 	void Unload();
 	void Update();
-	void Render(int xPos, int yPos, double angle);
+	void Render(int const& xPos, int const& yPos, double const& angle)const;
 private:
 	bool m_isAnimated{false};
 	bool m_isAnimationLooping{false};

@@ -6,13 +6,13 @@ class Timer : public GameObject
 {
 public:
 	Timer();
-	virtual ~Timer();
-	void Update() final;
-	void Render() final;
+	~Timer() override;
+	void Update() override;
+	void Render() override;
 	void CountDown();
 	void SetText(std::string const& text);
 	void SetDimension(const int width, const int height);
-	void SetPosition(int x, int y) final;
+	void SetPosition(int x, int y) override;
 	void SetTime(int time);
 	int GetTime() const;
 private:

@@ -21,8 +21,12 @@ void Sound::SetVolume(int volume)
 	if (volume > 128)
 	{
 		volume = 128;
+		Mix_VolumeChunk(m_sound, volume);
 	}
-	Mix_VolumeChunk(m_sound, volume);
+	else
+	{
+		Mix_VolumeChunk(m_sound, volume);
+	}
 }
 void Sound::Play(int loop)
 {

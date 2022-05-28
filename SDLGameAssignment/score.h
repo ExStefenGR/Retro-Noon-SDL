@@ -6,9 +6,9 @@ class Score : public GameObject
 {
 public:
 	Score();
-	virtual ~Score();
+	~Score() override;
 	void SetScore(int score);
-	void SetPosition(int x, int y) final;
+	void SetPosition(const Vector<int>& position) override;
 	void AddScore(int add);
 	void SetText(std::string const &text);
 	int GetScore() const;

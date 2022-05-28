@@ -1,5 +1,4 @@
 #pragma once
-
 #include "BoxCollider.h"
 #include "GameObject.h"
 #include "Sprite.h"
@@ -14,7 +13,7 @@ class CowboyP2 : public GameObject
 	};
 public:
 	CowboyP2();
-	virtual ~CowboyP2();
+	~CowboyP2() override;
 	const BoxCollider& GetCollider() const;
 	Vector<int> SetVelocity(int velocity);
 	bool IsBulletShot() const;

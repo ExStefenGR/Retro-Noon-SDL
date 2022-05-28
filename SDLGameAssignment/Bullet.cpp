@@ -7,7 +7,6 @@ Bullet::Bullet()
 	m_images.SetSpriteDimension(32, 32);
 	m_collider.SetDimension(32, 32);
 	m_gunshot.Load("Assets/Sounds/gunshot.wav");
-	m_gunshot.SetVolume(20);
 	return;
 }
 Bullet::~Bullet()
@@ -30,7 +29,7 @@ void Bullet::ShootSound()
 	m_gunshot.Play();
 }
 void Bullet::Update()
-{	
+{
 	m_direction = Vector<int>(1, 0);
 	m_direction = m_direction * m_speed;
 	m_position = m_position + m_direction;

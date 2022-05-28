@@ -8,7 +8,7 @@ Game::Game(GameState* initialState)
 bool Game::Initialize() const
 {
 	Screen::Instance()->Init();
-	Text::Initialise(); 
+	Text::Initialise();
 	Music::Initialize();
 	return true;
 }
@@ -19,10 +19,7 @@ bool Game::Run()
 	{
 		Screen::Instance()->Clear();
 		Input::Instance()->Update();
-		GameState* nextState = m_gameState->Update();
-		
-		m_gameState->Render();
-
+		auto const nextState = m_gameState->Update();
 		if (nextState != m_gameState.get())
 		{
 			m_gameState->OnExit();
@@ -34,6 +31,7 @@ bool Game::Run()
 		}
 		else
 		{
+			m_gameState->Render();
 			Screen::Instance()->Present();
 		}
 	}

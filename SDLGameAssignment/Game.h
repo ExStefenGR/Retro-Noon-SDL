@@ -20,6 +20,7 @@ public:
 	bool Initialize() const;
 	bool Run();
 	void Shutdown() const;
+
 private:
 	std::unique_ptr<GameState> m_gameState;
 };
