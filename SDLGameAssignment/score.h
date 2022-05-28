@@ -1,5 +1,4 @@
 #pragma once
-
 #include "GameObject.h"
 #include "Text.h"
 class Score : public GameObject

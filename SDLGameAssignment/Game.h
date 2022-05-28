@@ -10,7 +10,6 @@
 #include "Music.h"
 #include "MenuOptions.h"
 #include "Sound.h"
-#include "Game.h"
 #include "GameState.h"
 class Game
 {

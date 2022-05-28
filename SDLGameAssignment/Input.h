@@ -1,5 +1,5 @@
 #pragma once
-#include <SDL.h>
+#include <SDL_events.h>
 #include "Vector.h"
 /*===================================================================#
 | These are the physical key codes                                   |

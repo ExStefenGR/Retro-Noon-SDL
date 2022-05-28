@@ -1,6 +1,5 @@
 #pragma once
 #include <SDL.h>
-#include <memory>
 class Screen
 {
 public:

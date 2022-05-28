@@ -17,3 +17,11 @@ Release/Assets/Sounds/
 
 Release/
 SDL2GameAssignment.zip
+
+*.scor
+
+compileData.scor.incl
+
+compileData.scor.t0000
+
+CompileScoreSettings.json
