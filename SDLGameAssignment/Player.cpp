@@ -2,6 +2,7 @@
 #include <assert.h>
 #include <algorithm>
 
+
 Player::Player()
 {
 	m_image[static_cast<int>(State::Idle)].Load("Assets/Images/CboyIDLE.png");
@@ -32,8 +33,9 @@ const BoxCollider& Player::GetCollider() const
 void Player::Update()
 {
 	//====================Other Updates=======================
-	m_collider.Update();
-	m_cowboy->Update();
+		m_collider.Update();
+		m_bullet->Update();
+		m_cowboy->Update();
 	//====================Animation/Direction Update=======================
 	if (Input::Instance()->IsKeyPressed(HM_KEY_W))
 	{
@@ -116,16 +118,24 @@ void Player::IsBulletShot(bool flag)
 
 bool Player::IsBulletColliding()
 {
-	m_bullet->Update();
-	m_cowBoyCollider = m_cowboy->GetCollider();
-	m_bulletCollider = m_bullet->GetCollider();
-	if (m_bulletCollider.IsColliding(m_cowBoyCollider))
+	if (m_bullet->IsActive())
 	{
-		m_bullet->IsActive(false);
-		m_bullet->IsVisible(false);
-		m_bullet->SetPosition(GetPosition());
-		IsBulletShot(false);
-		return true;
+		m_cowBoyCollider = m_cowboy->GetCollider();
+		m_bulletCollider = m_bullet->GetCollider();
+		m_bullet->Update();
+		//=====Box Collision Detection========= 
+		if (m_bulletCollider.IsColliding(m_cowBoyCollider))
+		{
+			m_bullet->IsActive(false);
+			m_bullet->IsVisible(false);
+			m_bullet->SetPosition(GetPosition());
+			IsBulletShot(false);
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	else
 	{

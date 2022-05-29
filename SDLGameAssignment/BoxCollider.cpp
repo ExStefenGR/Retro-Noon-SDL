@@ -21,5 +21,5 @@ void BoxCollider::Update()
 bool BoxCollider::IsColliding(const BoxCollider& secondBox) const
 {
 	return ((m_max.x > secondBox.m_min.x) && (secondBox.m_max.x > m_min.x) &&
-		(m_max.y > secondBox.m_min.y) && (secondBox.m_max.y > m_min.y));
+			(m_max.y > secondBox.m_min.y) && (secondBox.m_max.y > m_min.y));
 }

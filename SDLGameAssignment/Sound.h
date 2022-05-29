@@ -1,6 +1,7 @@
 #pragma once
-#include <SDL_mixer.h>
+
 #include <string>
+#include <SDL_mixer.h>
 class Sound
 {
 public:
@@ -10,6 +11,6 @@ public:
 	void Unload();
 	void SetVolume(int volume);
 	void Play(int loop = 0);
-
-	Mix_Chunk* m_sound{ nullptr };
+private:
+	Mix_Chunk* m_sound{nullptr};
 };
