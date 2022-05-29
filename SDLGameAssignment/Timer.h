@@ -11,10 +11,10 @@ public:
 	void Render() final;
 	void CountDown();
 	void SetText(std::string const& text);
-	void SetDimension(const int width, const int height);
+	void SetDimension(int width, int height);
 	void SetPosition(int x, int y) final;
 	void SetTime(int time);
-	int GetTime() const;
+	[[nodiscard]] int GetTime() const;
 private:
 	int m_timeSet{ 0 };
 	int m_result{ 0 };

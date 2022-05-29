@@ -1,7 +1,7 @@
 #pragma once
 #include "Game.h"
 #include "PlayState.h"
-class MenuState : public GameState
+class MenuState final : public GameState
 {
 public:
 	~MenuState() override = default;

@@ -8,7 +8,7 @@ class Bullet : public GameObject
 public:
 	Bullet();
 	virtual ~Bullet();
-	const BoxCollider& GetCollider() const;
+	[[nodiscard]] const BoxCollider& GetCollider() const;
 	int SetVelocity(int velocity);
 	void ShootSound();
 	void Update() final;

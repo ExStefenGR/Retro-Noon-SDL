@@ -23,10 +23,10 @@ public:
 	virtual ~Player() = default;
 
 	void SetVelocity(int velocity);
-	const BoxCollider& GetCollider() const;
+	[[nodiscard]] const BoxCollider& GetCollider() const;
 	void Update() final;
 	void Render() final;
-	bool IsBulletShot() const;
+	[[nodiscard]] bool IsBulletShot() const;
 	void IsBulletShot(bool flag);
 
 	bool IsBulletColliding();

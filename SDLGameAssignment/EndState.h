@@ -2,7 +2,7 @@
 #include "Game.h"
 #include "PlayState.h"
 #include <memory>
-class EndState : public GameState
+class EndState final : public GameState
 {
 public:
 	~EndState() override = default;

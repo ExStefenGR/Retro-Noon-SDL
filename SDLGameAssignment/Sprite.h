@@ -21,7 +21,7 @@ public:
 	void SetSpriteDimension(int width, int height); //on screen
 	void SetImageDimension(int columns, int rows, int width, int height); //in folder
 	bool Load(const std::string& filename);
-	void Unload();
+	void Unload() const;
 	void Update();
 	void Render(int xPos, int yPos, double angle);
 private:

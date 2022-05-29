@@ -1,5 +1,5 @@
 #include "Sound.h"
-#include <assert.h>
+#include <cassert>
 
 bool Sound::Load(const std::string& filename)
 {
@@ -12,11 +12,11 @@ bool Sound::Load(const std::string& filename)
 	}
 	return true;
 }
-void Sound::Unload()
+void Sound::Unload() const
 {
 	Mix_FreeChunk(m_sound);
 }
-void Sound::SetVolume(int volume)
+void Sound::SetVolume(int volume) const
 {
 	if (volume > 128)
 	{
@@ -24,7 +24,7 @@ void Sound::SetVolume(int volume)
 	}
 	Mix_VolumeChunk(m_sound, volume);
 }
-void Sound::Play(int loop)
+void Sound::Play(const int loop) const
 {
 	Mix_PlayChannel(-1, m_sound, loop);
 }

@@ -16,15 +16,12 @@ GameState* EndState::Update()
     {
         return nullptr;
     }
-    else if (Input::Instance()->IsKeyPressed(HM_KEY_RETURN))
+    if (Input::Instance()->IsKeyPressed(HM_KEY_RETURN))
     {
-        auto newstate = new PlayState;
-        return newstate;
+	    const auto newstate = new PlayState;
+	    return newstate;
     }
-    else
-    {
-        return this;
-    }
+    return this;
 }
 
 bool EndState::Render()
@@ -42,6 +39,6 @@ void EndState::OnExit()
 {
     m_background.reset();
     m_replay.reset();
-    GameState* newstate = Update();
+    const GameState* newstate = Update();
     delete newstate;
 }

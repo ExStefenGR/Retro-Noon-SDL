@@ -2,7 +2,8 @@
 
 #include <string>
 #include <SDL_mixer.h>
-#include <assert.h>
+#include <cassert>
+
 class Music
 {
 public:
@@ -10,7 +11,7 @@ public:
 	virtual ~Music() = default;
 	static bool Initialize();
 	bool Load(const std::string& filename);
-	void Unload();
+	void Unload() const;
 	virtual void SetVolume(int volume);
 	virtual void Play();
 	virtual void Pause();

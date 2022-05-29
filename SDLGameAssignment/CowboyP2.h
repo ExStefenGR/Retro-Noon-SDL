@@ -15,9 +15,9 @@ class CowboyP2 : public GameObject
 public:
 	CowboyP2();
 	virtual ~CowboyP2();
-	const BoxCollider& GetCollider() const;
+	[[nodiscard]] const BoxCollider& GetCollider() const;
 	Vector<int> SetVelocity(int velocity);
-	bool IsBulletShot() const;
+	[[nodiscard]] bool IsBulletShot() const;
 	void IsBulletShot(bool flag);
 	void Update() final;
 	void Render() final;

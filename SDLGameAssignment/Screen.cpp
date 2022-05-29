@@ -11,27 +11,24 @@ bool Screen::Init()
 	{
 		return false;
 	}
-	else
-	{
-		m_window = SDL_CreateWindow("SDL Retro-Noon",
-			SDL_WINDOWPOS_CENTERED,	//X or Horizontal
-			SDL_WINDOWPOS_CENTERED, //Y or Vertical position
-			1920,		//Width
-			1080,		//height
-			SDL_WINDOW_VULKAN + SDL_WINDOW_MAXIMIZED);		//flags (fullscreen,focus,etc)
-		m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED + SDL_RENDERER_PRESENTVSYNC);
-		return true;
-	}
+	m_window = SDL_CreateWindow("SDL Retro-Noon",
+	                            SDL_WINDOWPOS_CENTERED,	//X or Horizontal
+	                            SDL_WINDOWPOS_CENTERED, //Y or Vertical position
+	                            1920,		//Width
+	                            1080,		//height
+	                            SDL_WINDOW_VULKAN + SDL_WINDOW_MAXIMIZED);		//flags (fullscreen,focus,etc)
+	m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED + SDL_RENDERER_PRESENTVSYNC);
+	return true;
 }
-void Screen::Present()
+void Screen::Present() const
 {
 	SDL_RenderPresent(m_renderer);
 }
-void Screen::Clear()
+void Screen::Clear() const
 {
 	SDL_RenderClear(m_renderer);
 }
-void Screen::Exit()
+void Screen::Exit() const
 {
 	SDL_DestroyRenderer(m_renderer);
 	SDL_DestroyWindow(m_window);
@@ -39,7 +36,7 @@ void Screen::Exit()
 	static auto* screenObject = Instance(); //Try to make this memory efficient
 	delete screenObject;
 }
-SDL_Renderer* Screen::getRenderer()
+SDL_Renderer* Screen::getRenderer() const
 {
 	return m_renderer;
 }

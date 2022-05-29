@@ -278,31 +278,31 @@ class Input
 public:
 	static Input* Instance();
 
-	int GetKey() const;
+	[[nodiscard]] int GetKey() const;
 
-	int GetMouseButtonUp() const;
-	int GetMouseWheel() const;
+	[[nodiscard]] int GetMouseButtonUp() const;
+	[[nodiscard]] int GetMouseWheel() const;
 
 
-	const Vector<int>& GetMouseMotion() const;
-	const Vector<int>& GetMousePosition() const;
+	[[nodiscard]] const Vector<int>& GetMouseMotion() const;
+	[[nodiscard]] const Vector<int>& GetMousePosition() const;
 
-	void SetCursorState(const bool isCursorEnabled, const bool isCursorVisible) const;
+	static void SetCursorState(bool isCursorEnabled, bool isCursorVisible);
 
-	bool IsWindowClosed() const;
+	[[nodiscard]] bool IsWindowClosed() const;
 
-	bool IsKeyPressed() const;
-	bool IsKeyPressed(int keyCode) const;
-	bool IsModifierPressed(int modifier_1, int modifier_2 = HM_MOD_NONE) const;
+	[[nodiscard]] bool IsKeyPressed() const;
+	static bool IsKeyPressed(int keyCode);
+	[[nodiscard]] bool IsModifierPressed(int modifier_1, int modifier_2 = HM_MOD_NONE) const;
 
-	bool IsMouseClicked() const;
-	bool IsMouseClicked(int mouseButton_1, int mouseButton_2 = HM_MOUSE_NONE) const;
+	[[nodiscard]] bool IsMouseClicked() const;
+	[[nodiscard]] bool IsMouseClicked(int mouseButton_1, int mouseButton_2 = HM_MOUSE_NONE) const;
 
 	void Update();
 
+	Input(const Input&) = delete;
 private:
 	Input() = default;
-	Input(const Input&);
 
 	int m_key{};
 

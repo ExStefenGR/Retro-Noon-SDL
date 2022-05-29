@@ -31,7 +31,7 @@ const Vector<int>& Input::GetMousePosition() const
 	return m_mousePosition;
 }
 //======================================================================================================
-void Input::SetCursorState(const bool isCursorEnabled, const bool isCursorVisible) const
+void Input::SetCursorState(const bool isCursorEnabled, const bool isCursorVisible)
 {
 	SDL_ShowCursor(static_cast<int>(isCursorVisible));
 	SDL_SetRelativeMouseMode(static_cast<SDL_bool>(isCursorEnabled));
@@ -47,7 +47,7 @@ bool Input::IsKeyPressed() const
 	return m_isKeyPressed;
 }
 //======================================================================================================
-bool Input::IsKeyPressed(int keyCode) const
+bool Input::IsKeyPressed(int keyCode)
 {
 	const Uint8* m_keyStates = SDL_GetKeyboardState(nullptr);
 	return m_keyStates[keyCode];

@@ -2,7 +2,7 @@
 #include <SDL_ttf.h>
 #include <string>
 #include <memory>
-#include <assert.h>
+#include <cassert>
 #include "Screen.h"
 
 class Text
@@ -13,11 +13,11 @@ public:
 	~Text() = default;	
 	void SetText(const std::string_view& text);
 	void SetColor(const SDL_Color& color);
-	void SetColor(const Uint8 r, const Uint8 g, const Uint8 b, const Uint8 a);
-	void SetDimension(const int width,const int height);
-	bool Load(const std::string& filename, const int fontSize);
-	void Render(const int xPos,const int yPos);
-	void Unload();
+	void SetColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a);
+	void SetDimension(int width, int height);
+	bool Load(const std::string& filename, int fontSize);
+	void Render(int xPos, int yPos);
+	void Unload() const;
 private:
 	SDL_Rect m_targetRect = { 0,0,0,0 };
 	SDL_Color m_color {255,255,255,255};

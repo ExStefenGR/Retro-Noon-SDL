@@ -3,10 +3,10 @@
 bool PlayState::OnEnter()
 {
 	//Make Unique Pointers
-	m_background = std::make_unique_for_overwrite<Background>();
-	m_player = std::make_unique_for_overwrite<Player>();
-	m_score = std::make_unique_for_overwrite<Score>();
-	m_timer = std::make_unique_for_overwrite<Timer>();
+	m_background.reset(new Background);
+	m_player.reset(new Player);
+	m_score.reset(new Score);
+	m_timer.reset(new Timer);
 	//Load Background
 	m_background->PlayMusic();
 	//Setting Variables for Player 
@@ -21,31 +21,28 @@ bool PlayState::OnEnter()
 }
 GameState* PlayState::Update()
 {
-		m_timer->Update();
-		if (Input::Instance()->IsKeyPressed(HM_KEY_ESCAPE) || Input::Instance()->IsWindowClosed())
-		{
-			return nullptr;
-		}
-		if (m_player->IsBulletColliding())
-		{
-			m_score->AddScore(500);
-		}
-		else if (m_timer->GetTime() >= 0)
-		{
-			//========Update Functions============
-			m_timer->CountDown();
-			m_player->Update();
-			//For Future development: Add ability for the enemy to shoot bullets
-		}
-		if (m_timer->GetTime() <= 0)
-		{
-			auto newstate = new EndState;
-			return newstate;
-		}
-		else
-		{
-			return this;
-		}
+	m_timer->Update();
+	if (Input::Instance()->IsKeyPressed(HM_KEY_ESCAPE) || Input::Instance()->IsWindowClosed())
+	{
+		return nullptr;
+	}
+	if (m_player->IsBulletColliding())
+	{
+		m_score->AddScore(500);
+	}
+	else if (m_timer->GetTime() >= 0)
+	{
+		//========Update Functions============
+		m_timer->CountDown();
+		m_player->Update();
+		//For Future development: Add ability for the enemy to shoot bullets
+	}
+	if (m_timer->GetTime() <= 0)
+	{
+		const auto newstate = new EndState;
+		return newstate;
+	}
+	return this;
 }
 bool PlayState::Render()
 {
@@ -61,6 +58,10 @@ bool PlayState::Render()
 }
 void PlayState::OnExit()
 {
-	GameState* newstate = Update();
+	const GameState* newstate = Update();
+	m_background.release();
+	m_player.release();
+	m_score.release();
+	m_timer.release();
 	delete newstate;
 }

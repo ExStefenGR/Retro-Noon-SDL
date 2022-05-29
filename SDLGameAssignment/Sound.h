@@ -8,9 +8,9 @@ public:
 	Sound() = default;
 	~Sound() = default;
 	bool Load(const std::string& filename);
-	void Unload();
-	void SetVolume(int volume);
-	void Play(int loop = 0);
+	void Unload() const;
+	void SetVolume(int volume) const;
+	void Play(int loop = 0) const;
 private:
 	Mix_Chunk* m_sound{nullptr};
 };

@@ -2,10 +2,8 @@
 
 bool MenuState::OnEnter()
 {
-    //Make Unique Pointers
-   
-   m_background = std::make_unique_for_overwrite<Background>();
-   m_menu = std::make_unique_for_overwrite<MenuOptions>();
+   m_background.reset(new Background);
+   m_menu.reset(new MenuOptions);
    m_menu->SetDimension(500, 100);
    m_menu->SetPosition(650, 100);
    m_menu->SetText("WELCOME!! PRESS ENTER TO FIGHT");
@@ -17,15 +15,12 @@ GameState* MenuState::Update()
     {
 		return nullptr;
     }
-    else if (Input::Instance()->IsKeyPressed(HM_KEY_RETURN))
+    if (Input::Instance()->IsKeyPressed(HM_KEY_RETURN))
     {
-        auto newstate = new PlayState;
-        return newstate;
+	    const auto newstate = new PlayState;
+	    return newstate;
     }
-    else
-    {
-        return this;
-    }
+    return this;
 }
 bool MenuState::Render()
 {
@@ -39,6 +34,6 @@ bool MenuState::Render()
 }
 void MenuState::OnExit()
 {
-    GameState* newstate = Update();
+	const GameState* newstate = Update();
     delete newstate;
 }

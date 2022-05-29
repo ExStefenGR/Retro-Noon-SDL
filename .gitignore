@@ -17,3 +17,5 @@ Release/Assets/Sounds/
 
 Release/
 SDL2GameAssignment.zip
+
+*.user

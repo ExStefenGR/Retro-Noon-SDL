@@ -8,10 +8,10 @@ public:
 	Score();
 	virtual ~Score();
 	void SetScore(int score);
-	void SetPosition(int x, int y) final;
+	void SetPosition(const Vector<int>& position) override;
 	void AddScore(int add);
 	void SetText(std::string const &text);
-	int GetScore() const;
+	[[nodiscard]] int GetScore() const;
 	void Update() final {}
 	void Render() final;
 private:

@@ -1,17 +1,16 @@
 #pragma once
 #include "GameObject.h"
 #include "Text.h"
-#include "Vector.h"
-class MenuOptions : public GameObject
+class MenuOptions final : public GameObject
 {
 public:
 	MenuOptions();
 	virtual ~MenuOptions();
 	void SetPosition(int x, int y) override;
 	void SetText(std::string const& text);
-	void SetDimension(const int width, const int height);
-	void Update() final {}
-	void Render() final;
+	auto SetDimension(int width, int height) -> void;
+	void Update() override {}
+	void Render() override;
 private:
 	Text m_line{};
 };

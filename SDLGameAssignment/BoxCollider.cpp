@@ -1,11 +1,11 @@
 #include "BoxCollider.h"
 
-void BoxCollider::SetPosition(int x, int y)
+void BoxCollider::SetPosition(int const x, int const y)
 {
 	m_position.x = x;
 	m_position.y = y;
 }
-void BoxCollider::SetDimension(int width, int height)
+void BoxCollider::SetDimension(int const width, int const height)
 {
 	m_dimension.x = width;
 	m_dimension.y = height;

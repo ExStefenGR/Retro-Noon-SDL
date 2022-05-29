@@ -1,5 +1,5 @@
 #pragma once
-#include <math.h>
+#include <cmath>
 
 template <class T> class Vector
 {
@@ -19,22 +19,22 @@ public:
 	Vector<T> operator-(const Vector<T>& second) const;
 	Vector<T>& operator-=(const Vector<T>& second);
 
-	Vector<T> operator*(const T second) const;
-	Vector<T>& operator*=(const T second);
+	Vector<T> operator*(T second) const;
+	Vector<T>& operator*=(T second);
 
-	Vector<T> operator/(const T second) const;
-	Vector<T>& operator/=(const T second);
+	Vector<T> operator/(T second) const;
+	Vector<T>& operator/=(T second);
 
 	Vector<T> operator-() const;
 
-	T Magnitude() const;
-	T SqrMagnitude() const;
-	T Distance(const Vector<T>& second) const;
-	T Dot(const Vector<T>& second) const;
+	[[nodiscard]] T Magnitude() const;
+	[[nodiscard]] T SqrMagnitude() const;
+	[[nodiscard]] T Distance(const Vector<T>& second) const;
+	[[nodiscard]] T Dot(const Vector<T>& second) const;
 
-	Vector<T> Normalize() const;
-	Vector<T> Lerp(const Vector<T>& second, float delta) const;
-	Vector<T> Slerp(const Vector<T>& second, float delta) const;
+	[[nodiscard]] Vector<T> Normalize() const;
+	[[nodiscard]] Vector<T> Lerp(const Vector<T>& second, float delta) const;
+	[[nodiscard]] Vector<T> Slerp(const Vector<T>& second, float delta) const;
 
 	T x;
 	T y;
@@ -148,7 +148,7 @@ template<class T> Vector<T> Vector<T>::Slerp(const Vector<T>& second, float delt
 {
 	float dot = Dot(second);
 	dot = max(min(dot, 1), -1);
-	float angle = acosf(dot) * delta;
+	const float angle = acosf(dot) * delta;
 	Vector<T> relative = (second - *this * dot).Normalize();
 	return (*this * cosf(angle)) + (relative * sinf(angle));
 }

@@ -10,16 +10,15 @@
 #include "Music.h"
 #include "MenuOptions.h"
 #include "Sound.h"
-#include "Game.h"
 #include "GameState.h"
 class Game
 {
 public:
 	explicit Game(GameState* initialState);
 	~Game() = default;
-	bool Initialize() const;
+	static bool Initialize();
 	bool Run();
-	void Shutdown() const;
+	static void Shutdown();
 private:
 	std::unique_ptr<GameState> m_gameState;
 };

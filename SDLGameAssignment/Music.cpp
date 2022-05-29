@@ -17,7 +17,8 @@ bool Music::Load(const std::string& filename)
 	}
 	return true;
 }
-void Music::Unload()
+
+void Music::Unload() const
 {
 	Mix_FreeMusic(m_music);
 }

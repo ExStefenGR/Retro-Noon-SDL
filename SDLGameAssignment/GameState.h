@@ -1,6 +1,4 @@
 #pragma once
-#include "Screen.h"
-#include "Input.h"
 class GameState
 {
 public:

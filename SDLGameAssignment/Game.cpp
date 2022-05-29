@@ -5,7 +5,7 @@ Game::Game(GameState* initialState)
 	m_gameState.reset(initialState);
 	return;
 }
-bool Game::Initialize() const
+bool Game::Initialize()
 {
 	Screen::Instance()->Init();
 	Text::Initialise(); 
@@ -27,7 +27,7 @@ bool Game::Run()
 		{
 			m_gameState->OnExit();
 			m_gameState.reset(nextState);
-			if (m_gameState.get())
+			if (m_gameState)
 			{
 				m_gameState->OnEnter();
 			}
@@ -39,7 +39,7 @@ bool Game::Run()
 	}
 	return true;
 }
-void Game::Shutdown() const
+void Game::Shutdown()
 {
 	Screen::Instance()->Exit();
 }

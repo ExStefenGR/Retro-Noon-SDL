@@ -11,13 +11,13 @@ class GameObject
 public:
 	GameObject() = default;
 
-	bool IsActive() const;
-	bool IsAlive() const;
-	bool IsVisible() const;
-	const std::string& GetTag() const;
-	const Vector<int>& GetPosition() const;
-	const Vector<int>& GetSize() const;
-	double GetAngle() const;
+	[[nodiscard]] bool IsActive() const;
+	[[nodiscard]] bool IsAlive() const;
+	[[nodiscard]] bool IsVisible() const;
+	[[nodiscard]] const std::string& GetTag() const;
+	[[nodiscard]] const Vector<int>& GetPosition() const;
+	[[nodiscard]] const Vector<int>& GetSize() const;
+	[[nodiscard]] double GetAngle() const;
 
 	virtual void Render() = 0;
 	virtual void Update() = 0;

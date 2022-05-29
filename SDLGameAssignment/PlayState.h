@@ -1,8 +1,9 @@
 #pragma once
 #include "Game.h"
 #include "EndState.h"
-#include <assert.h>
-class PlayState : public GameState
+#include <cassert>
+
+class PlayState final : public GameState
 {
 public:
 	~PlayState() override = default;
