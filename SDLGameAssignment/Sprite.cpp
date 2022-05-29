@@ -39,8 +39,8 @@ bool Sprite::Load(const std::string& filename)
 	}
 	else
 	{
-	m_image = SDL_CreateTextureFromSurface(Screen::Instance()->getRenderer(), rawImageData);
-	return true;
+		m_image = SDL_CreateTextureFromSurface(Screen::Instance()->getRenderer(), rawImageData);
+		return true;
 	}
 }
 void Sprite::Unload()
@@ -61,12 +61,12 @@ void Sprite::Update()
 	}
 }
 
-void Sprite::Render(int const& xPos, int const& yPos, double const& angle)const 
+void Sprite::Render(int const& xPos, int const& yPos, double const& angle)const
 {
 	if (!m_isAnimationDead)
 	{
-		SDL_Rect sourceRect{0};
-		SDL_Rect targetRect{0};
+		SDL_Rect sourceRect{ 0 };
+		SDL_Rect targetRect{ 0 };
 		sourceRect.x = (m_imageCel % m_imageDimension.x) * m_celDimension.x;
 		sourceRect.y = (m_imageCel / m_imageDimension.x) * m_celDimension.y;
 		sourceRect.w = m_celDimension.x;

@@ -10,8 +10,8 @@ public:
 	void Update();
 	bool IsColliding(const BoxCollider& secondBox)const;
 private:
-	Vector<int> m_dimension{0,0};
-	Vector<int> m_position{0,0};
-	Vector<int> m_min {0,0};
-	Vector<int> m_max{0,0};
+	Vector<int> m_dimension{ 0,0 };
+	Vector<int> m_position{ 0,0 };
+	Vector<int> m_min{ 0,0 };
+	Vector<int> m_max{ 0,0 };
 };

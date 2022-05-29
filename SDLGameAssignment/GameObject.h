@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+
 #include "Vector.h"
 
 class GameObject
@@ -27,12 +28,13 @@ public:
 	void SetSize(const Vector<int>& size);
 	void SetSize(int width, int height);
 	void SetTag(const std::string_view& tag);
+
 protected:
 	bool m_isActive{ false };
 	bool m_isAlive{ false };
 	bool m_isVisible{ false };
 	double m_angle{ 0.0f };
 	std::string m_tag{};
-	Vector<int> m_position{0,0};
-	Vector<int> m_size{0,0};
+	Vector<int> m_position{ 0, 0 };
+	Vector<int> m_size{ 0, 0 };
 };

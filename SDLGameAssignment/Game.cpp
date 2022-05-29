@@ -1,4 +1,4 @@
-#include "Game.h" 
+#include "Game.h"
 
 Game::Game(GameState* initialState)
 {
@@ -15,7 +15,7 @@ bool Game::Initialize() const
 bool Game::Run()
 {
 	m_gameState->OnEnter();
-	while (m_gameState)  //will break if m_gameState == nullptr
+	while (m_gameState) // will break if m_gameState == nullptr
 	{
 		Screen::Instance()->Clear();
 		Input::Instance()->Update();

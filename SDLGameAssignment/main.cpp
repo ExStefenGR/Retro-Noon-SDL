@@ -1,8 +1,9 @@
-#include "Game.h"
-#include "MenuState.h"
 #include <memory>
 
-int main([[maybe_unused]]int argc, [[maybe_unused]]char *argv[])
+#include "Game.h"
+#include "MenuState.h"
+
+int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[])
 {
 	if (auto game = std::make_unique<Game>(new MenuState); game->Initialize())
 	{

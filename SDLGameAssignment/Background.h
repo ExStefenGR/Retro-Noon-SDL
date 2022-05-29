@@ -10,7 +10,7 @@ public:
 	void PlayMusic();
 	void Update() final {};
 	void Render() final;
-	virtual void Stop() {music.Stop();};
+	virtual void Stop() { music.Stop(); };
 
 	Music music{};
 	Sprite m_images{};

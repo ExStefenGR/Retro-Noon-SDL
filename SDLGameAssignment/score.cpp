@@ -27,7 +27,7 @@ void Score::AddScore(int add)
 	m_score = m_score + add;
 	m_line.SetText("Score: " + std::to_string(m_score));
 }
-void Score::SetText(std::string const &text)
+void Score::SetText(std::string const& text)
 {
 	m_line.SetText(text);
 }

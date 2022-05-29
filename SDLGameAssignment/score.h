@@ -9,11 +9,11 @@ public:
 	void SetScore(int score);
 	void SetPosition(const Vector<int>& position) override;
 	void AddScore(int add);
-	void SetText(std::string const &text);
+	void SetText(std::string const& text);
 	int GetScore() const;
 	void Update() final {}
 	void Render() final;
 private:
-	int m_score{0};
+	int m_score{ 0 };
 	Text m_line{};
 };

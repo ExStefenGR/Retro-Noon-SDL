@@ -1,6 +1,6 @@
 #pragma once
-#include "Game.h"
 #include "EndState.h"
+#include "Game.h"
 class PlayState : public GameState
 {
 public:
@@ -10,6 +10,6 @@ public:
 	GameState* Update() override;
 	bool Render() override;
 	void OnExit() override;
-private:
 
+private:
 };

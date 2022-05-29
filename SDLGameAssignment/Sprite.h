@@ -25,14 +25,14 @@ public:
 	void Update();
 	void Render(int const& xPos, int const& yPos, double const& angle)const;
 private:
-	bool m_isAnimated{false};
-	bool m_isAnimationLooping{false};
-	bool m_isAnimationDead{false};
-	Flip m_flip{Flip::No_Flip};
+	bool m_isAnimated{ false };
+	bool m_isAnimationLooping{ false };
+	bool m_isAnimationDead{ false };
+	Flip m_flip{ Flip::No_Flip };
 	SDL_Texture* m_image{ nullptr };
-	SDL_Point m_spriteDimension{0,0};
-	SDL_Point m_celDimension{0,0};
-	SDL_Point m_imageDimension{0,0};
+	SDL_Point m_spriteDimension{ 0,0 };
+	SDL_Point m_celDimension{ 0,0 };
+	SDL_Point m_imageDimension{ 0,0 };
 	float m_animationVelocity{ 0.0f };
-	int m_imageCel{0};
+	int m_imageCel{ 0 };
 };

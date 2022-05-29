@@ -41,6 +41,6 @@ private:
 	Sound m_gunshot;
 
 	int m_velocity{ 0 };
-	bool m_isBulletShot {false};
-	Vector<int> m_direction {0,0};
+	bool m_isBulletShot{ false };
+	Vector<int> m_direction{ 0,0 };
 };

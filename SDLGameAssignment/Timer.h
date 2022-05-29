@@ -18,8 +18,8 @@ public:
 private:
 	int m_timeSet{ 0 };
 	int m_result{ 0 };
-	double m_start{0.0f};
-	double m_finish{0.0f};
-	const double m_velocity{0.0035f};
+	double m_start{ 0.0f };
+	double m_finish{ 0.0f };
+	const double m_velocity{ 0.0035f };
 	Text m_line{};
 };
