@@ -1,4 +1,4 @@
-#include "score.h"
+#include "Score.h"
 
 Score::Score()
 {
@@ -17,17 +17,17 @@ void Score::SetScore(int score)
 	m_score = score;
 	m_line.SetText("Score: " + std::to_string(m_score));
 }
-void Score::SetPosition(const Vector<int>& position)
+void Score::SetPosition(int x, int y)
 {
-	m_position.x = position.x;
-	m_position.y = position.y;
+	m_position.x = x;
+	m_position.y = y;
 }
 void Score::AddScore(int add)
 {
 	m_score = m_score + add;
 	m_line.SetText("Score: " + std::to_string(m_score));
 }
-void Score::SetText(std::string const& text)
+void Score::SetText(std::string const &text)
 {
 	m_line.SetText(text);
 }

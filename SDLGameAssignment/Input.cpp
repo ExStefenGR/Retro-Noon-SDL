@@ -79,23 +79,27 @@ void Input::Update()
 	{
 		switch (events.type)
 		{
-		case SDL_QUIT: {
+		case SDL_QUIT:
+		{
 			m_isWindowClosed = true;
 			break;
 		}
-		case SDL_KEYUP: {
+		case SDL_KEYUP:
+		{
 			m_isKeyPressed = false;
 			m_key = SDLK_UNKNOWN;
 			m_modifier = events.key.keysym.mod;
 			break;
 		}
-		case SDL_KEYDOWN: {
+		case SDL_KEYDOWN:
+		{
 			m_isKeyPressed = true;
 			m_key = events.key.keysym.sym;
 			m_modifier |= events.key.keysym.mod;
 			break;
 		}
-		case SDL_MOUSEMOTION: {
+		case SDL_MOUSEMOTION:
+		{
 			m_mousePosition.x = events.motion.x;
 			m_mousePosition.y = events.motion.y;
 
@@ -103,11 +107,13 @@ void Input::Update()
 			m_mouseMotion.y = events.motion.yrel;
 			break;
 		}
-		case SDL_MOUSEWHEEL: {
+		case SDL_MOUSEWHEEL:
+		{
 			m_mouseWheel = events.wheel.y;
 			break;
 		}
-		case SDL_MOUSEBUTTONUP: {
+		case SDL_MOUSEBUTTONUP:
+		{
 			m_isMouseClicked = false;
 			m_mouseButtonUp = events.button.button;
 			m_mousePosition.x = events.motion.x;
@@ -115,49 +121,29 @@ void Input::Update()
 
 			switch (events.button.button)
 			{
-			case SDL_BUTTON_LEFT: {
-				m_mouseButton ^= HM_MOUSE_LEFT;
-				break;
-			}
-			case SDL_BUTTON_MIDDLE: {
-				m_mouseButton ^= HM_MOUSE_MIDDLE;
-				break;
-			}
-			case SDL_BUTTON_RIGHT: {
-				m_mouseButton ^= HM_MOUSE_RIGHT;
-				break;
-			}
-			default: {
-				break;
-			}
+			case SDL_BUTTON_LEFT: { m_mouseButton ^= HM_MOUSE_LEFT; break;   }
+			case SDL_BUTTON_MIDDLE: { m_mouseButton ^= HM_MOUSE_MIDDLE; break; }
+			case SDL_BUTTON_RIGHT: { m_mouseButton ^= HM_MOUSE_RIGHT; break;  }
+			default: { break; }
 			}
 			break;
 		}
-		case SDL_MOUSEBUTTONDOWN: {
+		case SDL_MOUSEBUTTONDOWN:
+		{
 			m_isMouseClicked = true;
 			m_mousePosition.x = events.motion.x;
 			m_mousePosition.y = events.motion.y;
 			switch (events.button.button)
 			{
-			case SDL_BUTTON_LEFT: {
-				m_mouseButton |= HM_MOUSE_LEFT;
-				break;
-			}
-			case SDL_BUTTON_MIDDLE: {
-				m_mouseButton |= HM_MOUSE_MIDDLE;
-				break;
-			}
-			case SDL_BUTTON_RIGHT: {
-				m_mouseButton |= HM_MOUSE_RIGHT;
-				break;
-			}
-			default: {
-				break;
-			}
+			case SDL_BUTTON_LEFT: { m_mouseButton |= HM_MOUSE_LEFT; break;   }
+			case SDL_BUTTON_MIDDLE: { m_mouseButton |= HM_MOUSE_MIDDLE; break; }
+			case SDL_BUTTON_RIGHT: { m_mouseButton |= HM_MOUSE_RIGHT; break; }
+			default: {break;}
 			}
 			break;
 		}
-		default: {
+		default: 
+		{
 			break;
 		}
 		}

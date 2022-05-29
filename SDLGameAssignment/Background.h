@@ -6,12 +6,12 @@ class Background : public GameObject
 {
 public:
 	Background();
-	~Background() override;
+	virtual ~Background();
 	void PlayMusic();
 	void Update() final {};
 	void Render() final;
-	virtual void Stop() { music.Stop(); };
-
+	virtual void Stop() {music.Stop();};
+private:
 	Music music{};
 	Sprite m_images{};
 };

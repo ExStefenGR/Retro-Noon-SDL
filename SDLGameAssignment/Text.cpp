@@ -34,13 +34,14 @@ bool Text::Load(const std::string& filename, const int fontSize)
 	{
 		return false;
 	}
-	else
-	{
-		return true;
-	}
+	return true;
 }
 void Text::Render(const int xPos, const int yPos)
 {
+	m_targetRect.x = xPos;
+	m_targetRect.y = yPos;
+	m_targetRect.w = m_dimension.x;
+	m_targetRect.h = m_dimension.y;
 	if (m_isDirty)
 	{
 		SDL_DestroyTexture(m_texture);
@@ -49,10 +50,6 @@ void Text::Render(const int xPos, const int yPos)
 		SDL_FreeSurface(m_textData);
 		m_isDirty = false;
 	}
-	m_targetRect.x = xPos;
-	m_targetRect.y = yPos;
-	m_targetRect.w = m_dimension.x;
-	m_targetRect.h = m_dimension.y;
 	SDL_RenderCopy(Screen::Instance()->getRenderer(), m_texture, nullptr, &m_targetRect);
 }
 void Text::Unload()

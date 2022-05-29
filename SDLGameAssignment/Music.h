@@ -1,8 +1,8 @@
 #pragma once
 
+#include <string>
 #include <SDL_mixer.h>
 #include <assert.h>
-#include <string>
 class Music
 {
 public:
@@ -16,7 +16,6 @@ public:
 	virtual void Pause();
 	virtual void Resume();
 	virtual void Stop();
-
 private:
 	Mix_Music* m_music{ nullptr };
 };

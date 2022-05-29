@@ -10,6 +10,7 @@
 #include "Music.h"
 #include "MenuOptions.h"
 #include "Sound.h"
+#include "Game.h"
 #include "GameState.h"
 class Game
 {
@@ -19,7 +20,6 @@ public:
 	bool Initialize() const;
 	bool Run();
 	void Shutdown() const;
-
 private:
 	std::unique_ptr<GameState> m_gameState;
 };
