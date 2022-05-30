@@ -1,8 +1,8 @@
 #include "Screen.h"
 
-Screen* Screen::Instance()
+inline Screen* Screen::Instance()
 {
-	static auto* screenObject = new Screen;
+	static Screen* screenObject = new Screen;
 	return screenObject;
 }
 bool Screen::Init()
@@ -12,11 +12,11 @@ bool Screen::Init()
 		return false;
 	}
 	m_window = SDL_CreateWindow("SDL Retro-Noon",
-	                            SDL_WINDOWPOS_CENTERED,	//X or Horizontal
-	                            SDL_WINDOWPOS_CENTERED, //Y or Vertical position
-	                            1920,		//Width
-	                            1080,		//height
-	                            SDL_WINDOW_VULKAN + SDL_WINDOW_MAXIMIZED);		//flags (fullscreen,focus,etc)
+		SDL_WINDOWPOS_CENTERED,	//X or Horizontal
+		SDL_WINDOWPOS_CENTERED, //Y or Vertical position
+		1920,		//Width
+		1080,		//height
+		SDL_WINDOW_VULKAN + SDL_WINDOW_MAXIMIZED);		//flags (fullscreen,focus,etc)
 	m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED + SDL_RENDERER_PRESENTVSYNC);
 	return true;
 }

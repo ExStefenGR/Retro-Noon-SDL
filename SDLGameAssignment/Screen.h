@@ -4,7 +4,7 @@
 class Screen
 {
 public:
-	static Screen* Instance();
+	inline static Screen* Instance();
 	bool Init(); //Initialises the screen
 	void Present() const; //Renders the frame on the screen
 	void Clear() const; //Clears the buffer to make room for the next frame

@@ -22,7 +22,7 @@ bool PlayState::OnEnter()
 GameState* PlayState::Update()
 {
 	m_timer->Update();
-	if (Input::Instance()->IsKeyPressed(HM_KEY_ESCAPE) || Input::Instance()->IsWindowClosed())
+	if (Input::IsKeyPressed(HM_KEY_ESCAPE) || Input::Instance()->IsWindowClosed())
 	{
 		return nullptr;
 	}
