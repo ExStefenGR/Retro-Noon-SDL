@@ -59,9 +59,9 @@ bool PlayState::Render()
 void PlayState::OnExit()
 {
 	const GameState* newstate = Update();
-	m_background.release();
-	m_player.release();
-	m_score.release();
-	m_timer.release();
+	m_background.reset(nullptr);
+	m_player.reset(nullptr);
+	m_score.reset(nullptr);
+	m_timer.reset(nullptr);
 	delete newstate;
 }

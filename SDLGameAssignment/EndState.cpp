@@ -37,8 +37,8 @@ bool EndState::Render()
 
 void EndState::OnExit()
 {
-    m_background.reset();
-    m_replay.reset();
+    m_background.reset(nullptr);
+    m_replay.reset(nullptr);
     const GameState* newstate = Update();
     delete newstate;
 }
