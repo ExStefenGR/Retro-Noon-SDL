@@ -34,6 +34,8 @@ bool MenuState::Render()
 }
 void MenuState::OnExit()
 {
+    m_background.reset(nullptr);
+    m_menu.reset(nullptr);
 	const GameState* newstate = Update();
     delete newstate;
 }
