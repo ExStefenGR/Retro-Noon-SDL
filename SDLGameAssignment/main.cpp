@@ -7,9 +7,9 @@ int main([[maybe_unused]]int argc, [[maybe_unused]]char *argv[])
 {
 	if (auto const game = std::make_unique<Game>(new MenuState))
 	{
-		Game::Initialize();
+		game->Initialize();
 		game->Run();
-		Game::Shutdown();
+		game->Shutdown();
 	}
 	return 0;
 }

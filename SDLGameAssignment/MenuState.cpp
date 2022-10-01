@@ -11,11 +11,11 @@ bool MenuState::OnEnter()
 }
 GameState* MenuState::Update()
 {
-    if (Input::IsKeyPressed(HM_KEY_ESCAPE))
+    if (Input::Instance()->IsKeyPressed(HM_KEY_ESCAPE))
     {
 		return nullptr;
     }
-    if (Input::IsKeyPressed(HM_KEY_RETURN))
+    if (Input::Instance()->IsKeyPressed(HM_KEY_RETURN))
     {
 	    const auto newstate = new PlayState;
 	    return newstate;
