@@ -1,6 +1,6 @@
 /*
   Simple DirectMedia Layer
-  Copyright (C) 1997-2021 Sam Lantinga <slouken@libsdl.org>
+  Copyright (C) 1997-2022 Sam Lantinga <slouken@libsdl.org>
 
   This software is provided 'as-is', without any express or implied
   warranty.  In no event will the authors be held liable for any damages
@@ -56,6 +56,7 @@ typedef enum
     SDL_BLENDMODE_INVALID = 0x7FFFFFFF
 
     /* Additional custom blend modes can be returned by SDL_ComposeCustomBlendMode() */
+
 } SDL_BlendMode;
 
 /**
@@ -66,8 +67,8 @@ typedef enum
     SDL_BLENDOPERATION_ADD              = 0x1,  /**< dst + src: supported by all renderers */
     SDL_BLENDOPERATION_SUBTRACT         = 0x2,  /**< dst - src : supported by D3D9, D3D11, OpenGL, OpenGLES */
     SDL_BLENDOPERATION_REV_SUBTRACT     = 0x3,  /**< src - dst : supported by D3D9, D3D11, OpenGL, OpenGLES */
-    SDL_BLENDOPERATION_MINIMUM          = 0x4,  /**< min(dst, src) : supported by D3D11 */
-    SDL_BLENDOPERATION_MAXIMUM          = 0x5   /**< max(dst, src) : supported by D3D11 */
+    SDL_BLENDOPERATION_MINIMUM          = 0x4,  /**< min(dst, src) : supported by D3D9, D3D11 */
+    SDL_BLENDOPERATION_MAXIMUM          = 0x5   /**< max(dst, src) : supported by D3D9, D3D11 */
 } SDL_BlendOperation;
 
 /**
@@ -132,10 +133,10 @@ typedef enum
  * SDL 2.0.6. All renderers support the four blend modes listed in the
  * SDL_BlendMode enumeration.
  *
- * - **direct3d**: Supports `SDL_BLENDOPERATION_ADD` with all factors.
- * - **direct3d11**: Supports all operations with all factors. However, some
+ * - **direct3d**: Supports all operations with all factors. However, some
  *   factors produce unexpected results with `SDL_BLENDOPERATION_MINIMUM` and
  *   `SDL_BLENDOPERATION_MAXIMUM`.
+ * - **direct3d11**: Same as Direct3D 9.
  * - **opengl**: Supports the `SDL_BLENDOPERATION_ADD` operation with all
  *   factors. OpenGL versions 1.1, 1.2, and 1.3 do not work correctly with SDL
  *   2.0.6.
@@ -172,7 +173,7 @@ typedef enum
  * \returns an SDL_BlendMode that represents the chosen factors and
  *          operations.
  *
- * \since This function is available in SDL 2.0.6.
+ * \since This function is available since SDL 2.0.6.
  *
  * \sa SDL_SetRenderDrawBlendMode
  * \sa SDL_GetRenderDrawBlendMode
