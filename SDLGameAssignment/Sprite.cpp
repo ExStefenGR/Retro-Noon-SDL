@@ -16,13 +16,13 @@ void Sprite::SetAnimationVelocity(const float velocity)
 {
 	m_animationVelocity = velocity;
 }
-//This is the resolution of the sprite image as it will appear on-screen
+// This is the resolution of the sprite image as it will appear on-screen
 void Sprite::SetSpriteDimension(const int width, const int height)
 {
 	m_spriteDimension.x = width;
 	m_spriteDimension.y = height;
 }
-//This is the resolution and col/row dimensions of the sprite image as it is stored in the Assets folder
+// This is the resolution and col/row dimensions of the sprite image as it is stored in the Assets folder
 void Sprite::SetImageDimension(int const columns, int const rows, int const width, int const height)
 {
 	m_imageDimension.x = columns;
@@ -30,9 +30,9 @@ void Sprite::SetImageDimension(int const columns, int const rows, int const widt
 	m_celDimension.x = width / columns;
 	m_celDimension.y = height / rows;
 }
-bool Sprite::Load(const std::string& filename)
+bool Sprite::Load(const std::string &filename)
 {
-	SDL_Surface* rawImageData = IMG_Load(filename.c_str());
+	SDL_Surface *rawImageData = IMG_Load(filename.c_str());
 	if (!rawImageData)
 	{
 		return false;

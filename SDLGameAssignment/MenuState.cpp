@@ -2,23 +2,23 @@
 
 bool MenuState::OnEnter()
 {
-   m_background.reset(new Background);
-   m_menu.reset(new MenuOptions);
-   m_menu->SetDimension(500, 100);
-   m_menu->SetPosition(650, 100);
-   m_menu->SetText("WELCOME!! PRESS ENTER TO FIGHT");
-   return true;
+    m_background.reset(new Background);
+    m_menu.reset(new MenuOptions);
+    m_menu->SetDimension(500, 100);
+    m_menu->SetPosition(650, 100);
+    m_menu->SetText("WELCOME!! PRESS ENTER TO FIGHT");
+    return true;
 }
-GameState* MenuState::Update()
+GameState *MenuState::Update()
 {
     if (Input::IsKeyPressed(HM_KEY_ESCAPE))
     {
-		return nullptr;
+        return nullptr;
     }
     if (Input::IsKeyPressed(HM_KEY_RETURN))
     {
-	    const auto newstate = new PlayState;
-	    return newstate;
+        const auto newstate = new PlayState;
+        return newstate;
     }
     return this;
 }
@@ -36,6 +36,6 @@ void MenuState::OnExit()
 {
     m_background.reset(nullptr);
     m_menu.reset(nullptr);
-	const GameState* newstate = Update();
+    const GameState *newstate = Update();
     delete newstate;
 }

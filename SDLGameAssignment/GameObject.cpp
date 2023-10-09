@@ -4,19 +4,19 @@ double GameObject::GetAngle() const
 {
 	return m_angle;
 }
-const std::string& GameObject::GetTag() const
+const std::string &GameObject::GetTag() const
 {
 	return m_tag;
 }
-const Vector<int>& GameObject::GetSize() const
+const Vector<int> &GameObject::GetSize() const
 {
 	return m_size;
 }
-const Vector<int>& GameObject::GetPosition() const
+const Vector<int> &GameObject::GetPosition() const
 {
 	return m_position;
 }
-void GameObject::SetTag(const std::string_view& tag)
+void GameObject::SetTag(const std::string_view &tag)
 {
 	m_tag = tag;
 }
@@ -26,19 +26,19 @@ void GameObject::SetAngle(double angle)
 }
 void GameObject::SetPosition(int x, int y)
 {
-	m_position = { x, y };
+	m_position = {x, y};
 }
-void GameObject::SetPosition(const Vector<int>& position)
+void GameObject::SetPosition(const Vector<int> &position)
 {
 	m_position = position;
 }
-void GameObject::SetSize(const Vector<int>& size)
+void GameObject::SetSize(const Vector<int> &size)
 {
 	m_size = size;
 }
 void GameObject::SetSize(int width, int height)
 {
-	m_size = { width, height };
+	m_size = {width, height};
 }
 bool GameObject::IsAlive() const
 {

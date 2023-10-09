@@ -276,16 +276,15 @@ constexpr auto HM_MOUSE_RIGHT = 4;
 class Input
 {
 public:
-	static Input* Instance();
+	static Input *Instance();
 
 	[[nodiscard]] int GetKey() const;
 
 	[[nodiscard]] int GetMouseButtonUp() const;
 	[[nodiscard]] int GetMouseWheel() const;
 
-
-	[[nodiscard]] const Vector<int>& GetMouseMotion() const;
-	[[nodiscard]] const Vector<int>& GetMousePosition() const;
+	[[nodiscard]] const Vector<int> &GetMouseMotion() const;
+	[[nodiscard]] const Vector<int> &GetMousePosition() const;
 
 	static void SetCursorState(bool isCursorEnabled, bool isCursorVisible);
 
@@ -300,20 +299,21 @@ public:
 
 	void Update();
 
-	Input(const Input&) = delete;
+	Input(const Input &) = delete;
+
 private:
 	Input() = default;
 
 	int m_key{};
 
-	int m_mouseWheel{ 0 };
-	int m_modifier{ HM_MOD_NONE };
-	int m_mouseButton{ HM_MOUSE_NONE };
-	int m_mouseButtonUp {NULL};
+	int m_mouseWheel{0};
+	int m_modifier{HM_MOD_NONE};
+	int m_mouseButton{HM_MOUSE_NONE};
+	int m_mouseButtonUp{NULL};
 
-	bool m_isKeyPressed{ false };
-	bool m_isMouseClicked{ false };
-	bool m_isWindowClosed{ false };
+	bool m_isKeyPressed{false};
+	bool m_isMouseClicked{false};
+	bool m_isWindowClosed{false};
 
 	Vector<int> m_mouseMotion;
 	Vector<int> m_mousePosition;

@@ -16,7 +16,7 @@ Bullet::~Bullet()
 	m_gunshot.Unload();
 	return;
 }
-const BoxCollider& Bullet::GetCollider() const
+const BoxCollider &Bullet::GetCollider() const
 {
 	return m_collider;
 }
@@ -30,7 +30,7 @@ void Bullet::ShootSound()
 	m_gunshot.Play();
 }
 void Bullet::Update()
-{	
+{
 	m_direction = Vector<int>(1, 0);
 	m_direction = m_direction * m_speed;
 	m_position = m_position + m_direction;

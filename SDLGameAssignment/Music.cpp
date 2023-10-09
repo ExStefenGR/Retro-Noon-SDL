@@ -7,7 +7,7 @@ bool Music::Initialize()
 	}
 	return true;
 }
-bool Music::Load(const std::string& filename)
+bool Music::Load(const std::string &filename)
 {
 	m_music = Mix_LoadMUS(filename.c_str());
 	assert(m_music != nullptr);
@@ -32,10 +32,10 @@ void Music::SetVolume(int volume)
 }
 void Music::Play()
 {
-	assert(m_music != nullptr); //Music is NULL
+	assert(m_music != nullptr); // Music is NULL
 	if (Mix_PlayingMusic() == 0)
 	{
-		//Play the music
+		// Play the music
 		Mix_PlayMusic(m_music, -1);
 	}
 	else

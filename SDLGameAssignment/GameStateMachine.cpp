@@ -1,16 +1,16 @@
 #include "GameStateMachine.h"
 
-void GameStateMachine::pushState(GameState* state)
+void GameStateMachine::pushState(GameState *state)
 {
 	m_gameStates.push_back(state);
 	m_gameStates.back()->OnEnter();
 }
 
-void GameStateMachine::changeState(GameState* state)
+void GameStateMachine::changeState(GameState *state)
 {
 	if (!m_gameStates.empty() && m_gameStates.back()->GetStateID() == state->GetStateID())
 	{
-			return;
+		return;
 	}
 
 	m_gameStates.push_back(state);
@@ -29,7 +29,6 @@ void GameStateMachine::popState()
 	{
 
 		m_gameStates.erase(m_gameStates.end() - 1);
-
 	}
 }
 

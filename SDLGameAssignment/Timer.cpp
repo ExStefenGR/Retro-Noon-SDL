@@ -22,10 +22,10 @@ void Timer::CountDown()
 	{
 		m_finish = m_timeSet;
 	}
-		m_result = static_cast<int>(m_finish - m_start);
-		m_line.SetText(std::to_string(m_result));
+	m_result = static_cast<int>(m_finish - m_start);
+	m_line.SetText(std::to_string(m_result));
 }
-void Timer::SetText(std::string const& text)
+void Timer::SetText(std::string const &text)
 {
 	m_line.SetText(text);
 }

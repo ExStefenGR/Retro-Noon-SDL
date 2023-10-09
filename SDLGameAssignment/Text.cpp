@@ -2,17 +2,20 @@
 
 bool Text::Initialise()
 {
-	if (TTF_Init() == -1) { return false; }
+	if (TTF_Init() == -1)
+	{
+		return false;
+	}
 	return true;
 }
 
-void Text::SetText(const std::string_view& text)
+void Text::SetText(const std::string_view &text)
 {
 	m_line = text;
 	m_isDirty = true;
 }
 
-void Text::SetColor(const SDL_Color& color)
+void Text::SetColor(const SDL_Color &color)
 {
 	m_color = color;
 	m_isDirty = true;
@@ -32,7 +35,7 @@ void Text::SetDimension(const int width, const int height)
 	m_dimension = {width, height};
 }
 
-bool Text::Load(const std::string& filename, const int fontSize)
+bool Text::Load(const std::string &filename, const int fontSize)
 {
 	m_font = TTF_OpenFont(filename.c_str(), fontSize);
 	if (!m_font)

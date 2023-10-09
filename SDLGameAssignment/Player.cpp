@@ -2,7 +2,6 @@
 #include <cassert>
 #include <algorithm>
 
-
 Player::Player()
 {
 	m_image[static_cast<int>(State::Idle)].Load("Assets/Images/CboyIDLE.png");
@@ -26,15 +25,15 @@ void Player::SetVelocity(int velocity)
 	velocity = std::clamp(velocity, 0, 100);
 	m_velocity = velocity;
 }
-const BoxCollider& Player::GetCollider() const
+const BoxCollider &Player::GetCollider() const
 {
 	return m_collider;
 }
 void Player::Update()
 {
 	//====================Other Updates=======================
-		m_collider.Update();
-		m_cowboy->Update();
+	m_collider.Update();
+	m_cowboy->Update();
 	//====================Animation/Direction Update=======================
 	if (Input::Instance()->IsKeyPressed(HM_KEY_W))
 	{

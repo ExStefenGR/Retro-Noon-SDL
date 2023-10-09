@@ -17,7 +17,7 @@ void Score::SetScore(int score)
 	m_score = score;
 	m_line.SetText("Score: " + std::to_string(m_score));
 }
-void Score::SetPosition(const Vector<int>& position)
+void Score::SetPosition(const Vector<int> &position)
 {
 	m_position.x = position.x;
 	m_position.y = position.y;

@@ -14,11 +14,12 @@
 class Game
 {
 public:
-	explicit Game(GameState* initialState);
+	explicit Game(GameState *initialState);
 	~Game() = default;
 	static bool Initialize();
 	bool Run();
 	static void Shutdown();
+
 private:
 	std::unique_ptr<GameState> m_gameState;
 };

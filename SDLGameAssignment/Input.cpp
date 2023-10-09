@@ -1,9 +1,9 @@
 #include "Input.h"
 
 //======================================================================================================
-Input* Input::Instance()
+Input *Input::Instance()
 {
-	static auto* inputObject = new Input();
+	static auto *inputObject = new Input();
 	return inputObject;
 }
 //======================================================================================================
@@ -21,12 +21,12 @@ int Input::GetMouseWheel() const
 	return m_mouseWheel;
 }
 //======================================================================================================
-const Vector<int>& Input::GetMouseMotion() const
+const Vector<int> &Input::GetMouseMotion() const
 {
 	return m_mouseMotion;
 }
 //======================================================================================================
-const Vector<int>& Input::GetMousePosition() const
+const Vector<int> &Input::GetMousePosition() const
 {
 	return m_mousePosition;
 }
@@ -49,7 +49,7 @@ bool Input::IsKeyPressed() const
 //======================================================================================================
 bool Input::IsKeyPressed(int keyCode)
 {
-	const Uint8* m_keyStates = SDL_GetKeyboardState(nullptr);
+	const Uint8 *m_keyStates = SDL_GetKeyboardState(nullptr);
 	return m_keyStates[keyCode];
 }
 //======================================================================================================
@@ -121,10 +121,25 @@ void Input::Update()
 
 			switch (events.button.button)
 			{
-			case SDL_BUTTON_LEFT: { m_mouseButton ^= HM_MOUSE_LEFT; break;   }
-			case SDL_BUTTON_MIDDLE: { m_mouseButton ^= HM_MOUSE_MIDDLE; break; }
-			case SDL_BUTTON_RIGHT: { m_mouseButton ^= HM_MOUSE_RIGHT; break;  }
-			default: { break; }
+			case SDL_BUTTON_LEFT:
+			{
+				m_mouseButton ^= HM_MOUSE_LEFT;
+				break;
+			}
+			case SDL_BUTTON_MIDDLE:
+			{
+				m_mouseButton ^= HM_MOUSE_MIDDLE;
+				break;
+			}
+			case SDL_BUTTON_RIGHT:
+			{
+				m_mouseButton ^= HM_MOUSE_RIGHT;
+				break;
+			}
+			default:
+			{
+				break;
+			}
 			}
 			break;
 		}
@@ -135,14 +150,29 @@ void Input::Update()
 			m_mousePosition.y = events.motion.y;
 			switch (events.button.button)
 			{
-			case SDL_BUTTON_LEFT: { m_mouseButton |= HM_MOUSE_LEFT; break;   }
-			case SDL_BUTTON_MIDDLE: { m_mouseButton |= HM_MOUSE_MIDDLE; break; }
-			case SDL_BUTTON_RIGHT: { m_mouseButton |= HM_MOUSE_RIGHT; break; }
-			default: {break;}
+			case SDL_BUTTON_LEFT:
+			{
+				m_mouseButton |= HM_MOUSE_LEFT;
+				break;
+			}
+			case SDL_BUTTON_MIDDLE:
+			{
+				m_mouseButton |= HM_MOUSE_MIDDLE;
+				break;
+			}
+			case SDL_BUTTON_RIGHT:
+			{
+				m_mouseButton |= HM_MOUSE_RIGHT;
+				break;
+			}
+			default:
+			{
+				break;
+			}
 			}
 			break;
 		}
-		default: 
+		default:
 		{
 			break;
 		}

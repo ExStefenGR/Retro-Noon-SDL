@@ -12,10 +12,11 @@ class CowboyP2 : public GameObject
 		Down,
 		Total_States
 	};
+
 public:
 	CowboyP2();
 	virtual ~CowboyP2();
-	[[nodiscard]] const BoxCollider& GetCollider() const;
+	[[nodiscard]] const BoxCollider &GetCollider() const;
 	Vector<int> SetVelocity(int velocity);
 	[[nodiscard]] bool IsBulletShot() const;
 	void IsBulletShot(bool flag);
@@ -23,11 +24,11 @@ public:
 	void Render() final;
 
 private:
-	bool m_isTopReached{ false };
-	bool m_isBotReached{ false };
-	bool m_isBulletShot{ false };
-	int m_velocity{ 0 };
-	Sprite m_image[static_cast<int>(State::Total_States)];     //image container
-	State m_state{ State::Up };
+	bool m_isTopReached{false};
+	bool m_isBotReached{false};
+	bool m_isBulletShot{false};
+	int m_velocity{0};
+	Sprite m_image[static_cast<int>(State::Total_States)]; // image container
+	State m_state{State::Up};
 	BoxCollider m_collider{};
 };

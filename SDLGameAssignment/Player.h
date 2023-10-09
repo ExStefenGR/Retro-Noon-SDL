@@ -23,24 +23,25 @@ public:
 	virtual ~Player() = default;
 
 	void SetVelocity(int velocity);
-	[[nodiscard]] const BoxCollider& GetCollider() const;
+	[[nodiscard]] const BoxCollider &GetCollider() const;
 	void Update() final;
 	void Render() final;
 	[[nodiscard]] bool IsBulletShot() const;
 	void IsBulletShot(bool flag);
 
 	bool IsBulletColliding();
+
 private:
-	Sprite m_image[static_cast<int>(State::Total_States)];   //spritesheet container
+	Sprite m_image[static_cast<int>(State::Total_States)]; // spritesheet container
 	BoxCollider m_cowBoyCollider{};
 	BoxCollider m_bulletCollider{};
-	std::unique_ptr<CowboyP2>m_cowboy;
-	std::unique_ptr<Bullet>m_bullet;
-	State m_state{ State::Idle };
+	std::unique_ptr<CowboyP2> m_cowboy;
+	std::unique_ptr<Bullet> m_bullet;
+	State m_state{State::Idle};
 	BoxCollider m_collider;
 	Sound m_gunshot;
 
-	int m_velocity{ 0 };
-	bool m_isBulletShot {false};
-	Vector<int> m_direction {0,0};
+	int m_velocity{0};
+	bool m_isBulletShot{false};
+	Vector<int> m_direction{0, 0};
 };

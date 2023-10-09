@@ -1,6 +1,6 @@
-#include "Game.h" 
+#include "Game.h"
 
-Game::Game(GameState* initialState)
+Game::Game(GameState *initialState)
 {
 	m_gameState.reset(initialState);
 	return;
@@ -8,19 +8,19 @@ Game::Game(GameState* initialState)
 bool Game::Initialize()
 {
 	Screen::Instance()->Init();
-	Text::Initialise(); 
+	Text::Initialise();
 	Music::Initialize();
 	return true;
 }
 bool Game::Run()
 {
 	m_gameState->OnEnter();
-	while (m_gameState)  //will break if m_gameState == nullptr
+	while (m_gameState) // will break if m_gameState == nullptr
 	{
 		Screen::Instance()->Clear();
 		Input::Instance()->Update();
-		GameState* nextState = m_gameState->Update();
-		
+		GameState *nextState = m_gameState->Update();
+
 		m_gameState->Render();
 
 		if (nextState != m_gameState.get())

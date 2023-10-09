@@ -17,7 +17,7 @@ void MenuOptions::SetPosition(int x, int y)
 	m_position.x = x;
 	m_position.y = y;
 }
-void MenuOptions::SetText(std::string const& text)
+void MenuOptions::SetText(std::string const &text)
 {
 	m_line.SetText(text);
 }
